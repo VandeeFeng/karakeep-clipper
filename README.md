@@ -1,6 +1,14 @@
 This is a fork of https://github.com/obsidianmd/obsidian-clipper.
 
-It adds support for highlight and saving pages to [karakeep-app/karakeep](https://github.com/karakeep-app/karakeep) via Hoarder-compatible settings.
+I have not changed any of the main project's core logic, only added extra functionality.
+
+It adds support for syncing highlight additions and deletions, and saving bookmarks to [karakeep-app/karakeep](https://github.com/karakeep-app/karakeep) via Hoarder-compatible settings with Karakeep’s native API.
+
+[Karakeep API | Karakeep Docs](https://docs.karakeep.app/api/karakeep-api)
+
+This extension and [VandeeFeng/Emacs-Hoarder](https://github.com/VandeeFeng/Emacs-Hoarder) work well with Karakeep in my daily use.
+
+---
 
 Obsidian Web Clipper helps you highlight and capture the web in your favorite browser. Anything you save is stored as durable Markdown files that you can read offline, and preserve for the long term.
 
