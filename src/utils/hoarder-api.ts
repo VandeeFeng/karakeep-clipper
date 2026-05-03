@@ -1,46 +1,55 @@
+import { createKarakeepClient, type KarakeepAPISchemas } from '@karakeep/sdk';
 import { generalSettings } from './storage-utils';
 import browser from './browser-polyfill';
 
-interface HoarderBookmark {
-    title: string;
-    url: string;
-    archived?: boolean;
-    favourited?: boolean;
-    note?: string;
-    summary?: string;
-    type?: string;
-    precrawledArchiveId?: string;
-}
-
 interface HoarderUser {
     id: string;
-    email: string;
-    name?: string;
+    email?: string | null;
+    name?: string | null;
 }
 
-interface HoarderResponse<T> {
+type HoarderBookmark = KarakeepAPISchemas['Bookmark'];
+type HoarderHighlight = KarakeepAPISchemas['Highlight'];
+
+interface HoarderProxyResponse {
     ok: boolean;
     status?: number;
     statusText?: string;
     error?: string;
-    data?: T;
+    data?: unknown;
 }
 
-interface HoarderHighlight {
-    id: string;
+async function hoarderProxyFetch(request: Request): Promise<Response> {
+    const bodyText = await request.text();
+    const headers: Record<string, string> = {};
+    request.headers.forEach((value, key) => {
+        headers[key] = value;
+    });
+
+    const response = await browser.runtime.sendMessage({
+        action: 'hoarderRequest',
+        method: request.method,
+        url: request.url,
+        headers,
+        body: bodyText ? JSON.parse(bodyText) : undefined
+    }) as HoarderProxyResponse;
+
+    return new Response(JSON.stringify(response.ok ? response.data : { error: response.error || response.statusText }), {
+        status: response.status ?? (response.ok ? 200 : 500),
+        statusText: response.statusText,
+        headers: { 'Content-Type': 'application/json' }
+    });
 }
 
-interface HoarderBookmarkWithContent {
-    content?: {
-        htmlContent?: string;
-    };
-}
-
-function hoarderHeaders(): Record<string, string> {
-    return {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${generalSettings.hoarderApiKey}`
-    };
+function createHoarderClient() {
+    return createKarakeepClient({
+        baseUrl: `${generalSettings.hoarderServerUrl}/api/v1/`,
+        headers: {
+            'Content-Type': 'application/json',
+            authorization: `Bearer ${generalSettings.hoarderApiKey}`
+        },
+        fetch: hoarderProxyFetch
+    });
 }
 
 function assertHoarderConfigured(): void {
@@ -49,25 +58,32 @@ function assertHoarderConfigured(): void {
     }
 }
 
+function getErrorMessage(error: unknown, fallback: string): string {
+    if (error && typeof error === 'object' && 'message' in error && typeof error.message === 'string') {
+        return error.message;
+    }
+
+    if (error && typeof error === 'object' && 'error' in error && typeof error.error === 'string') {
+        return error.error;
+    }
+
+    return fallback;
+}
+
 export async function testConnection(): Promise<{ ok: boolean; user?: HoarderUser }> {
     if (!generalSettings.hoarderServerUrl || !generalSettings.hoarderApiKey) {
         throw new Error('Hoarder server URL and API key must be configured');
     }
 
     try {
-        const response = await browser.runtime.sendMessage({
-            action: 'hoarderRequest',
-            method: 'GET',
-            url: `${generalSettings.hoarderServerUrl}/api/v1/users/me`,
-            headers: hoarderHeaders()
-        }) as HoarderResponse<HoarderUser>;
+        const { data, error, response } = await createHoarderClient().GET('/users/me');
 
-        if (!response.ok) {
-            console.error('Hoarder connection test failed:', response.status, response.statusText);
+        if (error) {
+            console.error('Hoarder connection test failed:', error);
             return { ok: false };
         }
 
-        return { ok: true, user: response.data };
+        return { ok: true, user: data };
     } catch (error) {
         console.error('Failed to test Hoarder connection:', error);
         return { ok: false };
@@ -77,49 +93,43 @@ export async function testConnection(): Promise<{ ok: boolean; user?: HoarderUse
 export async function getHoarderBookmarkIdByUrl(url: string): Promise<string | null> {
     assertHoarderConfigured();
 
-    const response = await browser.runtime.sendMessage({
-        action: 'hoarderRequest',
-        method: 'GET',
-        url: `${generalSettings.hoarderServerUrl}/api/v1/bookmarks/check-url?url=${encodeURIComponent(url)}`,
-        headers: hoarderHeaders()
-    }) as HoarderResponse<{ bookmarkId: string | null }>;
+    const { data, error } = await createHoarderClient().GET('/bookmarks/check-url', {
+        params: { query: { url } }
+    });
 
-    if (!response.ok) {
-        throw new Error(response.error || response.statusText || 'Failed to check Hoarder bookmark URL');
+    if (error) {
+        throw new Error(getErrorMessage(error, 'Failed to check Hoarder bookmark URL'));
     }
 
-    return response.data?.bookmarkId ?? null;
+    return data.bookmarkId;
 }
 
 export async function getHoarderBookmarkHtmlContent(bookmarkId: string): Promise<string | null> {
     assertHoarderConfigured();
 
-    const response = await browser.runtime.sendMessage({
-        action: 'hoarderRequest',
-        method: 'GET',
-        url: `${generalSettings.hoarderServerUrl}/api/v1/bookmarks/${bookmarkId}?includeContent=true`,
-        headers: hoarderHeaders()
-    }) as HoarderResponse<HoarderBookmarkWithContent>;
+    const { data, error } = await createHoarderClient().GET('/bookmarks/{bookmarkId}', {
+        params: {
+            path: { bookmarkId },
+            query: { includeContent: true }
+        }
+    });
 
-    if (!response.ok) {
-        throw new Error(response.error || response.statusText || 'Failed to get Hoarder bookmark content');
+    if (error) {
+        throw new Error(getErrorMessage(error, 'Failed to get Hoarder bookmark content'));
     }
 
-    return response.data?.content?.htmlContent ?? null;
+    return data.content.type === 'link' ? data.content.htmlContent ?? null : null;
 }
 
 export async function deleteHoarderHighlight(highlightId: string): Promise<void> {
     assertHoarderConfigured();
 
-    const response = await browser.runtime.sendMessage({
-        action: 'hoarderRequest',
-        method: 'DELETE',
-        url: `${generalSettings.hoarderServerUrl}/api/v1/highlights/${highlightId}`,
-        headers: hoarderHeaders()
-    }) as HoarderResponse<unknown>;
+    const { error, response } = await createHoarderClient().DELETE('/highlights/{highlightId}', {
+        params: { path: { highlightId } }
+    });
 
-    if (!response.ok && response.status !== 404) {
-        throw new Error(response.error || response.statusText || 'Failed to delete Hoarder highlight');
+    if (error && response.status !== 404) {
+        throw new Error(getErrorMessage(error, 'Failed to delete Hoarder highlight'));
     }
 }
 
@@ -132,11 +142,7 @@ export async function createHoarderHighlight(params: {
 }): Promise<string | null> {
     assertHoarderConfigured();
 
-    const response = await browser.runtime.sendMessage({
-        action: 'hoarderRequest',
-        method: 'POST',
-        url: `${generalSettings.hoarderServerUrl}/api/v1/highlights`,
-        headers: hoarderHeaders(),
+    const { data, error } = await createHoarderClient().POST('/highlights', {
         body: {
             bookmarkId: params.bookmarkId,
             startOffset: params.startOffset,
@@ -145,13 +151,13 @@ export async function createHoarderHighlight(params: {
             note: params.note ?? null,
             color: 'yellow'
         }
-    }) as HoarderResponse<HoarderHighlight>;
+    });
 
-    if (!response.ok) {
-        throw new Error(response.error || response.statusText || 'Failed to create Hoarder highlight');
+    if (error) {
+        throw new Error(getErrorMessage(error, 'Failed to create Hoarder highlight'));
     }
 
-    return response.data?.id ?? null;
+    return data.id;
 }
 
 export async function saveToHoarder(
@@ -164,30 +170,24 @@ export async function saveToHoarder(
 ): Promise<void> {
     assertHoarderConfigured();
 
-    const bookmark: HoarderBookmark = {
+    const bookmark = {
         title,
         url,
-        type: 'link',
+        type: 'link' as const,
         archived: false,
         favourited: false,
         note: content,
     };
 
-    const response = await browser.runtime.sendMessage({
-        action: 'hoarderRequest',
-        method: 'POST',
-        url: `${generalSettings.hoarderServerUrl}/api/v1/bookmarks`,
-        headers: hoarderHeaders(),
-        body: bookmark
-    }) as HoarderResponse<HoarderBookmark & { id: string }>;
+    const { data, error, response } = await createHoarderClient().POST('/bookmarks', { body: bookmark });
 
-    if (!response.ok) {
-        const error = response.error || response.statusText;
-        console.error('Failed to save bookmark:', response.status, response.statusText, error);
-        throw new Error(`Failed to save to Hoarder: ${error}`);
+    if (error) {
+        const errorMessage = getErrorMessage(error, response.statusText || 'Unknown error');
+        console.error('Failed to save bookmark:', response.status, response.statusText, errorMessage);
+        throw new Error(`Failed to save to Hoarder: ${errorMessage}`);
     }
 
-    const bookmarkId = response.data?.id;
+    const bookmarkId = data.id;
     if (!bookmarkId) {
         throw new Error('Failed to get bookmark ID from response');
     }
@@ -205,4 +205,4 @@ export async function saveToHoarder(
             console.error('Failed to save highlight:', error);
         }
     }
-} 
+}

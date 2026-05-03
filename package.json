@@ -55,6 +55,7 @@
 		"zip-webpack-plugin": "^4.0.1"
 	},
 	"dependencies": {
+		"@karakeep/sdk": "^0.31.0",
 		"@types/safari-extension": "^0.0.33",
 		"dayjs": "^1.11.13",
 		"defuddle": "^0.18.1",

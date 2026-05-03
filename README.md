@@ -2,9 +2,10 @@ This is a fork of https://github.com/obsidianmd/obsidian-clipper.
 
 I have not changed any of the main project's core logic, only added extra functionality.
 
-It adds support for syncing highlight additions and deletions, and saving bookmarks to [karakeep-app/karakeep](https://github.com/karakeep-app/karakeep) via Hoarder-compatible settings with Karakeep’s native API.
+It adds support for syncing highlight additions and deletions, and saving bookmarks to [karakeep-app/karakeep](https://github.com/karakeep-app/karakeep) via Hoarder-compatible settings using Karakeep’s official TypeScript SDK.
 
-[Karakeep API | Karakeep Docs](https://docs.karakeep.app/api/karakeep-api)
+- [@karakeep/sdk](https://www.npmjs.com/package/@karakeep/sdk)
+- [Karakeep API | Karakeep Docs](https://docs.karakeep.app/api/karakeep-api)
 
 This extension and [VandeeFeng/Emacs-Hoarder](https://github.com/VandeeFeng/Emacs-Hoarder) work well with Karakeep in my daily use.
 
