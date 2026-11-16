@@ -94,6 +94,7 @@ declare global {
 		schemaOrgData: any;
 		fullHtml: string;
 		highlights: string[];
+		highlightData: highlighter.AnyHighlightData[];
 		title: string;
 		description: string;
 		domain: string;
@@ -276,6 +277,7 @@ declare global {
 					favicon: defuddled.favicon,
 					fullHtml: cleanedHtml,
 					highlights: highlighter.getHighlights(),
+					highlightData: highlighter.highlights,
 					image: defuddled.image,
 					language: defuddled.language || '',
 					parseTime: defuddled.parseTime,

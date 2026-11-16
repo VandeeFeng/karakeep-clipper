@@ -50,6 +50,7 @@ interface ContentResponse {
 	schemaOrgData: any;
 	fullHtml: string;
 	highlights: AnyHighlightData[];
+	highlightData?: AnyHighlightData[];
 	title: string;
 	author: string;
 	description: string;

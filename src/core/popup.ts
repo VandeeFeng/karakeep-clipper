@@ -1284,7 +1284,6 @@ async function handleSaveToHoarder(): Promise<void> {
 			throw new Error('No active tab');
 		}
 
-		const properties = getPropertiesFromDOM();
 		const noteContentField = document.getElementById('note-content-field') as HTMLTextAreaElement;
 		const noteNameField = document.getElementById('note-name-field') as HTMLInputElement;
 		const tab = await browser.tabs.get(currentTabId);
@@ -1294,21 +1293,11 @@ async function handleSaveToHoarder(): Promise<void> {
 			throw new Error('Failed to extract page content');
 		}
 
-		const tags = properties
-			.filter(p => p.name === 'tags')
-			.map(p => p.value.toString().split(',').map(t => t.trim()))
-			.flat()
-			.filter(Boolean);
-
-		const highlights = extractedData.highlights || [];
-
 		await saveToHoarder(
 			noteNameField?.value || extractedData.title,
 			tab.url || '',
 			noteContentField.value,
-			extractedData.fullHtml,
-			tags,
-			highlights
+			extractedData.highlightData ?? extractedData.highlights ?? []
 		);
 
 		const clipButton = document.getElementById('clip-btn');

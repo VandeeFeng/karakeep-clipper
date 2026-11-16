@@ -141,7 +141,7 @@ export async function createHoarderHighlight(params: {
     endOffset: number;
     prefix?: string;
     suffix?: string;
-}): Promise<string | null> {
+}): Promise<string> {
     assertHoarderConfigured();
 
     const { data, error } = await createHoarderClient().POST('/highlights', {
@@ -157,7 +157,7 @@ export async function createHoarderHighlight(params: {
         }
     });
 
-    if (error || !data) {
+    if (error || !data?.id) {
         throw new Error(getErrorMessage(error, 'Failed to create Hoarder highlight'));
     }
 

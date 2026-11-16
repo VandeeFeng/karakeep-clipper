@@ -50,7 +50,7 @@ describe('Karakeep SDK proxy', () => {
 			.mockResolvedValueOnce({ ok: true, status: 200, data: { content: { type: 'link', htmlContent: '<p>Intro: selected <strong>text</strong> after.</p>' } } })
 			.mockResolvedValueOnce({ ok: true, status: 201, data: { id: 'highlight-id' } });
 
-		await saveToHoarder('Article', 'https://example.com/article', 'Notes', '<p>Different local content</p>', [], [
+		await saveToHoarder('Article', 'https://example.com/article', 'Notes', [
 			{ content: '<p>selected <strong>text</strong></p>', notes: ['annotation'] },
 		]);
 
@@ -68,26 +68,12 @@ describe('Karakeep SDK proxy', () => {
 		}));
 	});
 
-	test.each([
-		['missing text', '<p>Other text.</p>', 'selected'],
-		['ambiguous text', '<p>selected</p><p>selected</p>', 'selected'],
-	] as const)('does not post guessed offsets for %s', async (_name, readerHtml, content) => {
-		vi.spyOn(console, 'error').mockImplementation(() => {});
-		const sendMessage = vi.spyOn(browser.runtime, 'sendMessage')
-			.mockResolvedValueOnce({ ok: true, status: 201, data: { id: 'bookmark-id' } })
-			.mockResolvedValueOnce({ ok: true, status: 200, data: { content: { type: 'link', htmlContent: readerHtml } } });
-
-		await expect(saveToHoarder('Article', 'https://example.com', '', '', [], [{ content }]))
-			.rejects.toThrow('Bookmark saved, but 1 highlight(s) could not be saved');
-		expect(sendMessage).toHaveBeenCalledTimes(2);
-	});
-
-	test('waits for reader content instead of using the source HTML offsets', async () => {
+	test('reports when reader content is not ready', async () => {
 		const sendMessage = vi.spyOn(browser.runtime, 'sendMessage')
 			.mockResolvedValueOnce({ ok: true, status: 201, data: { id: 'bookmark-id' } })
 			.mockResolvedValueOnce({ ok: true, status: 200, data: { content: { type: 'link', htmlContent: null } } });
 
-		await expect(saveToHoarder('Article', 'https://example.com', '', '<p>selected</p>', [], [{ content: 'selected' }]))
+		await expect(saveToHoarder('Article', 'https://example.com', '', [{ content: 'selected' }]))
 			.rejects.toThrow('reader content is not ready');
 		expect(sendMessage).toHaveBeenCalledTimes(2);
 	});
@@ -96,7 +82,7 @@ describe('Karakeep SDK proxy', () => {
 		const sendMessage = vi.spyOn(browser.runtime, 'sendMessage')
 			.mockResolvedValueOnce({ ok: true, status: 201, data: { id: 'bookmark-id' } });
 
-		await saveToHoarder('Article', 'https://example.com', '', '', [], [
+		await saveToHoarder('Article', 'https://example.com', '', [
 			{ content: '<p>selected</p>', hoarderHighlightId: 'highlight-id' },
 		]);
 
@@ -119,12 +105,18 @@ describe('Karakeep SDK proxy', () => {
 		['bookmark lookup', () => getHoarderBookmarkIdByUrl('https://example.com'), 'Failed to check Hoarder bookmark URL'],
 		['bookmark content', () => getHoarderBookmarkHtmlContent('bookmark-id'), 'Failed to get Hoarder bookmark content'],
 		['highlight creation', () => createHoarderHighlight(highlight), 'Failed to create Hoarder highlight'],
-		['bookmark creation', () => saveToHoarder('Article', 'https://example.com', '', ''), 'Failed to save to Hoarder'],
+		['bookmark creation', () => saveToHoarder('Article', 'https://example.com', ''), 'Failed to save to Hoarder'],
 	] as const)('rejects empty successful responses for %s', async (_name, request, error) => {
 		vi.spyOn(console, 'error').mockImplementation(() => {});
 		vi.spyOn(browser.runtime, 'sendMessage').mockResolvedValue({ ok: true, status: 200, data: null });
 
 		await expect(request()).rejects.toThrow(error);
+	});
+
+	test.each([{}, { id: '' }])('rejects highlight responses without a usable id: %j', async (data) => {
+		vi.spyOn(browser.runtime, 'sendMessage').mockResolvedValue({ ok: true, status: 201, data });
+
+		await expect(createHoarderHighlight(highlight)).rejects.toThrow('Failed to create Hoarder highlight');
 	});
 
 	test('does not report a successful connection without a user', async () => {

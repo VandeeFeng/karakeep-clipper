@@ -1111,6 +1111,7 @@ export async function deleteHighlightsFromHoarder(deletedHighlights: AnyHighligh
 const HIGHLIGHT_CONTEXT_LENGTH = 32;
 
 type HoarderHighlightSource = Pick<HighlightData, 'content' | 'notes' | 'hoarderHighlightId'> & {
+	id?: string;
 	textQuote?: TextQuoteAnchor;
 };
 
@@ -1213,16 +1214,20 @@ function createHoarderResolver(html: string): (highlight: HoarderHighlightSource
 	};
 }
 
-export async function saveToHoarder(
-	title: string,
-	url: string,
-	content: string,
-	html: string,
-	tags: string[] = [],
-	highlights: HoarderHighlightSource[] = []
-): Promise<void> {
-	const bookmarkId = await saveHoarderBookmark(title, url, content);
-	const pendingHighlights = highlights.filter(highlight => !highlight.hoarderHighlightId);
+async function syncHoarderHighlights(bookmarkId: string, url: string, source: HoarderHighlightSource[]): Promise<void> {
+	if (source.length === 0) return;
+
+	const storageUrl = normalizeUrl(url);
+	const stored = await browser.storage.local.get('highlights');
+	const localHighlights = (stored.highlights as HighlightsStorage | undefined)?.[storageUrl]?.highlights || [];
+	const localById = new Map(localHighlights.map(highlight => [highlight.id, highlight]));
+	for (const highlight of source) {
+		const local = highlight.id ? localById.get(highlight.id) : undefined;
+		if (local?.content === highlight.content && local.hoarderHighlightId) {
+			highlight.hoarderHighlightId = local.hoarderHighlightId;
+		}
+	}
+	const pendingHighlights = source.filter(highlight => !highlight.hoarderHighlightId);
 	if (pendingHighlights.length === 0) return;
 
 	const readerHtml = await getHoarderBookmarkHtmlContent(bookmarkId);
@@ -1230,52 +1235,59 @@ export async function saveToHoarder(
 		throw new Error('Bookmark saved, but Karakeep reader content is not ready. Retry saving highlights after crawling finishes.');
 	}
 	const resolveHighlight = createHoarderResolver(readerHtml);
+	const savedById = new Map<string, HoarderHighlightSource>();
 	let failedHighlights = 0;
 	for (const highlight of pendingHighlights) {
 		try {
-			await createHoarderHighlight({
+			const id = await createHoarderHighlight({
 				bookmarkId,
 				...resolveHighlight(highlight),
 				note: highlight.notes?.join('\n')
 			});
+			highlight.hoarderHighlightId = id;
+			if (highlight.id) savedById.set(highlight.id, highlight);
 		} catch (error) {
 			failedHighlights++;
-			console.error('Failed to save highlight:', error);
+			console.error('Failed to sync highlight to Karakeep:', error);
 		}
+	}
+
+	if (savedById.size > 0) {
+		// Merge only remote IDs into fresh storage so saves cannot restore deleted highlights or overwrite edits.
+		const latest = await browser.storage.local.get('highlights');
+		const allHighlights = (latest.highlights || {}) as HighlightsStorage;
+		let changed = false;
+		for (const local of allHighlights[storageUrl]?.highlights || []) {
+			const saved = savedById.get(local.id);
+			if (saved?.content === local.content && !local.hoarderHighlightId) {
+				local.hoarderHighlightId = saved.hoarderHighlightId;
+				changed = true;
+			}
+		}
+		if (changed) await browser.storage.local.set({ highlights: allHighlights });
 	}
 	if (failedHighlights > 0) {
 		throw new Error(`Bookmark saved, but ${failedHighlights} highlight(s) could not be saved to Karakeep.`);
 	}
 }
 
+export async function saveToHoarder(
+	title: string,
+	url: string,
+	content: string,
+	highlights: HoarderHighlightSource[] = []
+): Promise<void> {
+	const bookmarkId = await saveHoarderBookmark(title, url, content);
+	await syncHoarderHighlights(bookmarkId, url, highlights);
+}
+
 async function syncHighlightsToHoarder() {
 	if (!generalSettings.hoarderEnabled || highlights.length === 0) return;
 
 	try {
-		const bookmarkId = await getHoarderBookmarkIdByUrl(getPageUrl());
-		if (!bookmarkId) return;
-
-		const readerHtml = await getHoarderBookmarkHtmlContent(bookmarkId);
-		if (!readerHtml) throw new Error('Karakeep reader content is not ready');
-		const resolveHighlight = createHoarderResolver(readerHtml);
-		let changed = false;
-		for (const highlight of highlights) {
-			if (highlight.hoarderHighlightId) continue;
-			try {
-				const id = await createHoarderHighlight({
-					bookmarkId,
-					...resolveHighlight(highlight),
-					note: highlight.notes?.join('\n')
-				});
-				if (id) {
-					highlight.hoarderHighlightId = id;
-					changed = true;
-				}
-			} catch (error) {
-				console.error('Failed to sync highlight to Hoarder:', error);
-			}
-		}
-		if (changed) saveHighlights();
+		const url = getPageUrl();
+		const bookmarkId = await getHoarderBookmarkIdByUrl(url);
+		if (bookmarkId) await syncHoarderHighlights(bookmarkId, url, highlights);
 	} catch (error) {
 		console.error('Failed to sync highlights to Hoarder:', error);
 	}

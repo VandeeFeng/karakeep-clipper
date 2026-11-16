@@ -1,7 +1,11 @@
 // @vitest-environment jsdom
-import { describe, test, expect } from 'vitest';
-import { processHighlights } from './content-extractor';
+import { afterEach, describe, test, expect, vi } from 'vitest';
+import browser from './browser-polyfill';
+import { extractPageContent, processHighlights } from './content-extractor';
 import { TextHighlightData } from './highlighter';
+import * as highlighter from './highlighter';
+import * as shadowDom from './flatten-shadow-dom';
+import Defuddle from 'defuddle';
 
 // Default settings already use highlighterEnabled + 'highlight-inline', the
 // behavior these tests exercise.
@@ -12,6 +16,64 @@ function textHighlight(content: string): TextHighlightData {
 	// doesn't resolve against the extracted article content.
 	return { type: 'text', id: '1', xpath: '', content, startOffset: 0, endOffset: 0 };
 }
+
+afterEach(() => {
+	vi.restoreAllMocks();
+	vi.useRealTimers();
+});
+
+describe('extractPageContent highlight transport', () => {
+	test('content messages include metadata alongside legacy strings', async () => {
+		vi.useFakeTimers();
+		vi.spyOn(highlighter, 'loadHighlights').mockResolvedValue();
+		vi.spyOn(shadowDom, 'flattenShadowDom').mockResolvedValue();
+		vi.spyOn(Defuddle.prototype, 'parseAsync').mockResolvedValue({
+			content: '<p>article</p>', title: 'Article',
+		} as Awaited<ReturnType<Defuddle['parseAsync']>>);
+		const register = vi.spyOn(browser.runtime.onMessage, 'addListener');
+		await import('../content');
+		const listener = register.mock.calls[0][0];
+		const highlight = { ...textHighlight('quote'), textQuote: { prefix: 'Right ', suffix: ' here.' }, hoarderHighlightId: 'remote-id' };
+		highlighter.updateHighlights([highlight]);
+
+		try {
+			const response = await new Promise<unknown>(resolve => {
+				listener({ action: 'getPageContent' }, {} as browser.Runtime.MessageSender, resolve);
+			});
+			expect(response).toMatchObject({ highlights: ['quote'], highlightData: [highlight] });
+		} finally {
+			highlighter.updateHighlights([]);
+			delete window.__obsidianHighlighter;
+		}
+	});
+
+	test('preserves metadata without changing legacy highlight conversion', async () => {
+		const highlight = {
+			...textHighlight('<p>quote</p>'),
+			textQuote: { prefix: 'Right ', suffix: ' here.' },
+			hoarderHighlightId: 'remote-id',
+		};
+		vi.spyOn(browser.runtime, 'sendMessage').mockResolvedValue({
+			content: '<p>article</p>', highlights: [highlight.content], highlightData: [highlight],
+		});
+
+		const result = await extractPageContent(1);
+
+		expect(result?.highlightData).toEqual([highlight]);
+		expect(result?.highlights[0].content).toBe(`<div>${highlight.content}</div>`);
+	});
+
+	test('still accepts content scripts without structured metadata', async () => {
+		vi.spyOn(browser.runtime, 'sendMessage').mockResolvedValue({
+			content: '<p>article</p>', highlights: ['quote'],
+		});
+
+		const result = await extractPageContent(1);
+
+		expect(result?.highlightData).toBeUndefined();
+		expect(result?.highlights[0]).toMatchObject({ type: 'text', content: '<div>quote</div>' });
+	});
+});
 
 describe('processHighlights — highlight-inline', () => {
 	const article = '<p>A seismic shift is rocking the healthcare industry. Much like Uber once did.</p>';
