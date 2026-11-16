@@ -186,6 +186,30 @@ describe('importHighlightsFromJson', () => {
 		expect(highlights[0].textQuote).toEqual({ prefix: 'before ', suffix: ' after' });
 	});
 
+	test.each(['text', 'element'] as const)('preserves Karakeep ids when restoring %s highlights', async (type) => {
+		const highlight: AnyHighlightData = type === 'text'
+			? { ...textHighlight('100', 'synced text'), hoarderHighlightId: 'remote-highlight' }
+			: { id: '100', type, xpath: '/img[1]', content: '<img src="x.png">', hoarderHighlightId: 'remote-highlight' };
+		stored['https://example.com/page'] = { url: 'https://example.com/page', highlights: [highlight] };
+		const json = exportedFile();
+		stored = {};
+
+		await importHighlightsFromJson(json);
+
+		expect(highlightsFor('https://example.com/page')[0].hoarderHighlightId).toBe('remote-highlight');
+	});
+
+	test('rejects invalid Karakeep ids before writing imported highlights', async () => {
+		const json = JSON.stringify([{
+			url: 'https://example.com/page',
+			highlights: [{ text: 'one' }],
+			data: [{ ...textHighlight('100', 'one'), hoarderHighlightId: 123 }],
+		}]);
+
+		await expect(importHighlightsFromJson(json)).rejects.toThrow('invalid hoarderHighlightId');
+		expect(stored).toEqual({});
+	});
+
 	test('rejects a malformed record in the data field', async () => {
 		const withBadRecord = JSON.stringify([{
 			url: 'https://example.com/page',

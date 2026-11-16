@@ -7,27 +7,20 @@
         border-radius: 4px;
         font-size: 14px;
 
-        &.success {
-            background-color: var(--color-green-100);
-            color: var(--color-green-900);
-
-            .status-icon {
-                color: var(--color-green-600);
-            }
+        &.success .status-icon {
+            color: var(--text-success);
         }
 
-        &.error {
-            background-color: var(--color-red-100);
-            color: var(--color-red-900);
-
-            .status-icon {
-                color: var(--color-red-600);
-            }
+        &.error .status-icon {
+            color: var(--text-error);
         }
 
         .status-icon {
-            font-size: 16px;
-            line-height: 1;
+            width: 8px;
+            height: 8px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background-color: currentColor;
         }
     }
 } 

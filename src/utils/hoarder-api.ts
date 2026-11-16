@@ -78,7 +78,7 @@ export async function testConnection(): Promise<{ ok: boolean; user?: HoarderUse
     try {
         const { data, error, response } = await createHoarderClient().GET('/users/me');
 
-        if (error) {
+        if (error || !data) {
             console.error('Hoarder connection test failed:', error);
             return { ok: false };
         }
@@ -97,7 +97,7 @@ export async function getHoarderBookmarkIdByUrl(url: string): Promise<string | n
         params: { query: { url } }
     });
 
-    if (error) {
+    if (error || !data) {
         throw new Error(getErrorMessage(error, 'Failed to check Hoarder bookmark URL'));
     }
 
@@ -114,7 +114,7 @@ export async function getHoarderBookmarkHtmlContent(bookmarkId: string): Promise
         }
     });
 
-    if (error) {
+    if (error || !data) {
         throw new Error(getErrorMessage(error, 'Failed to get Hoarder bookmark content'));
     }
 
@@ -139,6 +139,8 @@ export async function createHoarderHighlight(params: {
     note?: string;
     startOffset: number;
     endOffset: number;
+    prefix?: string;
+    suffix?: string;
 }): Promise<string | null> {
     assertHoarderConfigured();
 
@@ -148,26 +150,25 @@ export async function createHoarderHighlight(params: {
             startOffset: params.startOffset,
             endOffset: params.endOffset,
             text: params.text,
+            prefix: params.prefix ?? null,
+            suffix: params.suffix ?? null,
             note: params.note ?? null,
             color: 'yellow'
         }
     });
 
-    if (error) {
+    if (error || !data) {
         throw new Error(getErrorMessage(error, 'Failed to create Hoarder highlight'));
     }
 
     return data.id;
 }
 
-export async function saveToHoarder(
+export async function saveHoarderBookmark(
     title: string,
     url: string,
-    content: string,
-    html: string,
-    tags: string[] = [],
-    highlights: Array<{text: string, notes?: string[]}> = []
-): Promise<void> {
+    content: string
+): Promise<string> {
     assertHoarderConfigured();
 
     const bookmark = {
@@ -181,7 +182,7 @@ export async function saveToHoarder(
 
     const { data, error, response } = await createHoarderClient().POST('/bookmarks', { body: bookmark });
 
-    if (error) {
+    if (error || !data) {
         const errorMessage = getErrorMessage(error, response.statusText || 'Unknown error');
         console.error('Failed to save bookmark:', response.status, response.statusText, errorMessage);
         throw new Error(`Failed to save to Hoarder: ${errorMessage}`);
@@ -192,17 +193,5 @@ export async function saveToHoarder(
         throw new Error('Failed to get bookmark ID from response');
     }
 
-    for (const highlight of highlights) {
-        try {
-            await createHoarderHighlight({
-                bookmarkId,
-                text: highlight.text,
-                note: highlight.notes?.join('\n'),
-                startOffset: 0,
-                endOffset: highlight.text.length
-            });
-        } catch (error) {
-            console.error('Failed to save highlight:', error);
-        }
-    }
+    return bookmarkId;
 }

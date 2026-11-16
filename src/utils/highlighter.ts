@@ -12,7 +12,7 @@ import {
 import { detectBrowser, addBrowserClassToHtml } from './browser-detection';
 import dayjs from 'dayjs';
 import { generalSettings, loadSettings } from './storage-utils';
-import { createHoarderHighlight, deleteHoarderHighlight, getHoarderBookmarkHtmlContent, getHoarderBookmarkIdByUrl } from './hoarder-api';
+import { createHoarderHighlight, deleteHoarderHighlight, getHoarderBookmarkHtmlContent, getHoarderBookmarkIdByUrl, saveHoarderBookmark } from './hoarder-api';
 import { normalizeUrl } from './url-utils';
 
 /**
@@ -1108,6 +1108,146 @@ export async function deleteHighlightsFromHoarder(deletedHighlights: AnyHighligh
 	);
 }
 
+const HIGHLIGHT_CONTEXT_LENGTH = 32;
+
+type HoarderHighlightSource = Pick<HighlightData, 'content' | 'notes' | 'hoarderHighlightId'> & {
+	textQuote?: TextQuoteAnchor;
+};
+
+interface HoarderHighlightAnchor {
+	text: string;
+	startOffset: number;
+	endOffset: number;
+	prefix: string;
+	suffix: string;
+}
+
+function htmlToText(html: string): string {
+	// Match Karakeep's div fragment parsing in an inert document so assets do not load.
+	const inertDocument = new DOMParser().parseFromString('', 'text/html');
+	const container = inertDocument.createElement('div');
+	container.innerHTML = html;
+	return container.textContent || '';
+}
+
+function normalizeText(text: string): string {
+	return text.replace(/\s+/g, ' ');
+}
+
+function normalizeWithOffsets(raw: string) {
+	let text = '';
+	const offsets: number[] = [];
+	let inWhitespace = false;
+	for (let index = 0; index < raw.length; index++) {
+		const character = raw[index];
+		if (/\s/.test(character)) {
+			if (!inWhitespace) {
+				text += ' ';
+				offsets.push(index);
+			}
+			inWhitespace = true;
+		} else {
+			text += character;
+			offsets.push(index);
+			inWhitespace = false;
+		}
+	}
+	return { text, offsets };
+}
+
+function contextScore(before: string, after: string, prefix: string, suffix: string): number {
+	let prefixLength = 0;
+	while (prefixLength < before.length && prefixLength < prefix.length &&
+		before[before.length - prefixLength - 1] === prefix[prefix.length - prefixLength - 1]) {
+		prefixLength++;
+	}
+	let suffixLength = 0;
+	while (suffixLength < after.length && suffixLength < suffix.length && after[suffixLength] === suffix[suffixLength]) {
+		suffixLength++;
+	}
+	return prefixLength + suffixLength;
+}
+
+function createHoarderResolver(html: string): (highlight: HoarderHighlightSource) => HoarderHighlightAnchor {
+	const fullText = htmlToText(html);
+	const normalized = normalizeWithOffsets(fullText);
+
+	return (highlight) => {
+		const untrimmed = normalizeText(htmlToText(highlight.content));
+		const quote = untrimmed.trim();
+		if (!quote) throw new Error('Karakeep highlight has no text');
+
+		const prefix = normalizeText((highlight.textQuote?.prefix || '') + (untrimmed.startsWith(' ') ? ' ' : ''));
+		const suffix = normalizeText((untrimmed.endsWith(' ') ? ' ' : '') + (highlight.textQuote?.suffix || ''));
+		let bestStart = -1;
+		let bestScore = -1;
+		let ambiguous = false;
+		let start = normalized.text.indexOf(quote);
+		while (start !== -1) {
+			const end = start + quote.length;
+			const before = normalized.text.slice(Math.max(0, start - prefix.length), start);
+			const after = normalized.text.slice(end, end + suffix.length);
+			const score = contextScore(before, after, prefix, suffix);
+			if (score > bestScore) {
+				bestStart = start;
+				bestScore = score;
+				ambiguous = false;
+			} else if (score === bestScore) {
+				ambiguous = true;
+			}
+			start = normalized.text.indexOf(quote, start + 1);
+		}
+
+		if (bestStart === -1) throw new Error('Highlighted text was not found in the Karakeep reader');
+		if (ambiguous) throw new Error('Karakeep highlight position is ambiguous');
+
+		const startOffset = normalized.offsets[bestStart];
+		const endOffset = normalized.offsets[bestStart + quote.length - 1] + 1;
+		return {
+			text: fullText.slice(startOffset, endOffset),
+			startOffset,
+			endOffset,
+			prefix: fullText.slice(Math.max(0, startOffset - HIGHLIGHT_CONTEXT_LENGTH), startOffset),
+			suffix: fullText.slice(endOffset, endOffset + HIGHLIGHT_CONTEXT_LENGTH),
+		};
+	};
+}
+
+export async function saveToHoarder(
+	title: string,
+	url: string,
+	content: string,
+	html: string,
+	tags: string[] = [],
+	highlights: HoarderHighlightSource[] = []
+): Promise<void> {
+	const bookmarkId = await saveHoarderBookmark(title, url, content);
+	const pendingHighlights = highlights.filter(highlight => !highlight.hoarderHighlightId);
+	if (pendingHighlights.length === 0) return;
+
+	const readerHtml = await getHoarderBookmarkHtmlContent(bookmarkId);
+	if (!readerHtml) {
+		throw new Error('Bookmark saved, but Karakeep reader content is not ready. Retry saving highlights after crawling finishes.');
+	}
+	const resolveHighlight = createHoarderResolver(readerHtml);
+	let failedHighlights = 0;
+	for (const highlight of pendingHighlights) {
+		try {
+			await createHoarderHighlight({
+				bookmarkId,
+				...resolveHighlight(highlight),
+				note: highlight.notes?.join('\n')
+			});
+		} catch (error) {
+			failedHighlights++;
+			console.error('Failed to save highlight:', error);
+		}
+	}
+	if (failedHighlights > 0) {
+		throw new Error(`Bookmark saved, but ${failedHighlights} highlight(s) could not be saved to Karakeep.`);
+	}
+}
+
 async function syncHighlightsToHoarder() {
 	if (!generalSettings.hoarderEnabled || highlights.length === 0) return;
 
@@ -1115,22 +1255,17 @@ async function syncHighlightsToHoarder() {
 		const bookmarkId = await getHoarderBookmarkIdByUrl(getPageUrl());
 		if (!bookmarkId) return;
 
-		const hoarderText = await getHoarderBookmarkPlainText(bookmarkId);
-		const article = document.querySelector('.obsidian-reader-content article') || document.body;
+		const readerHtml = await getHoarderBookmarkHtmlContent(bookmarkId);
+		if (!readerHtml) throw new Error('Karakeep reader content is not ready');
+		const resolveHighlight = createHoarderResolver(readerHtml);
 		let changed = false;
 		for (const highlight of highlights) {
 			if (highlight.hoarderHighlightId) continue;
 			try {
-				const text = getHighlightText(highlight);
-				if (!text) continue;
-				const localRange = getHighlightAbsoluteRange(article, highlight);
-				const range = getHoarderHighlightRange(hoarderText, highlight, localRange, article.textContent || '');
 				const id = await createHoarderHighlight({
 					bookmarkId,
-					text,
-					note: highlight.notes?.join('\n'),
-					startOffset: range.startOffset,
-					endOffset: range.endOffset
+					...resolveHighlight(highlight),
+					note: highlight.notes?.join('\n')
 				});
 				if (id) {
 					highlight.hoarderHighlightId = id;
@@ -1144,67 +1279,6 @@ async function syncHighlightsToHoarder() {
 	} catch (error) {
 		console.error('Failed to sync highlights to Hoarder:', error);
 	}
-}
-
-async function getHoarderBookmarkPlainText(bookmarkId: string): Promise<string> {
-	const html = await getHoarderBookmarkHtmlContent(bookmarkId);
-	if (!html) return '';
-	const doc = new DOMParser().parseFromString(html, 'text/html');
-	return doc.body.textContent || '';
-}
-
-function getHoarderHighlightRange(
-	hoarderText: string,
-	highlight: AnyHighlightData,
-	localRange: { startOffset: number; endOffset: number },
-	localText: string
-) {
-	const text = getHighlightText(highlight);
-	if (!hoarderText || !text) return localRange;
-
-	const matches = findAllTextMatches(hoarderText, text);
-	if (matches.length === 0) return localRange;
-	if (matches.length === 1 || !localText) {
-		return { startOffset: matches[0], endOffset: matches[0] + text.length };
-	}
-
-	const ratio = localRange.startOffset / Math.max(localText.length, 1);
-	const estimated = ratio * hoarderText.length;
-	const startOffset = matches.reduce((closest, current) =>
-		Math.abs(current - estimated) < Math.abs(closest - estimated) ? current : closest
-	);
-	return { startOffset, endOffset: startOffset + text.length };
-}
-
-function findAllTextMatches(haystack: string, needle: string): number[] {
-	const matches: number[] = [];
-	let index = haystack.indexOf(needle);
-	while (index !== -1) {
-		matches.push(index);
-		index = haystack.indexOf(needle, index + 1);
-	}
-	return matches;
-}
-
-function getHighlightAbsoluteRange(root: Element, highlight: AnyHighlightData) {
-	const element = getElementByXPath(highlight.xpath);
-	const rootText = root.textContent || '';
-	const text = getHighlightText(highlight);
-	if (!element) return { startOffset: 0, endOffset: text.length };
-
-	const beforeRange = document.createRange();
-	beforeRange.setStart(root, 0);
-	beforeRange.setEndBefore(element);
-	const base = beforeRange.toString().length;
-	const startOffset = highlight.type === 'text' ? base + highlight.startOffset : rootText.indexOf(text, base);
-	const safeStart = startOffset >= 0 ? startOffset : base;
-	return { startOffset: safeStart, endOffset: safeStart + text.length };
-}
-
-function getHighlightText(highlight: AnyHighlightData): string {
-	const parser = new DOMParser();
-	const doc = parser.parseFromString(highlight.content, 'text/html');
-	return (doc.body.textContent || highlight.content).trim();
 }
 
 export function getHighlights(): string[] {

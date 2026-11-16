@@ -9,6 +9,8 @@ It adds support for syncing highlight additions and deletions, and saving bookma
 
 This extension and [VandeeFeng/Emacs-Hoarder](https://github.com/VandeeFeng/Emacs-Hoarder) work well with Karakeep in my daily use.
 
+Open `about:config` and `set xpinstall.signatures.required` to `false`, install this extension from build zip.
+
 ---
 
 Obsidian Web Clipper helps you highlight and capture the web in your favorite browser. Anything you save is stored as durable Markdown files that you can read offline, and preserve for the long term.

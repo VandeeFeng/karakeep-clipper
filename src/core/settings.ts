@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 				if (ok && user) {
 					hoarderConnectionStatus.innerHTML = `
 						<div class="connection-status success">
-							<span class="status-icon">✓</span>
+							<span class="status-icon" aria-hidden="true"></span>
 							Connected as ${user.email}
 						</div>
 					`;
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 				} else {
 					hoarderConnectionStatus.innerHTML = `
 						<div class="connection-status error">
-							<span class="status-icon">✗</span>
+							<span class="status-icon" aria-hidden="true"></span>
 							Not connected
 						</div>
 					`;
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 			} catch (error) {
 				hoarderConnectionStatus.innerHTML = `
 					<div class="connection-status error">
-						<span class="status-icon">✗</span>
+						<span class="status-icon" aria-hidden="true"></span>
 						Connection error
 					</div>
 				`;

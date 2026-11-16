@@ -23,7 +23,7 @@ import { sanitizeFileName } from '../utils/string-utils';
 import { saveFile } from '../utils/file-utils';
 import { translatePage, getMessage, setupLanguageAndDirection } from '../utils/i18n';
 import { formatPropertyValue } from '../utils/shared';
-import { saveToHoarder } from '../utils/hoarder-api';
+import { saveToHoarder } from '../utils/highlighter';
 
 interface ReaderModeResponse {
 	success: boolean;
@@ -1300,10 +1300,7 @@ async function handleSaveToHoarder(): Promise<void> {
 			.flat()
 			.filter(Boolean);
 
-		const highlights = (extractedData.highlights || []).map(h => ({
-			text: h.content || '',
-			notes: h.notes || []
-		}));
+		const highlights = extractedData.highlights || [];
 
 		await saveToHoarder(
 			noteNameField?.value || extractedData.title,
@@ -1314,11 +1311,16 @@ async function handleSaveToHoarder(): Promise<void> {
 			highlights
 		);
 
-		await incrementStat('addToHoarder');
-
-		if (!isSidePanel) {
-			setTimeout(() => window.close(), 1500);
+		const clipButton = document.getElementById('clip-btn');
+		if (clipButton) {
+			const originalText = clipButton.textContent;
+			clipButton.textContent = `${getMessage('saved')}!`;
+			setTimeout(() => {
+				clipButton.textContent = originalText;
+			}, 1500);
 		}
+
+		await incrementStat('addToHoarder');
 	} catch (error) {
 		console.error('Error in handleSaveToHoarder:', error);
 		showError('failedToSaveFile');
