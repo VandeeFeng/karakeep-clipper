@@ -4,8 +4,12 @@
 
 import DefuddleClass from 'defuddle';
 import { createMarkdownContent } from 'defuddle/full';
-import { compileTemplate, SelectorProcessor } from './utils/template-compiler';
-import { AsyncResolver, RenderContext } from './utils/renderer';
+import {
+	compileTemplate,
+	type AsyncResolver,
+	type RenderContext,
+	type SelectorProcessor,
+} from './utils/template-compiler';
 import { applyFilters } from './utils/filters';
 import { buildVariables, generateFrontmatter, extractContentBySelector, selectorContentToString, formatPropertyValue } from './utils/shared';
 import { sanitizeFileName } from './utils/string-utils';
@@ -178,11 +182,10 @@ export async function clip(options: ClipOptions): Promise<ClipResult> {
 
 	// Use pre-parsed document if provided, otherwise parse
 	const doc = parsedDocument ?? documentParser.parseFromString(html, 'text/html');
-	const documentElement = doc.documentElement || doc;
 
 	// Extract content with defuddle
 	// Cast through unknown: linkedom's Document is structurally compatible but not nominally typed as DOM Document
-	const defuddle = new DefuddleClass(documentElement as unknown as Document, { url });
+	const defuddle = new DefuddleClass(doc as unknown as Document, { url });
 	const defuddleResult = defuddle.parse();
 
 	// Convert to markdown

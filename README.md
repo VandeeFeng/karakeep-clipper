@@ -32,6 +32,10 @@ Documentation is available on the [Obsidian Help site](https://help.obsidian.md/
 
 ## Contribute
 
+### Documentation
+
+User documentation is maintained in the [`en/Obsidian Web Clipper` directory of obsidian-help](https://github.com/obsidianmd/obsidian-help/tree/master/en/Obsidian%20Web%20Clipper).
+
 ### Translations
 
 You can help translate Web Clipper into your language. Submit your translation via pull request using the format found in the [/_locales](/src/_locales) folder.
@@ -44,12 +48,13 @@ See the [help wanted](https://github.com/obsidianmd/obsidian-clipper/issues?q=is
 
 In no particular order:
 
-- [ ] A separate icon for Web Clipper
 - [ ] Annotate highlights
 - [ ] Template directory
-- [x] Template validation
-- [x] Template logic (if/for)
-- [x] Save images locally, [added in Obsidian 1.8.0](https://obsidian.md/changelog/2024-12-18-desktop-v1.8.0/)
+- [ ] Sync settings across browsers
+- [x] A separate icon for Web Clipper (1.6.3)
+- [x] Template validation (1.1.0)
+- [x] Template logic (if/for)  (1.1.0)
+- [x] Save images locally ([Obsidian 1.8.0](https://obsidian.md/changelog/2024-12-18-desktop-v1.8.0/))
 - [x] Translate UI into more languages — help is welcomed
 
 ## Developers

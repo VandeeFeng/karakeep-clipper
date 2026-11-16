@@ -13,6 +13,7 @@ import { detectBrowser, addBrowserClassToHtml } from './browser-detection';
 import dayjs from 'dayjs';
 import { generalSettings, loadSettings } from './storage-utils';
 import { createHoarderHighlight, deleteHoarderHighlight, getHoarderBookmarkHtmlContent, getHoarderBookmarkIdByUrl } from './hoarder-api';
+import { normalizeUrl } from './url-utils';
 
 /**
  * Helper function to create SVG elements
@@ -66,34 +67,7 @@ function createSVG(config: {
 
 export type AnyHighlightData = TextHighlightData | ElementHighlightData;
 
-const EPHEMERAL_PARAMS = new Set([
-	't',           // YouTube timestamp
-	'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', // UTM tracking
-	'ref', 'source', 'src',   // Referral
-	'fbclid', 'gclid', 'dclid', 'msclkid', 'twclid', // Ad click IDs
-	'mc_cid', 'mc_eid',       // Mailchimp
-	'_ga', '_gl',             // Google Analytics
-	'si',                     // YouTube share tracking
-]);
-
-export function normalizeUrl(url: string): string {
-	try {
-		const parsed = new URL(url);
-		// Strip fragment identifiers — highlights on /page#section should
-		// match /page (fixes #652).
-		parsed.hash = '';
-		const params = new URLSearchParams(parsed.search);
-		for (const key of [...params.keys()]) {
-			if (EPHEMERAL_PARAMS.has(key)) {
-				params.delete(key);
-			}
-		}
-		parsed.search = params.toString();
-		return parsed.toString();
-	} catch {
-		return url;
-	}
-}
+export { normalizeUrl } from './url-utils';
 
 export let highlights: AnyHighlightData[] = [];
 export let isApplyingHighlights = false;
@@ -210,10 +184,19 @@ export interface HighlightData {
 	groupId?: string;
 }
 
+// Surrounding text captured at creation, used to disambiguate which occurrence
+// of the highlighted text to re-anchor to when the XPath is stale (cross-DOM).
+// The highlighted text itself is derived from `content`, so it isn't stored here.
+export interface TextQuoteAnchor {
+	prefix: string;
+	suffix: string;
+}
+
 export interface TextHighlightData extends HighlightData {
 	type: 'text';
 	startOffset: number;
 	endOffset: number;
+	textQuote?: TextQuoteAnchor;
 }
 
 export interface ElementHighlightData extends HighlightData {
@@ -226,7 +209,39 @@ export interface StoredData {
 	title?: string;
 }
 
-type HighlightsStorage = Record<string, StoredData>;
+export type HighlightsStorage = Record<string, StoredData>;
+
+// Highlights saved before URLs were normalized sit under the raw key until their
+// page is next opened. Fold that entry into the normalized one, matching on
+// content and keeping whichever copy still has an xpath.
+export function reconcileLegacyUrlKey(all: HighlightsStorage, rawUrl: string): void {
+	const url = normalizeUrl(rawUrl);
+	const legacy = all[rawUrl];
+	if (url === rawUrl || !legacy) return;
+
+	const existing = all[url];
+	if (!existing) {
+		all[url] = { ...legacy, url };
+		delete all[rawUrl];
+		return;
+	}
+
+	const positionByContent = new Map<string, number>();
+	existing.highlights.forEach((highlight, index) => {
+		if (!positionByContent.has(highlight.content)) positionByContent.set(highlight.content, index);
+	});
+	for (const highlight of legacy.highlights) {
+		const at = positionByContent.get(highlight.content);
+		if (at === undefined) {
+			positionByContent.set(highlight.content, existing.highlights.length);
+			existing.highlights.push(highlight);
+		} else if (!existing.highlights[at].xpath && highlight.xpath) {
+			existing.highlights[at] = highlight;
+		}
+	}
+	existing.title = existing.title ?? legacy.title;
+	delete all[rawUrl];
+}
 
 export function updateHighlights(newHighlights: AnyHighlightData[]) {
 	const oldHighlights = [...highlights];
@@ -711,13 +726,16 @@ function getHighlightRanges(range: Range): AnyHighlightData[] {
 			setElementHTML(wrapper, innerHtml);
 			const htmlContent = wrapper.outerHTML;
 
+			const textStartOffset = getTextOffset(blockElement, blockRange.startContainer, blockRange.startOffset);
+			const textEndOffset = getTextOffset(blockElement, blockRange.endContainer, blockRange.endOffset);
 			newHighlights.push({
 				xpath: getElementXPath(blockElement),
 				content: htmlContent,
 				type: 'text',
 				id: `${timestamp}_tx_${i}`,
-				startOffset: getTextOffset(blockElement, blockRange.startContainer, blockRange.startOffset),
-				endOffset: getTextOffset(blockElement, blockRange.endContainer, blockRange.endOffset),
+				startOffset: textStartOffset,
+				endOffset: textEndOffset,
+				textQuote: createTextQuoteAnchor(blockElement, textStartOffset, textEndOffset),
 			});
 		} catch (e) {
 			console.warn('Error creating text highlight for block:', blockElement, e);
@@ -853,6 +871,19 @@ function getTextOffset(container: Element, targetNode: Node, targetOffset: numbe
 	return offset;
 }
 
+// Capture ~64 chars of text on each side of a highlight within its block, used
+// to pick the right occurrence when re-anchoring by text across DOMs.
+const TEXT_QUOTE_CONTEXT_LENGTH = 64;
+
+export function createTextQuoteAnchor(container: Element, startOffset: number, endOffset: number): TextQuoteAnchor | undefined {
+	const text = container.textContent || '';
+	if (!text.slice(startOffset, endOffset).trim()) return undefined;
+	return {
+		prefix: text.slice(Math.max(0, startOffset - TEXT_QUOTE_CONTEXT_LENGTH), startOffset),
+		suffix: text.slice(endOffset, endOffset + TEXT_QUOTE_CONTEXT_LENGTH),
+	};
+}
+
 function addHighlight(highlight: AnyHighlightData, notes?: string[]) {
 	const oldHighlights = [...highlights];
 	const newHighlight = { ...highlight, notes: notes || [] };
@@ -967,6 +998,7 @@ function mergeHighlights(h1: AnyHighlightData, h2: AnyHighlightData): AnyHighlig
 				id: Date.now().toString(),
 				startOffset,
 				endOffset,
+				...(el ? { textQuote: createTextQuoteAnchor(el, startOffset, endOffset) } : {}),
 				...(notes.length > 0 ? { notes } : {}),
 				...(groupId ? { groupId } : {}),
 			};
@@ -1038,10 +1070,12 @@ export function applyHighlights() {
 	removeExistingHighlights();
 
 	highlights.forEach((highlight) => {
+		// container may be null when the stored XPath doesn't resolve against the
+		// current DOM (e.g. highlight made in a different view — live vs reader,
+		// or a regenerated reader). planHighlightOverlayRects handles that: text
+		// highlights re-anchor by content, element highlights skip.
 		const container = getElementByXPath(highlight.xpath);
-		if (container) {
-			planHighlightOverlayRects(container, highlight);
-		}
+		planHighlightOverlayRects(container, highlight);
 	});
 
 	lastAppliedVersion = highlightsVersion;
@@ -1229,6 +1263,62 @@ export function collapseGroupsForExport(
 	});
 }
 
+// Inverse of collapseGroupsForExport, for files written before exports carried
+// full records. A group arrives as one entry with its members joined by a blank
+// line, so split them apart and regroup. Ids come from the entry timestamp, with
+// later members offset to keep their order.
+export function expandExportedEntries(
+	entries: { text: string; timestamp?: string; notes?: string[] }[],
+): TextHighlightData[] {
+	const records: TextHighlightData[] = [];
+
+	entries.forEach((entry, entryIndex) => {
+		const parsed = entry.timestamp ? dayjs(entry.timestamp) : null;
+		const baseMs = parsed && parsed.isValid() ? parsed.valueOf() : Date.now();
+		const parts = entry.text.split('\n\n').filter(part => part.length > 0);
+		const groupId = parts.length > 1 ? `import-${baseMs}-${entryIndex}` : undefined;
+
+		parts.forEach((part, index) => {
+			records.push({
+				id: String(baseMs + index),
+				type: 'text',
+				xpath: '',
+				startOffset: 0,
+				endOffset: 0,
+				content: part,
+				...(groupId ? { groupId } : {}),
+				// Notes merge across a group on export, so they go back on the first.
+				...(index === 0 && entry.notes?.length ? { notes: entry.notes } : {}),
+			});
+		});
+	});
+
+	return records;
+}
+
+export interface ExportedPage {
+	url: string;
+	title?: string;
+	highlights: ExportedHighlight[];
+	data: AnyHighlightData[];
+}
+
+// One page of a highlights export file. `highlights` is the readable view and
+// must keep the same shape as the {{highlights}} template variable, so DOM
+// internals go in `data`, which lets an import restore the page exactly.
+export function buildExportedPage(
+	url: string,
+	highlights: AnyHighlightData[],
+	title?: string,
+): ExportedPage {
+	return {
+		url,
+		...(title ? { title } : {}),
+		highlights: collapseGroupsForExport(highlights),
+		data: highlights,
+	};
+}
+
 // Cross-tab sync: when another tab/extension page (e.g. highlights.html)
 // deletes or modifies highlights for this URL, pick up the change.
 // The bridge check ensures only the owning module instance acts: if the
@@ -1316,6 +1406,12 @@ function migrateStoredHighlights(): boolean {
 					h.startOffset -= len;
 					h.endOffset -= len;
 					changed = true;
+				}
+				// 3. Backfill the text-quote anchor for highlights saved before it
+				//    existed, so they can re-anchor across DOMs like new ones.
+				if (!h.textQuote) {
+					h.textQuote = createTextQuoteAnchor(el, h.startOffset, h.endOffset);
+					if (h.textQuote) changed = true;
 				}
 			}
 		}
@@ -1432,4 +1528,3 @@ function findLastTextNode(element: Element): Text | null {
 	}
 	return lastNode as Text | null;
 }
-

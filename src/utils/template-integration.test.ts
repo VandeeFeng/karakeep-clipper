@@ -1,3 +1,8 @@
+// @vitest-environment jsdom
+// createMarkdownContent() runs turndown, which needs a DOM (document/DOMParser) to
+// parse the HTML it converts — same as the extension and CLI provide at runtime.
+// Without it, {{content}} fixtures (minimal, edge-cases) get turndown's error
+// fallback instead of real markdown. jsdom supplies those globals for this file.
 import { describe, test, expect, vi, beforeAll, afterAll } from 'vitest';
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join, basename, extname } from 'path';
@@ -151,5 +156,74 @@ describe('Template fixtures', () => {
 		}
 
 		expect(result.trim()).toEqual(expected.trim());
+	});
+});
+
+describe('Template filter compatibility', () => {
+	test('supports nth offset expressions', async () => {
+		const output = await compileTemplate(
+			0,
+			'{{items|nth:n+3}}',
+			{ items: '["a","b","c","d","e"]' },
+			'https://example.com',
+		);
+
+		expect(JSON.parse(output)).toEqual(['c', 'd', 'e']);
+	});
+});
+
+describe('Template diagnostics', () => {
+	test('surfaces non-fatal Knap filter warnings', async () => {
+		const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+
+		try {
+			const output = await compileTemplate(
+				0,
+				'{{ value | replace:"/[/":"x" }}',
+				{ value: 'a[b' },
+				'https://example.com',
+			);
+
+			expect(output).toBe('a[b');
+			expect(warnSpy).toHaveBeenCalledWith(
+				'Template compilation warnings:',
+				expect.stringContaining('filter replace'),
+			);
+		} finally {
+			warnSpy.mockRestore();
+		}
+	});
+});
+
+describe('Schema array compatibility', () => {
+	const variables = {
+		'{{schema:@Movie:director}}': JSON.stringify([{ name: 'Nolan' }, { name: 'Villeneuve' }]),
+		'{{schema:@Movie:genre}}': JSON.stringify(['Drama', 'Thriller']),
+	};
+
+	test('iterates over complete array items', async () => {
+		const output = await compileTemplate(
+			0,
+			'{% for director in schema:@Movie:director[*] %}{{director.name}}{% endfor %}',
+			variables,
+			'https://example.com',
+		);
+		expect(output).toBe('Nolan\nVilleneuve');
+	});
+
+	test('returns complete arrays and indexed values without a property path', async () => {
+		await expect(compileTemplate(
+			0,
+			'{{schema:@Movie:director[*]}}',
+			variables,
+			'https://example.com',
+		)).resolves.toBe('[{"name":"Nolan"},{"name":"Villeneuve"}]');
+
+		await expect(compileTemplate(
+			0,
+			'{{schema:@Movie:genre[0]}}',
+			variables,
+			'https://example.com',
+		)).resolves.toBe('Drama');
 	});
 });

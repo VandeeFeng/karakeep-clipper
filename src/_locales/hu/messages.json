@@ -381,6 +381,14 @@
 	"highlights": {
 		"message": "Kiemelések"
 	},
+	"highlightsImportSuccess": {
+		"message": "$1 kiemelés importálva.",
+		"placeholders": {
+			"1": {
+				"content": "$1"
+			}
+		}
+	},
 	"highlightsNotFound": {
 		"message": "Nem találhatók kiemelések a cikkben"
 	},
@@ -401,6 +409,12 @@
 	},
 	"importFailed": {
 		"message": "Az importálás sikertelen. További részletekért ellenőrizd a konzolt."
+	},
+	"importHighlights": {
+		"message": "Kiemelések importálása"
+	},
+	"importHighlightsDescription": {
+		"message": "Kiemelések importálása fájlból. A meglévő kiemelések megmaradnak."
 	},
 	"importModalTitle": {
 		"message": "Importálás"
@@ -588,6 +602,12 @@
 	"pageVariables": {
 		"message": "Oldalváltozók"
 	},
+	"pagesRead": {
+		"message": "oldal elolvasva"
+	},
+	"pagesReadPlural": {
+		"message": "oldal elolvasva"
+	},
 	"pagesSaved": {
 		"message": "oldal mentve"
 	},
@@ -696,6 +716,9 @@
 	"rateExtensionDescription": {
 		"message": "Tetszik a Web Clipper? Segíts nekünk azzal, hogy értékeled."
 	},
+	"read": {
+		"message": "Elolvasva"
+	},
 	"reader": {
 		"message": "Olvasó"
 	},
@@ -785,6 +808,9 @@
 	},
 	"readerFontSystemSerif": {
 		"message": "Serif"
+	},
+	"readerFontUnavailable": {
+		"message": "Ez a betűtípus itt nem érhető el — előfordulhat, hogy a böngészője blokkolja az egyéni betűtípusokat."
 	},
 	"readerFonts": {
 		"message": "Betűtípusok"
@@ -893,6 +919,9 @@
 	},
 	"saveBehaviorLabel": {
 		"message": "Mentési viselkedés"
+	},
+	"saved": {
+		"message": "Mentve"
 	},
 	"saveFile": {
 		"message": "Fájl mentése..."

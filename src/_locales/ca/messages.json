@@ -381,6 +381,14 @@
 	"highlights": {
 		"message": "Ressaltats"
 	},
+	"highlightsImportSuccess": {
+		"message": "S'han importat $1 destacats.",
+		"placeholders": {
+			"1": {
+				"content": "$1"
+			}
+		}
+	},
 	"highlightsNotFound": {
 		"message": "No s'han trobat ressaltats a l'article"
 	},
@@ -401,6 +409,12 @@
 	},
 	"importFailed": {
 		"message": "La importació ha fallat. Consulti la consola per obtenir més detalls."
+	},
+	"importHighlights": {
+		"message": "Importa destacats"
+	},
+	"importHighlightsDescription": {
+		"message": "Importa destacats des d'un fitxer. Es conserven els destacats existents."
 	},
 	"importModalTitle": {
 		"message": "Importar"
@@ -588,6 +602,12 @@
 	"pageVariables": {
 		"message": "Variables de pàgina"
 	},
+	"pagesRead": {
+		"message": "pàgina llegida"
+	},
+	"pagesReadPlural": {
+		"message": "pàgines llegides"
+	},
 	"pagesSaved": {
 		"message": "pàgina desada"
 	},
@@ -696,6 +716,9 @@
 	"rateExtensionDescription": {
 		"message": "T'està agradant Web Clipper? Ajuda'ns donant-li una valoració."
 	},
+	"read": {
+		"message": "Llegides"
+	},
 	"reader": {
 		"message": "Lector"
 	},
@@ -785,6 +808,9 @@
 	},
 	"readerFontSystemSerif": {
 		"message": "Serif"
+	},
+	"readerFontUnavailable": {
+		"message": "Aquesta lletra no està disponible aquí — el navegador podria estar bloquejant les lletres personalitzades."
 	},
 	"readerFonts": {
 		"message": "Lletres"
@@ -893,6 +919,9 @@
 	},
 	"saveBehaviorLabel": {
 		"message": "Comportament de guardar"
+	},
+	"saved": {
+		"message": "Desades"
 	},
 	"saveFile": {
 		"message": "Guardar fitxer..."

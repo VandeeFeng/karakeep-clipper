@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C815A672FDC810000B107DA /* content-loader.js in Resources */ = {isa = PBXBuildFile; fileRef = 6C815A662FDC810000B107DA /* content-loader.js */; };
+		6C815A682FDC810000B107DA /* content-loader.js in Resources */ = {isa = PBXBuildFile; fileRef = 6C815A662FDC810000B107DA /* content-loader.js */; };
 		7A15D4702CB5D97B00BC4F99 /* highlighter.css in Resources */ = {isa = PBXBuildFile; fileRef = 7A15D46F2CB5D97B00BC4F99 /* highlighter.css */; };
 		7A15D4712CB5D97B00BC4F99 /* highlighter.css in Resources */ = {isa = PBXBuildFile; fileRef = 7A15D46F2CB5D97B00BC4F99 /* highlighter.css */; };
 		7A6480592D820A9800A5924D /* reader.css in Resources */ = {isa = PBXBuildFile; fileRef = 7A6480582D820A9800A5924D /* reader.css */; };
@@ -116,6 +118,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6C815A662FDC810000B107DA /* content-loader.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "content-loader.js"; path = "../../../dist_safari/content-loader.js"; sourceTree = "<group>"; };
 		7A15D46F2CB5D97B00BC4F99 /* highlighter.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = highlighter.css; path = ../../../dist_safari/highlighter.css; sourceTree = "<group>"; };
 		7A6480582D820A9800A5924D /* reader.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = reader.css; path = ../../../dist_safari/reader.css; sourceTree = "<group>"; };
 		7A6535C82D8B530300DDF54C /* reader-script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = "reader-script.js"; path = "../../../dist_safari/reader-script.js"; sourceTree = "<group>"; };
@@ -302,6 +305,7 @@
 				7A6480582D820A9800A5924D /* reader.css */,
 				7AEF05D52CA0F50D005FFBC2 /* manifest.json */,
 				7AEF05D62CA0F50D005FFBC2 /* content.js */,
+				6C815A662FDC810000B107DA /* content-loader.js */,
 				7AEF05D82CA0F50D005FFBC2 /* settings.html */,
 				7A6535C82D8B530300DDF54C /* reader-script.js */,
 				7AEF05DA2CA0F50D005FFBC2 /* settings.js */,
@@ -484,6 +488,7 @@
 				AF3D6D4C2F8B297F004F2D8D /* reader.html in Resources */,
 				7AEF05EE2CA0F50D005FFBC2 /* browser-polyfill.min.js in Resources */,
 				7AEF05F22CA0F50D005FFBC2 /* content.js in Resources */,
+				6C815A672FDC810000B107DA /* content-loader.js in Resources */,
 				7AEF05F12CA0F50D005FFBC2 /* manifest.json in Resources */,
 				7AEF05EB2CA0F50D005FFBC2 /* popup.js in Resources */,
 				7A64805A2D820A9800A5924D /* reader.css in Resources */,
@@ -510,6 +515,7 @@
 				AF3D6D482F8B297F004F2D8D /* reader.html in Resources */,
 				7AEF05E12CA0F50D005FFBC2 /* browser-polyfill.min.js in Resources */,
 				7AEF05E52CA0F50D005FFBC2 /* content.js in Resources */,
+				6C815A682FDC810000B107DA /* content-loader.js in Resources */,
 				7AEF05E42CA0F50D005FFBC2 /* manifest.json in Resources */,
 				7AEF05DE2CA0F50D005FFBC2 /* popup.js in Resources */,
 				7A6480592D820A9800A5924D /* reader.css in Resources */,
@@ -732,7 +738,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 54;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Obsidian Web Clipper Extension";
@@ -743,7 +749,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.6.2;
+				MARKETING_VERSION = 1.7.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -762,7 +768,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 54;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Obsidian Web Clipper Extension";
@@ -773,7 +779,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.6.2;
+				MARKETING_VERSION = 1.7.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -796,7 +802,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 54;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Web Clipper";
@@ -811,7 +817,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.2;
+				MARKETING_VERSION = 1.7.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -834,7 +840,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 54;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Web Clipper";
@@ -849,7 +855,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.2;
+				MARKETING_VERSION = 1.7.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -872,7 +878,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Obsidian Web Clipper.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 54;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "Shared\\ (App)/Assets.xcassets";
 				ENABLE_APP_SANDBOX = YES;
@@ -888,7 +894,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.6.2;
+				MARKETING_VERSION = 1.7.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -908,7 +914,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Obsidian Web Clipper.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 54;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "Shared\\ (App)/Assets.xcassets";
 				ENABLE_APP_SANDBOX = YES;
@@ -924,7 +930,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.6.2;
+				MARKETING_VERSION = 1.7.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -947,7 +953,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Obsidian Web Clipper.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 54;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -964,7 +970,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.6.2;
+				MARKETING_VERSION = 1.7.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
@@ -988,7 +994,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Obsidian Web Clipper.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 54;
 				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1005,7 +1011,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.6.2;
+				MARKETING_VERSION = 1.7.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
