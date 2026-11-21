@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-clipper",
-	"version": "1.7.1",
+	"version": "1.8.4",
 	"description": "Official web clipper for Obsidian.",
 	"bin": {
 		"obsidian-clipper": "./dist/cli.cjs"
@@ -24,6 +24,12 @@
 		"build": "npm run build:chrome && npm run build:firefox && npm run build:safari",
 		"build:cli": "node scripts/build-cli.mjs",
 		"build:api": "node scripts/build-api.mjs",
+		"release": "node scripts/release.mjs",
+		"release:chrome": "node scripts/release.mjs chrome",
+		"release:edge": "node scripts/release.mjs edge",
+		"release:firefox": "node scripts/release.mjs firefox",
+		"release:safari": "node scripts/release.mjs safari",
+		"release:github": "node scripts/release.mjs github",
 		"dev": "npm run dev:chrome",
 		"test": "vitest run",
 		"test:watch": "vitest",
@@ -65,7 +71,7 @@
 		"@lezer/highlight": "^1.2.3",
 		"@types/safari-extension": "^0.0.33",
 		"dayjs": "^1.11.13",
-		"defuddle": "^0.19.2",
+		"defuddle": "^0.19.13",
 		"dompurify": "^3.4.18",
 		"highlight.js": "^11.11.1",
 		"knap": "^0.6.0",

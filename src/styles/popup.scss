@@ -15,7 +15,8 @@
 }
 .is-side-panel,
 .is-mobile-safari,
-.is-firefox-mobile {
+.is-firefox-mobile,
+.is-android {
 	--popup-height: 100vh;
 	--popup-max-height: 100vh;
 	--popup-width: 100vw;
@@ -259,12 +260,41 @@
 	}
 }
 
+// Safari replaces the secondary actions with the share sheet.
+.is-tablet,
+.is-mobile-safari {
+	.action-buttons #more-btn {
+		display: none;
+	}
+}
+
+.is-android {
+	&:not(.is-embedded) .clipper .clipper-footer {
+		padding-bottom: var(--popup-padding);
+	}
+	.action-buttons {
+		// The popup focuses this button on open.
+		#clip-btn:focus {
+			box-shadow: none;
+		}
+		.menu-btn,
+		#more-btn {
+			border-start-end-radius: 2rem;
+			border-end-end-radius: 2rem;
+		}
+		#more-btn {
+			padding-inline: 0.5rem 0.75rem;
+		}
+	}
+	#more-dropdown {
+		bottom: 0;
+		margin-bottom: 0;
+	}
+}
+
 .is-tablet,
 .is-mobile {
 	.action-buttons {
-		#more-btn {
-			display: none;
-		}
 		.share-btn {
 			margin-inline-start: 0.25rem;
 			display: flex;
