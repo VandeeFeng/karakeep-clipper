@@ -2,20 +2,8 @@
 	"activity": {
 		"message": "Aktivita"
 	},
-	"addModel": {
-		"message": "+ Pridať model"
-	},
-	"addModelTitle": {
-		"message": "Pridať model"
-	},
 	"addProperty": {
 		"message": "+ Pridať vlastnosť"
-	},
-	"addProvider": {
-		"message": "+ Pridať poskytovateľa"
-	},
-	"addProviderTitle": {
-		"message": "Pridať poskytovateľa"
 	},
 	"addToObsidian": {
 		"message": "Pridať do Obsidianu"
@@ -41,23 +29,11 @@
 	"alwaysShowHighlightsDescription": {
 		"message": "Zobrazovať uložené zvýraznenia pri načítaní stránky. Vypnite, ak chcete zvýraznenia zobrazovať iba pri aktivovanom režime zvýrazňovania."
 	},
-	"apiKeyMissing": {
-		"message": "Chýba API kľúč"
-	},
-	"apiKeysWarning": {
-		"message": "Používaním externého poskytovateľa súhlasíte s jeho podmienkami a zásadami ochrany súkromia. Požiadavky tlmočníka sa odosielajú priamo poskytovateľovi, ktorého si vyberiete. Obsidian nezhromažďuje ani neukladá žiadne údaje o vašich požiadavkách."
-	},
 	"appendToDaily": {
 		"message": "Pridať do dennej poznámky, na koniec"
 	},
 	"appendToExisting": {
 		"message": "Pridať do existujúcej poznámky, na koniec"
-	},
-	"autoRunInterpreter": {
-		"message": "Spúšťať automaticky"
-	},
-	"autoRunInterpreterDescription": {
-		"message": "Okamžite spustiť premenné výzvy, ak ich šablóna obsahuje. Tým sa spotrebujú API kredity u vášho poskytovateľa modelu. Vypnite, ak chcete tlmočníka spúšťať iba manuálne."
 	},
 	"behavior": {
 		"message": "Správanie"
@@ -73,9 +49,6 @@
 	},
 	"cancel": {
 		"message": "Zrušiť"
-	},
-	"cannotDeleteProvider": {
-		"message": "Nie je možné odstrániť poskytovateľa „$1“, pretože ho používa $2 model(ov)."
 	},
 	"changelog": {
 		"message": "Zoznam zmien"
@@ -147,17 +120,8 @@
 	"createNewNote": {
 		"message": "Vytvoriť novú poznámku"
 	},
-	"custom": {
-		"message": "Vlastné"
-	},
 	"dailyNoteFormat": {
 		"message": "Formát dennej poznámky (napr. YYYY-MM-DD)"
-	},
-	"defaultInterpreterContext": {
-		"message": "Predvolený kontext tlmočníka"
-	},
-	"defaultInterpreterContextDescription": {
-		"message": "Prepísať kontext používaný na interpretáciu premenných výzvy. Premenné tu možno použiť."
 	},
 	"defaultTemplateName": {
 		"message": "Predvolené"
@@ -173,12 +137,6 @@
 	},
 	"deleteHighlightsForPage": {
 		"message": "Odstrániť všetky zvýraznenia pre túto stránku?"
-	},
-	"deleteModelConfirm": {
-		"message": "Naozaj chcete odstrániť tento model?"
-	},
-	"deleteProviderConfirm": {
-		"message": "Naozaj chcete odstrániť tohto poskytovateľa?"
 	},
 	"disableHighlighter": {
 		"message": "Vypnúť zvýrazňovač"
@@ -212,12 +170,6 @@
 	"edit": {
 		"message": "Upraviť"
 	},
-	"editModel": {
-		"message": "Upraviť model"
-	},
-	"editProvider": {
-		"message": "Upraviť poskytovateľa"
-	},
 	"editTemplate": {
 		"message": "Upraviť šablónu"
 	},
@@ -226,26 +178,6 @@
 	},
 	"enableHighlighterDescription": {
 		"message": "Zvýrazňujte obsah na webových stránkach, ktorý môžete uložiť do Obsidianu."
-	},
-	"enableInterpreter": {
-		"message": "Zapnúť tlmočníka"
-	},
-	"enableInterpreterDescription": {
-		"message": "Použite prirodzený jazyk na extrahovanie údajov zo stránok. Napríklad môžete použiť syntax šablóny $strong_start${{\"a summary of the page\"}}$strong_end$. Vyžaduje API kľúč alebo vlastný model nakonfigurovaný nižšie. $link_start$Zistiť viac$link_end$.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"https://help.obsidian.md/web-clipper/interpreter\" target=\"_blank\">"
-			},
-			"strong_end": {
-				"content": "</strong>"
-			},
-			"strong_start": {
-				"content": "<strong>"
-			}
-		}
 	},
 	"enableReader": {
 		"message": "Otvoriť režim čítania"
@@ -315,12 +247,6 @@
 	"failedToInitializeContent": {
 		"message": "Nepodarilo sa inicializovať obsah stránky."
 	},
-	"failedToProcessInterpreter": {
-		"message": "Spracovanie tlmočníkom zlyhalo. Skúste to znova."
-	},
-	"failedToResetProviders": {
-		"message": "Nepodarilo sa obnoviť poskytovateľov a modely"
-	},
 	"failedToResetTemplate": {
 		"message": "Nepodarilo sa obnoviť predvolenú šablónu. Skúste to znova."
 	},
@@ -329,9 +255,6 @@
 	},
 	"failedToSaveFile": {
 		"message": "Nepodarilo sa uložiť súbor"
-	},
-	"failedToSaveProvider": {
-		"message": "Nepodarilo sa uložiť poskytovateľa. Skúste to znova."
 	},
 	"feedback": {
 		"message": "Spätná väzba"
@@ -350,9 +273,6 @@
 	},
 	"generalSettings": {
 		"message": "Všeobecné nastavenia"
-	},
-	"getApiKeyHere": {
-		"message": "Získajte svoj API kľúč pre $1 tu."
 	},
 	"help": {
 		"message": "Pomoc"
@@ -445,26 +365,6 @@
 	"importTemplate": {
 		"message": "Importovať šablónu"
 	},
-	"interpret": {
-		"message": "interpretovať"
-	},
-	"interpreter": {
-		"message": "Tlmočník"
-	},
-	"interpreterContext": {
-		"message": "Kontext tlmočníka"
-	},
-	"interpreterContextDescription": {
-		"message": "Kontext používaný na interpretáciu premenných výzvy. Prepíše predvolený kontext definovaný v $link_start$Nastaveniach tlmočníka$link_end$. Premenné tu možno použiť.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"?section=interpreter\">"
-			}
-		}
-	},
 	"language": {
 		"message": "Jazyk"
 	},
@@ -488,30 +388,6 @@
 	},
 	"loading": {
 		"message": "Načítava sa…"
-	},
-	"modelName": {
-		"message": "Zobrazovaný názov"
-	},
-	"modelNameDescription": {
-		"message": "Názov modelu, ktorý chcete zobrazovať v rozhraní."
-	},
-	"modelProvider": {
-		"message": "Poskytovateľ"
-	},
-	"modelProviderDescription": {
-		"message": "Vyberte poskytovateľa pre tento model."
-	},
-	"modelProviderPlaceholder": {
-		"message": "Poskytovateľ"
-	},
-	"modelRequiredFields": {
-		"message": "Vyžadujú sa názov modelu, poskytovateľ a ID modelu."
-	},
-	"models": {
-		"message": "Modely"
-	},
-	"modelsListFor": {
-		"message": "Zoznam modelov pre $1"
 	},
 	"more": {
 		"message": "Viac"
@@ -620,12 +496,6 @@
 	"pleaseReload": {
 		"message": "Skúste stránku znovu načítať."
 	},
-	"popularModels": {
-		"message": "Populárne modely"
-	},
-	"popularModelsDescription": {
-		"message": "Vyberte si z bežne používaných modelov alebo zadajte podrobnosti vlastného modelu."
-	},
 	"popup": {
 		"message": "Vyskakovacie okno"
 	},
@@ -670,48 +540,6 @@
 	},
 	"propertyValue": {
 		"message": "Hodnota vlastnosti"
-	},
-	"provider": {
-		"message": "Poskytovateľ"
-	},
-	"providerApiKey": {
-		"message": "API kľúč"
-	},
-	"providerApiKeyDescription": {
-		"message": "Váš API kľúč pre tohto poskytovateľa."
-	},
-	"providerBaseUrl": {
-		"message": "Základná URL"
-	},
-	"providerBaseUrlDescription": {
-		"message": "URL koncového bodu API pre tohto poskytovateľa."
-	},
-	"providerModelId": {
-		"message": "ID modelu"
-	},
-	"providerModelIdDescription": {
-		"message": "Identifikátor modelu od vášho poskytovateľa. Zvyčajne krátky názov bez medzier."
-	},
-	"providerModelIdPlaceholder": {
-		"message": "ID modelu"
-	},
-	"providerName": {
-		"message": "Názov poskytovateľa"
-	},
-	"providerNameDescription": {
-		"message": "Zobrazovaný názov pre tohto poskytovateľa."
-	},
-	"providerPreset": {
-		"message": "Predvoľba"
-	},
-	"providerPresetDescription": {
-		"message": "Vyberte poskytovateľa alebo vytvorte vlastného."
-	},
-	"providerRequiredFields": {
-		"message": "Vyžadujú sa názov poskytovateľa a základná URL."
-	},
-	"providers": {
-		"message": "Poskytovatelia"
 	},
 	"rateExtensionDescription": {
 		"message": "Páči sa vám Web Clipper? Pomôžte nám tým, že mu dáte hodnotenie."
@@ -872,9 +700,6 @@
 	"readerViewFullSize": {
 		"message": "Zobraziť v plnej veľkosti"
 	},
-	"recommended": {
-		"message": "odporúčané"
-	},
 	"refresh": {
 		"message": "Obnoviť"
 	},
@@ -905,12 +730,6 @@
 	"resetDefaultTemplateDescription": {
 		"message": "Odstrániť všetky zmeny, ktoré ste vykonali v predvolenej šablóne."
 	},
-	"resetProvidersAndModels": {
-		"message": "Obnoviť predvolené modely"
-	},
-	"resetProvidersAndModelsDescription": {
-		"message": "Obnoviť poskytovateľov a modely na predvolené nastavenia."
-	},
 	"save": {
 		"message": "Uložiť"
 	},
@@ -931,9 +750,6 @@
 	},
 	"searchVariables": {
 		"message": "Hľadať premenné..."
-	},
-	"selectProvider": {
-		"message": "Vyberte poskytovateľa"
 	},
 	"selectTemplateToExport": {
 		"message": "Vyberte šablónu na export."
@@ -1054,9 +870,6 @@
 	},
 	"thinking": {
 		"message": "premýšľa sa"
-	},
-	"unknownProvider": {
-		"message": "Neznámy poskytovateľ"
 	},
 	"updateAvailable": {
 		"message": "Je k dispozícii aktualizácia."

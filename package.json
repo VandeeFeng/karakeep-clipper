@@ -33,7 +33,6 @@
 		"dev": "npm run dev:chrome",
 		"test": "vitest run",
 		"test:watch": "vitest",
-		"update-locales": "ts-node --project scripts/tsconfig.json scripts/update-locales.ts",
 		"check-strings": "ts-node --project scripts/tsconfig.json scripts/check-unused-strings.ts",
 		"add-locale": "ts-node --project scripts/tsconfig.json scripts/add-locale.ts",
 		"prepublishOnly": "npm run build:cli && npm run build:api"
@@ -46,7 +45,6 @@
 		"@types/webpack-env": "^1.18.5",
 		"copy-webpack-plugin": "^14.0.0",
 		"css-loader": "^7.1.2",
-		"dotenv": "^16.4.1",
 		"esbuild": "^0.28.1",
 		"jsdom": "^29.1.1",
 		"mini-css-extract-plugin": "^2.9.1",

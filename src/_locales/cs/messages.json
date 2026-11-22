@@ -2,20 +2,8 @@
 	"activity": {
 		"message": "Aktivita"
 	},
-	"addModel": {
-		"message": "+ Přidat model"
-	},
-	"addModelTitle": {
-		"message": "Přidat model"
-	},
 	"addProperty": {
 		"message": "+ Přidat vlastnost"
-	},
-	"addProvider": {
-		"message": "+ Přidat poskytovatele"
-	},
-	"addProviderTitle": {
-		"message": "Přidat poskytovatele"
 	},
 	"addToObsidian": {
 		"message": "Přidat do Obsidianu"
@@ -41,23 +29,11 @@
 	"alwaysShowHighlightsDescription": {
 		"message": "Zobrazit uložená zvýraznění při načtení stránky. Vypněte pro zobrazení zvýraznění pouze při aktivním režimu zvýrazňování."
 	},
-	"apiKeyMissing": {
-		"message": "Chybí API klíč"
-	},
-	"apiKeysWarning": {
-		"message": "Používáním externího poskytovatele souhlasíte s jejich podmínkami a zásadami ochrany osobních údajů. Požadavky překladače jsou odesílány přímo vašemu vybranému poskytovateli. Obsidian neshromažďuje ani neukládá žádné informace o vašich požadavcích."
-	},
 	"appendToDaily": {
 		"message": "Připojit k denní poznámce, na konec"
 	},
 	"appendToExisting": {
 		"message": "Připojit k existující poznámce, na konec"
-	},
-	"autoRunInterpreter": {
-		"message": "Automatické spuštění"
-	},
-	"autoRunInterpreterDescription": {
-		"message": "Okamžitě spustí proměnné výzvy, pokud je šablona obsahuje. Spotřebuje API kredity u vašeho poskytovatele modelu. Vypněte, pokud chcete spouštět překladač pouze ručně."
 	},
 	"behavior": {
 		"message": "Chování"
@@ -73,9 +49,6 @@
 	},
 	"cancel": {
 		"message": "Zrušit"
-	},
-	"cannotDeleteProvider": {
-		"message": "Nelze smazat poskytovatele \"$1\", protože je používán $2 modely."
 	},
 	"changelog": {
 		"message": "Seznam změn"
@@ -147,17 +120,8 @@
 	"createNewNote": {
 		"message": "Vytvořit novou poznámku"
 	},
-	"custom": {
-		"message": "Vlastní"
-	},
 	"dailyNoteFormat": {
 		"message": "Formát denní poznámky (např., RRRR-MM-DD)"
-	},
-	"defaultInterpreterContext": {
-		"message": "Výchozí kontext překladače"
-	},
-	"defaultInterpreterContextDescription": {
-		"message": "Přepsat kontext používaný pro překlad proměnných výzev. Zde lze použít proměnné."
 	},
 	"defaultTemplateName": {
 		"message": "Výchozí"
@@ -173,12 +137,6 @@
 	},
 	"deleteHighlightsForPage": {
 		"message": "Smazat všechny zvýrazněné pasáže pro tuto stránku?"
-	},
-	"deleteModelConfirm": {
-		"message": "Opravdu chcete smazat tento model?"
-	},
-	"deleteProviderConfirm": {
-		"message": "Opravdu chcete smazat tohoto poskytovatele?"
 	},
 	"disableHighlighter": {
 		"message": "Deaktivovat zvýrazňovač"
@@ -212,12 +170,6 @@
 	"edit": {
 		"message": "Upravit"
 	},
-	"editModel": {
-		"message": "Upravit model"
-	},
-	"editProvider": {
-		"message": "Upravit poskytovatele"
-	},
 	"editTemplate": {
 		"message": "Upravit šablonu"
 	},
@@ -226,26 +178,6 @@
 	},
 	"enableHighlighterDescription": {
 		"message": "Zvýrazněte obsah na webových stránkách, který můžete uložit do Obsidian."
-	},
-	"enableInterpreter": {
-		"message": "Povolit překladač"
-	},
-	"enableInterpreterDescription": {
-		"message": "Použijte přirozený jazyk k extrakci dat ze stránek. Například můžete použít syntaxi šablony $strong_start${{\"shrnutí stránky\"}}$strong_end$. Vyžaduje klíč API nebo vlastní model nakonfigurovaný níže. $link_start$Zjistěte více$link_end$.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"https://help.obsidian.md/web-clipper/interpreter\" target=\"_blank\">"
-			},
-			"strong_end": {
-				"content": "</strong>"
-			},
-			"strong_start": {
-				"content": "<strong>"
-			}
-		}
 	},
 	"enableReader": {
 		"message": "Otevřít čtecí zobrazení"
@@ -315,12 +247,6 @@
 	"failedToInitializeContent": {
 		"message": "Nelze inicializovat obsah stránky."
 	},
-	"failedToProcessInterpreter": {
-		"message": "Zpracování interpreta selhalo. Zkuste to prosím znovu."
-	},
-	"failedToResetProviders": {
-		"message": "Nepodařilo se resetovat poskytovatele a modely"
-	},
 	"failedToResetTemplate": {
 		"message": "Nepodařilo se resetovat výchozí šablonu. Zkuste to prosím znovu."
 	},
@@ -329,9 +255,6 @@
 	},
 	"failedToSaveFile": {
 		"message": "Nepodařilo se uložit soubor"
-	},
-	"failedToSaveProvider": {
-		"message": "Nepodařilo se uložit poskytovatele. Zkuste to prosím znovu."
 	},
 	"feedback": {
 		"message": "Zpětná vazba"
@@ -350,9 +273,6 @@
 	},
 	"generalSettings": {
 		"message": "Obecná nastavení"
-	},
-	"getApiKeyHere": {
-		"message": "Získejte svůj $1 API klíč zde"
 	},
 	"help": {
 		"message": "Nápověda"
@@ -445,26 +365,6 @@
 	"importTemplate": {
 		"message": "Importovat šablonu"
 	},
-	"interpret": {
-		"message": "Interpretovat"
-	},
-	"interpreter": {
-		"message": "Překladač"
-	},
-	"interpreterContext": {
-		"message": "Kontext překladače"
-	},
-	"interpreterContextDescription": {
-		"message": "Kontext používaný pro interpretaci proměnných výzvy. Přepíše výchozí kontext nastavený v $link_start$nastavení překladače$link_end$. Zde lze použít proměnné.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"?section=interpreter\">"
-			}
-		}
-	},
 	"language": {
 		"message": "Jazyk"
 	},
@@ -488,30 +388,6 @@
 	},
 	"loading": {
 		"message": "Načítání…"
-	},
-	"modelName": {
-		"message": "Název modelu"
-	},
-	"modelNameDescription": {
-		"message": "Název zobrazený v rozbalovací nabídce modelu"
-	},
-	"modelProvider": {
-		"message": "Poskytovatel"
-	},
-	"modelProviderDescription": {
-		"message": "Vyberte poskytovatele pro tento model."
-	},
-	"modelProviderPlaceholder": {
-		"message": "Poskytovatel"
-	},
-	"modelRequiredFields": {
-		"message": "Název modelu, Poskytovatel a ID modelu jsou povinné."
-	},
-	"models": {
-		"message": "Modely"
-	},
-	"modelsListFor": {
-		"message": "Seznam modelů pro $1"
 	},
 	"more": {
 		"message": "Více"
@@ -612,12 +488,6 @@
 	"pleaseReload": {
 		"message": "Zkuste prosím znovu načíst stránku."
 	},
-	"popularModels": {
-		"message": "Populární modely"
-	},
-	"popularModelsDescription": {
-		"message": "Vyberte z běžně používaných modelů nebo zadejte detaily vlastního modelu."
-	},
 	"popup": {
 		"message": "Vyskakovací okno"
 	},
@@ -662,48 +532,6 @@
 	},
 	"propertyValue": {
 		"message": "Hodnota vlastnosti"
-	},
-	"provider": {
-		"message": "Poskytovatel"
-	},
-	"providerApiKey": {
-		"message": "API klíč"
-	},
-	"providerApiKeyDescription": {
-		"message": "Váš API klíč pro tohoto poskytovatele."
-	},
-	"providerBaseUrl": {
-		"message": "Základní URL"
-	},
-	"providerBaseUrlDescription": {
-		"message": "URL koncového bodu API pro tohoto poskytovatele."
-	},
-	"providerModelId": {
-		"message": "ID modelu"
-	},
-	"providerModelIdDescription": {
-		"message": "Identifikátor modelu od vašeho poskytovatele. Obvykle krátký název bez mezer."
-	},
-	"providerModelIdPlaceholder": {
-		"message": "ID modelu"
-	},
-	"providerName": {
-		"message": "Název poskytovatele"
-	},
-	"providerNameDescription": {
-		"message": "Zobrazovaný název tohoto poskytovatele."
-	},
-	"providerPreset": {
-		"message": "Přednastavení"
-	},
-	"providerPresetDescription": {
-		"message": "Vyberte poskytovatele nebo vytvořte vlastního."
-	},
-	"providerRequiredFields": {
-		"message": "Název poskytovatele a základní URL jsou povinná pole."
-	},
-	"providers": {
-		"message": "Poskytovatelé"
 	},
 	"rateExtensionDescription": {
 		"message": "Líbí se vám Web Clipper? Pomozte nám jeho ohodnocením."
@@ -864,9 +692,6 @@
 	"readerViewFullSize": {
 		"message": "Zobrazit v plné velikosti"
 	},
-	"recommended": {
-		"message": "doporučeno"
-	},
 	"refresh": {
 		"message": "Obnovit"
 	},
@@ -897,12 +722,6 @@
 	"resetDefaultTemplateDescription": {
 		"message": "Odstraňte všechny změny, které jste provedli ve výchozí šabloně."
 	},
-	"resetProvidersAndModels": {
-		"message": "Resetovat výchozí modely"
-	},
-	"resetProvidersAndModelsDescription": {
-		"message": "Resetujte poskytovatele a modely na výchozí nastavení."
-	},
 	"save": {
 		"message": "Uložit"
 	},
@@ -923,9 +742,6 @@
 	},
 	"searchVariables": {
 		"message": "Hledat proměnné..."
-	},
-	"selectProvider": {
-		"message": "Vyberte poskytovatele"
 	},
 	"selectTemplateToExport": {
 		"message": "Vyberte prosím šablonu k exportu."
@@ -1046,9 +862,6 @@
 	},
 	"thinking": {
 		"message": "přemýšlím"
-	},
-	"unknownProvider": {
-		"message": "Neznámý poskytovatel"
 	},
 	"updateAvailable": {
 		"message": "Je k dispozici aktualizace."

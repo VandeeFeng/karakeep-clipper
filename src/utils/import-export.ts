@@ -11,6 +11,7 @@ import { saveFile } from './file-utils';
 import { copyToClipboard } from './clipboard-utils';
 import { compressToUTF16, decompressFromUTF16 } from 'lz-string';
 import { getMessage } from './i18n';
+import { removeAiSettings, removeAiTemplateContext } from './ai-settings-cleanup';
 
 const SCHEMA_VERSION = '0.1.0';
 
@@ -51,11 +52,6 @@ export async function exportTemplate(): Promise<void> {
 		orderedTemplate.path = template.path;
 	}
 
-	// Include context only if it has a value
-	if (template.context) {
-		orderedTemplate.context = template.context;
-	}
-
 	const content = JSON.stringify(orderedTemplate, null, '\t');
 	
 	await saveFile({
@@ -77,7 +73,7 @@ export function importTemplate(input?: HTMLInputElement): void {
 		const reader = new FileReader();
 		reader.onload = async (e: ProgressEvent<FileReader>) => {
 			try {
-				const importedTemplate = JSON.parse(e.target?.result as string) as Partial<Template>;
+				const importedTemplate = removeAiTemplateContext(JSON.parse(e.target?.result as string)) as Partial<Template>;
 				console.log('Imported template:', importedTemplate);
 
 				if (!validateImportedTemplate(importedTemplate)) {
@@ -106,11 +102,6 @@ export function importTemplate(input?: HTMLInputElement): void {
 				}
 
 				console.log('Processed template properties:', importedTemplate.properties);
-
-				// Keep the context if it exists in the imported template
-				if (importedTemplate.context) {
-					importedTemplate.context = importedTemplate.context;
-				}
 
 				let newName = importedTemplate.name as string;
 				let counter = 1;
@@ -164,10 +155,7 @@ function validateImportedTemplate(template: Partial<Template>): boolean {
 	// Check for noteNameFormat and path only if it's not a daily note template
 	const hasValidNoteNameAndPath = isDailyNote || (template.hasOwnProperty('noteNameFormat') && template.hasOwnProperty('path'));
 
-	// Add optional check for context
-	const hasValidContext = !template.context || typeof template.context === 'string';
-
-	return hasRequiredFields && hasValidProperties && hasValidNoteNameAndPath && hasValidContext;
+	return hasRequiredFields && hasValidProperties && hasValidNoteNameAndPath;
 }
 
 function preventDefaults(e: Event): void {
@@ -189,6 +177,7 @@ function handleFiles(files: FileList): void {
 }
 
 async function processImportedTemplate(importedTemplate: Partial<Template>): Promise<Template> {
+	importedTemplate = removeAiTemplateContext(importedTemplate);
 	console.log('Processing imported template:', importedTemplate);
 
 	if (!validateImportedTemplate(importedTemplate)) {
@@ -305,11 +294,6 @@ export function copyTemplateToClipboard(template: Template): void {
 		orderedTemplate.path = template.path;
 	}
 
-	// Include context only if it has a value
-	if (template.context) {
-		orderedTemplate.context = template.context;
-	}
-
 	const jsonContent = JSON.stringify(orderedTemplate, null, 2);
 	
 	copyToClipboard(
@@ -328,10 +312,7 @@ export async function exportAllSettings(): Promise<void> {
 	try {
 		console.log('Fetching all data from browser storage');
 		const allData = await browser.storage.sync.get(null) as StorageData;
-		console.log('All data fetched:', allData);
-
-		// Create a copy of the data to modify
-		const exportData: StorageData = { ...allData };
+		const exportData: StorageData = removeAiSettings(allData);
 
 		// Decompress all templates
 		const templateIds = exportData.template_list || [];
@@ -385,7 +366,7 @@ async function importAllSettingsFromJson(jsonContent: string): Promise<void> {
 		
 		if (confirm(getMessage('confirmReplaceSettings'))) {
 			// Create a copy of the settings to modify
-			const importData: StorageData = { ...settings };
+			const importData: StorageData = removeAiSettings(settings);
 			
 			// Compress all templates
 			const templateIds = importData.template_list || [];

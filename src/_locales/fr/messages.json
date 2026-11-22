@@ -2,20 +2,8 @@
 	"activity": {
 		"message": "Activité"
 	},
-	"addModel": {
-		"message": "+ Ajouter un modèle"
-	},
-	"addModelTitle": {
-		"message": "Ajouter un modèle de langage"
-	},
 	"addProperty": {
 		"message": "+ Ajouter une propriété"
-	},
-	"addProvider": {
-		"message": "+ Ajouter un fournisseur"
-	},
-	"addProviderTitle": {
-		"message": "Ajouter un fournisseur"
 	},
 	"addToObsidian": {
 		"message": "Ajouter à Obsidian"
@@ -41,23 +29,11 @@
 	"alwaysShowHighlightsDescription": {
 		"message": "Affiche vos surlignages sauvegardés lors du chargement d'une page. Désactivez pour n'afficher les surlignages que lorsque le mode surlignage est activé."
 	},
-	"apiKeyMissing": {
-		"message": "Pas de clé API"
-	},
-	"apiKeysWarning": {
-		"message": "En utilisant un fournisseur externe, vous acceptez leurs conditions d'utilisation et leur politique de confidentialité. Les requêtes de l'interpréteur sont envoyées directement au fournisseur que vous choisissez. Obsidian ne collecte et ne stocke aucune donnée concernant vos requêtes."
-	},
 	"appendToDaily": {
 		"message": "Ajouter à la note quotidienne, à la fin"
 	},
 	"appendToExisting": {
 		"message": "Ajouter à une note existante, à la fin"
-	},
-	"autoRunInterpreter": {
-		"message": "Exécuter automatiquement"
-	},
-	"autoRunInterpreterDescription": {
-		"message": "Exécute les variables de prompt immédiatement si le modèle en contient. Cela consommera des crédits API avec votre fournisseur de modèle. Désactivez si vous souhaitez exécuter l'interpréteur manuellement uniquement."
 	},
 	"behavior": {
 		"message": "Comportement"
@@ -73,9 +49,6 @@
 	},
 	"cancel": {
 		"message": "Annuler"
-	},
-	"cannotDeleteProvider": {
-		"message": "Impossible de supprimer le fournisseur \"$1\" car il est utilisé par $2 modèle(s)."
 	},
 	"changelog": {
 		"message": "Journal des modifications"
@@ -147,17 +120,8 @@
 	"createNewNote": {
 		"message": "Créer une nouvelle note"
 	},
-	"custom": {
-		"message": "Personnalisé"
-	},
 	"dailyNoteFormat": {
 		"message": "Format de note quotidienne (ex: YYYY-MM-DD)"
-	},
-	"defaultInterpreterContext": {
-		"message": "Contexte par défaut de l'interpréteur"
-	},
-	"defaultInterpreterContextDescription": {
-		"message": "Le modèle utilisera ce contexte pour interpréter les variables de prompt. Les variables et filtres peuvent être utilisés ici."
 	},
 	"defaultTemplateName": {
 		"message": "Défaut"
@@ -173,12 +137,6 @@
 	},
 	"deleteHighlightsForPage": {
 		"message": "Supprimer tous les surlignages pour cette page ?"
-	},
-	"deleteModelConfirm": {
-		"message": "Êtes-vous sûr de vouloir supprimer ce modèle ?"
-	},
-	"deleteProviderConfirm": {
-		"message": "Êtes-vous sûr de vouloir supprimer ce fournisseur ?"
 	},
 	"disableHighlighter": {
 		"message": "Désactiver le surligneur"
@@ -212,12 +170,6 @@
 	"edit": {
 		"message": "Modifier"
 	},
-	"editModel": {
-		"message": "Modifier le modèle de langage"
-	},
-	"editProvider": {
-		"message": "Modifier le fournisseur"
-	},
 	"editTemplate": {
 		"message": "Modifier le modèle"
 	},
@@ -226,26 +178,6 @@
 	},
 	"enableHighlighterDescription": {
 		"message": "Surlignez du contenu sur les pages web que vous pouvez enrengistrer dans Obsidian."
-	},
-	"enableInterpreter": {
-		"message": "Activer l'interpréteur"
-	},
-	"enableInterpreterDescription": {
-		"message": "Utilisez le langage naturel pour extraire des données des pages. Par exemple, vous pouvez utiliser la syntaxe $strong_start${{\"un résumé de la page\"}}$strong_end$. Nécessite une clé API ou un modèle personnalisé configuré ci-dessous. $link_start$En savoir plus$link_end$.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"https://help.obsidian.md/web-clipper/interpreter\" target=\"_blank\">"
-			},
-			"strong_end": {
-				"content": "</strong>"
-			},
-			"strong_start": {
-				"content": "<strong>"
-			}
-		}
 	},
 	"enableReader": {
 		"message": "Ouvrir la vue de lecture"
@@ -315,12 +247,6 @@
 	"failedToInitializeContent": {
 		"message": "Impossible d'initialiser le contenu de la page."
 	},
-	"failedToProcessInterpreter": {
-		"message": "Échec du traitement de l'interpréteur. Veuillez réessayer."
-	},
-	"failedToResetProviders": {
-		"message": "Échec de la réinitialisation des fournisseurs et des modèles"
-	},
 	"failedToResetTemplate": {
 		"message": "Échec de la réinitialisation du modèle par défaut. Veuillez réessayer."
 	},
@@ -329,9 +255,6 @@
 	},
 	"failedToSaveFile": {
 		"message": "Échec de l'enregistrement du fichier"
-	},
-	"failedToSaveProvider": {
-		"message": "Échec de l'enregistrement du fournisseur. Veuillez réessayer."
 	},
 	"feedback": {
 		"message": "Retour d'information"
@@ -350,9 +273,6 @@
 	},
 	"generalSettings": {
 		"message": "Paramètres généraux"
-	},
-	"getApiKeyHere": {
-		"message": "Obtenez votre clé API $1 ici."
 	},
 	"help": {
 		"message": "Aide"
@@ -445,26 +365,6 @@
 	"importTemplate": {
 		"message": "Importer un modèle"
 	},
-	"interpret": {
-		"message": "interpréter"
-	},
-	"interpreter": {
-		"message": "Interpréteur"
-	},
-	"interpreterContext": {
-		"message": "Contexte de l'interpréteur"
-	},
-	"interpreterContextDescription": {
-		"message": "Le contexte utilisé pour interpréter les variables de prompt. Remplace le contexte par défaut défini dans les $link_start$Paramètres de l'interpréteur$link_end$. Les variables peuvent être utilisées ici.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"?section=interpreter\">"
-			}
-		}
-	},
 	"language": {
 		"message": "Langue"
 	},
@@ -488,30 +388,6 @@
 	},
 	"loading": {
 		"message": "Chargement…"
-	},
-	"modelName": {
-		"message": "Nom du modèle de langage"
-	},
-	"modelNameDescription": {
-		"message": "Le nom du modèle que vous souhaitez afficher dans l'interface."
-	},
-	"modelProvider": {
-		"message": "Fournisseur"
-	},
-	"modelProviderDescription": {
-		"message": "Le fournisseur du modèle, par exemple Ollama, OpenRouter, Google, etc."
-	},
-	"modelProviderPlaceholder": {
-		"message": "Fournisseur"
-	},
-	"modelRequiredFields": {
-		"message": "Le nom du modèle, le fournisseur et l'ID du modèle sont requis."
-	},
-	"models": {
-		"message": "Modèles de langage"
-	},
-	"modelsListFor": {
-		"message": "Liste des modèles pour $1"
 	},
 	"more": {
 		"message": "Plus"
@@ -620,12 +496,6 @@
 	"pleaseReload": {
 		"message": "Veuillez essayer de recharger la page."
 	},
-	"popularModels": {
-		"message": "Modèles populaires"
-	},
-	"popularModelsDescription": {
-		"message": "Choisissez parmi les modèles couramment utilisés ou entrez les détails d'un modèle personnalisé."
-	},
 	"popup": {
 		"message": "Popup"
 	},
@@ -670,48 +540,6 @@
 	},
 	"propertyValue": {
 		"message": "Valeur de la propriété"
-	},
-	"provider": {
-		"message": "Fournisseur"
-	},
-	"providerApiKey": {
-		"message": "Clé API"
-	},
-	"providerApiKeyDescription": {
-		"message": "Votre clé API pour ce fournisseur."
-	},
-	"providerBaseUrl": {
-		"message": "URL de base"
-	},
-	"providerBaseUrlDescription": {
-		"message": "L'URL du point de terminaison API pour ce fournisseur."
-	},
-	"providerModelId": {
-		"message": "ID du modèle"
-	},
-	"providerModelIdDescription": {
-		"message": "L'identifiant du modèle de votre fournisseur. Généralement un nom court sans espaces."
-	},
-	"providerModelIdPlaceholder": {
-		"message": "ID du modèle"
-	},
-	"providerName": {
-		"message": "Nom du fournisseur"
-	},
-	"providerNameDescription": {
-		"message": "Nom d'affichage pour ce fournisseur."
-	},
-	"providerPreset": {
-		"message": "Préréglage"
-	},
-	"providerPresetDescription": {
-		"message": "Choisissez un fournisseur ou créez-en un personnalisé."
-	},
-	"providerRequiredFields": {
-		"message": "Le nom du fournisseur et l'URL de base sont requis."
-	},
-	"providers": {
-		"message": "Fournisseurs"
 	},
 	"rateExtensionDescription": {
 		"message": "Appréciez-vous Web Clipper? Aidez-nous en lui donnant une note."
@@ -872,9 +700,6 @@
 	"readerViewFullSize": {
 		"message": "Voir en taille réelle"
 	},
-	"recommended": {
-		"message": "recommandé"
-	},
 	"refresh": {
 		"message": "Actualiser"
 	},
@@ -905,12 +730,6 @@
 	"resetDefaultTemplateDescription": {
 		"message": "Supprime toutes les modifications apportées au modèle par défaut."
 	},
-	"resetProvidersAndModels": {
-		"message": "Réinitialiser les modèles par défaut"
-	},
-	"resetProvidersAndModelsDescription": {
-		"message": "Réinitialiser les fournisseurs et les modèles aux paramètres par défaut."
-	},
 	"save": {
 		"message": "Enregistrer"
 	},
@@ -931,9 +750,6 @@
 	},
 	"searchVariables": {
 		"message": "Rechercher des variables..."
-	},
-	"selectProvider": {
-		"message": "Sélectionnez un fournisseur"
 	},
 	"selectTemplateToExport": {
 		"message": "Veuillez sélectionner un modèle à exporter."
@@ -1054,9 +870,6 @@
 	},
 	"thinking": {
 		"message": "réflexion"
-	},
-	"unknownProvider": {
-		"message": "Fournisseur inconnu"
 	},
 	"updateAvailable": {
 		"message": "Une mise à jour est disponible."

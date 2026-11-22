@@ -2,20 +2,8 @@
 	"activity": {
 		"message": "សកម្មភាព"
 	},
-	"addModel": {
-		"message": "+ បន្ថែមម៉ូដែល"
-	},
-	"addModelTitle": {
-		"message": "បន្ថែមម៉ូដែល"
-	},
 	"addProperty": {
 		"message": "+ បន្ថែមលក្ខណៈសម្បត្តិ"
-	},
-	"addProvider": {
-		"message": "+ បន្ថែមអ្នកផ្តល់សេវា"
-	},
-	"addProviderTitle": {
-		"message": "បន្ថែមអ្នកផ្តល់សេវា"
 	},
 	"addToObsidian": {
 		"message": "បន្ថែមទៅ Obsidian"
@@ -41,23 +29,11 @@
 	"alwaysShowHighlightsDescription": {
 		"message": "បង្ហាញការរំលេចដែលអ្នកបានរក្សាទុក នៅពេលអ្នកផ្ទុកទំព័រ។ បិទវា ដើម្បីបង្ហាញការរំលេចតែពេលរបៀបរំលេចត្រូវបានបើក។"
 	},
-	"apiKeyMissing": {
-		"message": "គ្មានសោ API"
-	},
-	"apiKeysWarning": {
-		"message": "ដោយប្រើអ្នកផ្តល់សេវាខាងក្រៅ អ្នកយល់ព្រមតាមលក្ខខណ្ឌ និងគោលការណ៍ឯកជនភាពរបស់ពួកគេ។ សំណើ Interpreter ត្រូវបានផ្ញើដោយផ្ទាល់ទៅកាន់អ្នកផ្តល់សេវាដែលអ្នកជ្រើសរើស។ Obsidian មិនប្រមូល ឬរក្សាទុកទិន្នន័យណាមួយអំពីសំណើរបស់អ្នកទេ។"
-	},
 	"appendToDaily": {
 		"message": "បន្ថែមទៅកំណត់ត្រាប្រចាំថ្ងៃ នៅខាងក្រោម"
 	},
 	"appendToExisting": {
 		"message": "បន្ថែមទៅកំណត់ត្រាដែលមានស្រាប់ នៅខាងក្រោម"
-	},
-	"autoRunInterpreter": {
-		"message": "ដំណើរការដោយស្វ័យប្រវត្តិ"
-	},
-	"autoRunInterpreterDescription": {
-		"message": "ដំណើរការអថេរ prompt ភ្លាមៗ ប្រសិនបើគំរូមានអថេរណាមួយ។ វានឹងប្រើឥណទាន API ជាមួយអ្នកផ្តល់ម៉ូដែលរបស់អ្នក។ បិទវា ប្រសិនបើអ្នកចង់ដំណើរការ Interpreter ដោយដៃតែប៉ុណ្ណោះ។"
 	},
 	"behavior": {
 		"message": "ឥរិយាបថ"
@@ -73,9 +49,6 @@
 	},
 	"cancel": {
 		"message": "បោះបង់"
-	},
-	"cannotDeleteProvider": {
-		"message": "មិនអាចលុបអ្នកផ្តល់សេវា \"$1\" បានទេ ព្រោះវាកំពុងត្រូវបានប្រើដោយម៉ូដែល $2។"
 	},
 	"changelog": {
 		"message": "កំណត់ហេតុការផ្លាស់ប្តូរ"
@@ -147,17 +120,8 @@
 	"createNewNote": {
 		"message": "បង្កើតកំណត់ត្រាថ្មី"
 	},
-	"custom": {
-		"message": "ផ្ទាល់ខ្លួន"
-	},
 	"dailyNoteFormat": {
 		"message": "ទម្រង់កំណត់ត្រាប្រចាំថ្ងៃ (ឧ. YYYY-MM-DD)"
-	},
-	"defaultInterpreterContext": {
-		"message": "បរិបទ Interpreter លំនាំដើម"
-	},
-	"defaultInterpreterContextDescription": {
-		"message": "ជំនួសបរិបទដែលប្រើសម្រាប់បកស្រាយអថេរ prompt។ អថេរអាចត្រូវបានប្រើនៅទីនេះ។"
 	},
 	"defaultTemplateName": {
 		"message": "លំនាំដើម"
@@ -173,12 +137,6 @@
 	},
 	"deleteHighlightsForPage": {
 		"message": "លុបការរំលេចទាំងអស់សម្រាប់ទំព័រនេះ?"
-	},
-	"deleteModelConfirm": {
-		"message": "តើអ្នកប្រាកដថាចង់លុបម៉ូដែលនេះមែនទេ?"
-	},
-	"deleteProviderConfirm": {
-		"message": "តើអ្នកប្រាកដថាចង់លុបអ្នកផ្តល់សេវានេះមែនទេ?"
 	},
 	"disableHighlighter": {
 		"message": "បិទការរំលេច"
@@ -212,12 +170,6 @@
 	"edit": {
 		"message": "កែសម្រួល"
 	},
-	"editModel": {
-		"message": "កែសម្រួលម៉ូដែល"
-	},
-	"editProvider": {
-		"message": "កែសម្រួលអ្នកផ្តល់សេវា"
-	},
 	"editTemplate": {
 		"message": "កែសម្រួលគំរូ"
 	},
@@ -226,26 +178,6 @@
 	},
 	"enableHighlighterDescription": {
 		"message": "រំលេចមាតិកានៅលើទំព័របណ្ដាញ ដែលអ្នកអាចរក្សាទុកទៅ Obsidian។"
-	},
-	"enableInterpreter": {
-		"message": "បើក Interpreter"
-	},
-	"enableInterpreterDescription": {
-		"message": "ប្រើភាសាធម្មជាតិដើម្បីស្រង់ទិន្នន័យពីទំព័រ។ ឧទាហរណ៍ អ្នកអាចប្រើវាក្យសម្ព័ន្ធគំរូ $strong_start${{\"a summary of the page\"}}$strong_end$។ ត្រូវការសោ API ឬម៉ូដែលផ្ទាល់ខ្លួនដែលបានកំណត់រចនាសម្ព័ន្ធខាងក្រោម។ $link_start$ស្វែងយល់បន្ថែម$link_end$។",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"https://help.obsidian.md/web-clipper/interpreter\" target=\"_blank\">"
-			},
-			"strong_end": {
-				"content": "</strong>"
-			},
-			"strong_start": {
-				"content": "<strong>"
-			}
-		}
 	},
 	"enableReader": {
 		"message": "បើកទិដ្ឋភាពអាន"
@@ -315,12 +247,6 @@
 	"failedToInitializeContent": {
 		"message": "មិនអាចចាប់ផ្តើមមាតិកាទំព័របានទេ។"
 	},
-	"failedToProcessInterpreter": {
-		"message": "ការដំណើរការ Interpreter បានបរាជ័យ។ សូមព្យាយាមម្តងទៀត។"
-	},
-	"failedToResetProviders": {
-		"message": "បានបរាជ័យក្នុងការកំណត់អ្នកផ្តល់សេវា និងម៉ូដែលឡើងវិញ"
-	},
 	"failedToResetTemplate": {
 		"message": "បានបរាជ័យក្នុងការកំណត់គំរូលំនាំដើមឡើងវិញ។ សូមព្យាយាមម្តងទៀត។"
 	},
@@ -329,9 +255,6 @@
 	},
 	"failedToSaveFile": {
 		"message": "បានបរាជ័យក្នុងការរក្សាទុកឯកសារ"
-	},
-	"failedToSaveProvider": {
-		"message": "បានបរាជ័យក្នុងការរក្សាទុកអ្នកផ្តល់សេវា។ សូមព្យាយាមម្តងទៀត។"
 	},
 	"feedback": {
 		"message": "មតិយោបល់"
@@ -350,9 +273,6 @@
 	},
 	"generalSettings": {
 		"message": "ការកំណត់ទូទៅ"
-	},
-	"getApiKeyHere": {
-		"message": "ទទួលសោ API $1 របស់អ្នកនៅទីនេះ។"
 	},
 	"help": {
 		"message": "ជំនួយ"
@@ -445,26 +365,6 @@
 	"importTemplate": {
 		"message": "នាំចូលគំរូ"
 	},
-	"interpret": {
-		"message": "បកស្រាយ"
-	},
-	"interpreter": {
-		"message": "Interpreter"
-	},
-	"interpreterContext": {
-		"message": "បរិបទ Interpreter"
-	},
-	"interpreterContextDescription": {
-		"message": "បរិបទដែលប្រើសម្រាប់បកស្រាយអថេរ prompt។ វាជំនួសបរិបទលំនាំដើមដែលបានកំណត់នៅក្នុង $link_start$ការកំណត់ Interpreter$link_end$។ អថេរអាចត្រូវបានប្រើនៅទីនេះ។",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"?section=interpreter\">"
-			}
-		}
-	},
 	"language": {
 		"message": "ភាសា"
 	},
@@ -488,30 +388,6 @@
 	},
 	"loading": {
 		"message": "កំពុងផ្ទុក…"
-	},
-	"modelName": {
-		"message": "ឈ្មោះបង្ហាញ"
-	},
-	"modelNameDescription": {
-		"message": "ឈ្មោះម៉ូដែលដែលអ្នកចង់បង្ហាញក្នុងចំណុចប្រទាក់។"
-	},
-	"modelProvider": {
-		"message": "អ្នកផ្តល់សេវា"
-	},
-	"modelProviderDescription": {
-		"message": "ជ្រើសរើសអ្នកផ្តល់សេវាសម្រាប់ម៉ូដែលនេះ។"
-	},
-	"modelProviderPlaceholder": {
-		"message": "អ្នកផ្តល់សេវា"
-	},
-	"modelRequiredFields": {
-		"message": "ត្រូវការឈ្មោះម៉ូដែល អ្នកផ្តល់សេវា និង Model ID។"
-	},
-	"models": {
-		"message": "ម៉ូដែល"
-	},
-	"modelsListFor": {
-		"message": "បញ្ជីម៉ូដែលសម្រាប់ $1"
 	},
 	"more": {
 		"message": "បន្ថែម"
@@ -620,12 +496,6 @@
 	"pleaseReload": {
 		"message": "សូមព្យាយាមផ្ទុកទំព័រឡើងវិញ។"
 	},
-	"popularModels": {
-		"message": "ម៉ូដែលពេញនិយម"
-	},
-	"popularModelsDescription": {
-		"message": "ជ្រើសរើសពីម៉ូដែលដែលប្រើជាញឹកញាប់ ឬបញ្ចូលព័ត៌មានលម្អិតម៉ូដែលផ្ទាល់ខ្លួន។"
-	},
 	"popup": {
 		"message": "ផ្ទាំងលេចឡើង"
 	},
@@ -670,48 +540,6 @@
 	},
 	"propertyValue": {
 		"message": "តម្លៃលក្ខណៈសម្បត្តិ"
-	},
-	"provider": {
-		"message": "អ្នកផ្តល់សេវា"
-	},
-	"providerApiKey": {
-		"message": "សោ API"
-	},
-	"providerApiKeyDescription": {
-		"message": "សោ API របស់អ្នកសម្រាប់អ្នកផ្តល់សេវានេះ។"
-	},
-	"providerBaseUrl": {
-		"message": "URL មូលដ្ឋាន"
-	},
-	"providerBaseUrlDescription": {
-		"message": "URL ចំណុចបញ្ចប់ API សម្រាប់អ្នកផ្តល់សេវានេះ។"
-	},
-	"providerModelId": {
-		"message": "Model ID"
-	},
-	"providerModelIdDescription": {
-		"message": "អត្តសញ្ញាណរបស់ម៉ូដែលពីអ្នកផ្តល់សេវារបស់អ្នក។ ជាទូទៅជាឈ្មោះខ្លីដោយគ្មានដកឃ្លា។"
-	},
-	"providerModelIdPlaceholder": {
-		"message": "Model ID"
-	},
-	"providerName": {
-		"message": "ឈ្មោះអ្នកផ្តល់សេវា"
-	},
-	"providerNameDescription": {
-		"message": "ឈ្មោះបង្ហាញសម្រាប់អ្នកផ្តល់សេវានេះ។"
-	},
-	"providerPreset": {
-		"message": "ការកំណត់ជាមុន"
-	},
-	"providerPresetDescription": {
-		"message": "ជ្រើសរើសអ្នកផ្តល់សេវា ឬបង្កើតមួយផ្ទាល់ខ្លួន។"
-	},
-	"providerRequiredFields": {
-		"message": "ត្រូវការឈ្មោះអ្នកផ្តល់សេវា និង URL មូលដ្ឋាន។"
-	},
-	"providers": {
-		"message": "អ្នកផ្តល់សេវា"
 	},
 	"rateExtensionDescription": {
 		"message": "តើអ្នកកំពុងរីករាយជាមួយ Web Clipper មែនទេ? ជួយយើងដោយផ្តល់ការវាយតម្លៃ។"
@@ -872,9 +700,6 @@
 	"readerViewFullSize": {
 		"message": "មើលទំហំពេញ"
 	},
-	"recommended": {
-		"message": "បានណែនាំ"
-	},
 	"refresh": {
 		"message": "ធ្វើឲ្យស្រស់"
 	},
@@ -905,12 +730,6 @@
 	"resetDefaultTemplateDescription": {
 		"message": "លុបការផ្លាស់ប្តូរណាមួយដែលអ្នកបានធ្វើលើគំរូលំនាំដើម។"
 	},
-	"resetProvidersAndModels": {
-		"message": "កំណត់ម៉ូដែលលំនាំដើមឡើងវិញ"
-	},
-	"resetProvidersAndModelsDescription": {
-		"message": "កំណត់អ្នកផ្តល់សេវា និងម៉ូដែលទៅការកំណត់លំនាំដើមឡើងវិញ។"
-	},
 	"save": {
 		"message": "រក្សាទុក"
 	},
@@ -931,9 +750,6 @@
 	},
 	"searchVariables": {
 		"message": "ស្វែងរកអថេរ..."
-	},
-	"selectProvider": {
-		"message": "ជ្រើសរើសអ្នកផ្តល់សេវា"
 	},
 	"selectTemplateToExport": {
 		"message": "សូមជ្រើសរើសគំរូមួយដើម្បីនាំចេញ។"
@@ -1054,9 +870,6 @@
 	},
 	"thinking": {
 		"message": "កំពុងគិត"
-	},
-	"unknownProvider": {
-		"message": "អ្នកផ្តល់សេវាមិនស្គាល់"
 	},
 	"updateAvailable": {
 		"message": "មានបច្ចុប្បន្នភាពថ្មី។"

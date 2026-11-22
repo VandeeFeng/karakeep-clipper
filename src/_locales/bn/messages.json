@@ -2,20 +2,8 @@
 	"activity": {
 		"message": "ক্রিয়াকলাপ"
 	},
-	"addModel": {
-		"message": "+ মডেল যোগ করুন"
-	},
-	"addModelTitle": {
-		"message": "মডেল যোগ করুন"
-	},
 	"addProperty": {
 		"message": "+ প্রোপার্টি যোগ করুন"
-	},
-	"addProvider": {
-		"message": "+ প্রোভাইডার যোগ করুন"
-	},
-	"addProviderTitle": {
-		"message": "প্রোভাইডার যোগ করুন"
 	},
 	"addToObsidian": {
 		"message": "অবসিডিয়ানে যোগ করুন"
@@ -41,23 +29,11 @@
 	"alwaysShowHighlightsDescription": {
 		"message": "পেইজ লোড হওয়ার সাথে সাথে আপনার হাইলাইট করা অংশগুলি দেখতে চান? এই বিকল্পটি চালু রাখুন। অন্যথায়, শুধুমাত্র হাইলাইটার মোড চালু থাকাকালীনই এগুলি দেখতে পাবেন।"
 	},
-	"apiKeyMissing": {
-		"message": "API কী নেই"
-	},
-	"apiKeysWarning": {
-		"message": "বাহ্যিক প্রোভাইডার ব্যবহার করে আপনি তাদের শর্তাবলী এবং গোপনীয়তা নীতির সাথে সম্মত হচ্ছেন। ইন্টারপ্রিটার রিকোয়েস্টগুলি আপনার নির্বাচিত প্রোভাইডারের কাছে সরাসরি পাঠানো হয়। Obsidian আপনার রিকোয়েস্ট সম্পর্কিত কোনও তথ্য সংগ্রহ বা সংরক্ষণ করে না।"
-	},
 	"appendToDaily": {
 		"message": "ডেইলি নোটের শেষে যোগ করুন"
 	},
 	"appendToExisting": {
 		"message": "একটি বিদ্যমান নোটের শেষে যোগ করুন"
-	},
-	"autoRunInterpreter": {
-		"message": "স্বয়ংক্রিয়ভাবে চালান"
-	},
-	"autoRunInterpreterDescription": {
-		"message": "টেমপ্লেটে কোনও প্রম্পট ভেরিয়েবল থাকলে তা স্বয়ংক্রিয়ভাবে চালানো হবে। এটি আপনার মডেল প্রোভাইডারের সাথে এপিআই ক্রেডিট ব্যবহার করবে। শুধুমাত্র ম্যানুয়ালি ইন্টারপ্রিটার চালাতে চাইলে এটি বন্ধ করুন।"
 	},
 	"behavior": {
 		"message": "আচরণ"
@@ -73,9 +49,6 @@
 	},
 	"cancel": {
 		"message": "বাতিল করুন"
-	},
-	"cannotDeleteProvider": {
-		"message": "প্রোভাইডার \"$1\" মুছে ফেলা যাবে না কারণ এটি $2 টি মডেল দ্বারা ব্যবহৃত হচ্ছে।"
 	},
 	"changelog": {
 		"message": "চেঞ্জলগ"
@@ -147,17 +120,8 @@
 	"createNewNote": {
 		"message": "নতুন নোট তৈরি করুন"
 	},
-	"custom": {
-		"message": "কাস্টম"
-	},
 	"dailyNoteFormat": {
 		"message": "ডেইলি নোটের ফরম্যাট (যেমন, YYYY-MM-DD)"
-	},
-	"defaultInterpreterContext": {
-		"message": "ডিফল্ট ইন্টারপ্রিটারের কনটেক্সট"
-	},
-	"defaultInterpreterContextDescription": {
-		"message": "প্রম্পট ভেরিয়েবলগুলিকে ব্যাখ্যা করতে ব্যবহৃত কনটেক্সটটি ওভাররাইড করুন। এখানে ভেরিয়েবল ব্যবহার করা যেতে পারে।"
 	},
 	"defaultTemplateName": {
 		"message": "ডিফল্ট"
@@ -173,12 +137,6 @@
 	},
 	"deleteHighlightsForPage": {
 		"message": "এই পৃষ্ঠার সব হাইলাইট মুছবেন?"
-	},
-	"deleteModelConfirm": {
-		"message": "আপনি কি নিশ্চিতভাবে এই মডেলটি মুছে ফেলতে চান?"
-	},
-	"deleteProviderConfirm": {
-		"message": "আপনি কি নিশ্চিতভাবে এই প্রোভাইডারটি মুছে ফেলতে চান?"
 	},
 	"disableHighlighter": {
 		"message": "হাইলাইটার নিষ্ক্রিয় করুন"
@@ -212,12 +170,6 @@
 	"edit": {
 		"message": "সম্পাদনা"
 	},
-	"editModel": {
-		"message": "মডেল সম্পাদনা করুন"
-	},
-	"editProvider": {
-		"message": "প্রোভাইডার সম্পাদনা করুন"
-	},
 	"editTemplate": {
 		"message": "টেমপ্লেট সম্পাদনা করুন"
 	},
@@ -226,26 +178,6 @@
 	},
 	"enableHighlighterDescription": {
 		"message": "ওয়েব পেজ থেকে বিষয়বস্তু হাইলাইট করে Obsidian এ সংরক্ষণ করুন।"
-	},
-	"enableInterpreter": {
-		"message": "ইন্টারপ্রিটার সক্রিয় করুন"
-	},
-	"enableInterpreterDescription": {
-		"message": "পেজগুলো থেকে তথ্য আহরণের জন্য ন্যাচারাল ল্যাঙ্গুয়েজ ব্যবহার করুন। উদাহরণস্বরূপ, আপনি টেমপ্লেট সিনট্যাক্স $strong_start${{\"পৃষ্ঠার একটি সারাংশ\"}}$strong_end$ ব্যবহার করতে পারেন। নীচে কনফিগার করা একটি এপিআই কী বা কাস্টম মডেল প্রয়োজন।  $link_start$আরও জানুন$link_end$।",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"https://help.obsidian.md/web-clipper/interpreter\" target=\"_blank\">"
-			},
-			"strong_end": {
-				"content": "</strong>"
-			},
-			"strong_start": {
-				"content": "<strong>"
-			}
-		}
 	},
 	"enableReader": {
 		"message": "পাঠন দৃশ্য খুলুন"
@@ -315,12 +247,6 @@
 	"failedToInitializeContent": {
 		"message": "পেজের বিষয়বস্তু শুরু করা যাচ্ছে না।"
 	},
-	"failedToProcessInterpreter": {
-		"message": "ইন্টারপ্রিটার প্রসেসিং ব্যর্থ হয়েছে। দয়া করে আবার চেষ্টা করুন।"
-	},
-	"failedToResetProviders": {
-		"message": "প্রোভাইডার এবং মডেলগুলি রিসেট করতে ব্যর্থ হয়েছে।"
-	},
 	"failedToResetTemplate": {
 		"message": "ডিফল্ট টেমপ্লেট রিসেট করতে ব্যর্থ হয়েছে। দয়া করে আবার চেষ্টা করুন।"
 	},
@@ -329,9 +255,6 @@
 	},
 	"failedToSaveFile": {
 		"message": "ফাইল সংরক্ষণ করতে ব্যর্থ হয়েছে।"
-	},
-	"failedToSaveProvider": {
-		"message": "প্রোভাইডার সংরক্ষণ করতে ব্যর্থ হয়েছে। দয়া করে আবার চেষ্টা করুন।"
 	},
 	"feedback": {
 		"message": "মতামত"
@@ -350,9 +273,6 @@
 	},
 	"generalSettings": {
 		"message": "সাধারণ সেটিংস"
-	},
-	"getApiKeyHere": {
-		"message": "আপনার $1 API কী এখান থেকে সংগ্রহ করুন।"
 	},
 	"help": {
 		"message": "সহায়তা"
@@ -445,26 +365,6 @@
 	"importTemplate": {
 		"message": "টেমপ্লেট ইম্পোর্ট করুন"
 	},
-	"interpret": {
-		"message": "ইন্টারপ্রিট করুন"
-	},
-	"interpreter": {
-		"message": "ইন্টারপ্রিটার"
-	},
-	"interpreterContext": {
-		"message": "ইন্টারপ্রিটার কনটেক্সট"
-	},
-	"interpreterContextDescription": {
-		"message": "প্রম্পট ভেরিয়েবলগুলিকে ব্যাখ্যা করতে ব্যবহৃত কনটেক্সট। এটি $link_start$ইন্টারপ্রিটার সেটিংস$link_end$ এর ডিফল্ট কনটেক্সটকে ওভাররাইড করে। এখানে ভেরিয়েবল ব্যবহার করা যেতে পারে।",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"?section=interpreter\">"
-			}
-		}
-	},
 	"language": {
 		"message": "ভাষা"
 	},
@@ -488,30 +388,6 @@
 	},
 	"loading": {
 		"message": "লোড হচ্ছে…"
-	},
-	"modelName": {
-		"message": "প্রদর্শিত নাম"
-	},
-	"modelNameDescription": {
-		"message": "ইন্টারফেসে প্রদর্শনের জন্য মডেলের নাম।"
-	},
-	"modelProvider": {
-		"message": "প্রোভাইডার"
-	},
-	"modelProviderDescription": {
-		"message": "এই মডেলের জন্য প্রোভাইডার নির্বাচন করুন।"
-	},
-	"modelProviderPlaceholder": {
-		"message": "প্রোভাইডার"
-	},
-	"modelRequiredFields": {
-		"message": "মডেলের নাম, প্রোভাইডার এবং মডেল আইডি আবশ্যক।"
-	},
-	"models": {
-		"message": "মডেলসমূহ"
-	},
-	"modelsListFor": {
-		"message": "$1 এর জন্য মডেল তালিকা"
 	},
 	"more": {
 		"message": "আরও"
@@ -620,12 +496,6 @@
 	"pleaseReload": {
 		"message": "অনুগ্রহ করে পেজ রিলোড করার চেষ্টা করুন।"
 	},
-	"popularModels": {
-		"message": "জনপ্রিয় মডেলগুলি"
-	},
-	"popularModelsDescription": {
-		"message": "সাধারণত ব্যবহৃত মডেলগুলি থেকে চয়ন করুন বা কাস্টম মডেলের বিশদ লিখুন।"
-	},
 	"popup": {
 		"message": "পপআপ"
 	},
@@ -670,48 +540,6 @@
 	},
 	"propertyValue": {
 		"message": "প্রোপার্টির মান"
-	},
-	"provider": {
-		"message": "প্রোভাইডার"
-	},
-	"providerApiKey": {
-		"message": "API কী"
-	},
-	"providerApiKeyDescription": {
-		"message": "এই প্রোভাইডারের জন্য আপনার API কী।"
-	},
-	"providerBaseUrl": {
-		"message": "বেস URL"
-	},
-	"providerBaseUrlDescription": {
-		"message": "এই প্রোভাইডারের API এন্ডপয়েন্ট URL।"
-	},
-	"providerModelId": {
-		"message": "মডেল আইডি"
-	},
-	"providerModelIdDescription": {
-		"message": "আপনার প্রোভাইডারের মডেলের শনাক্তকারী। সাধারণত একটি স্পেস ছাড়া ছোট নাম।"
-	},
-	"providerModelIdPlaceholder": {
-		"message": "মডেল আইডি"
-	},
-	"providerName": {
-		"message": "প্রোভাইডারের নাম"
-	},
-	"providerNameDescription": {
-		"message": "এই প্রোভাইডারের জন্য প্রদর্শিত নাম।"
-	},
-	"providerPreset": {
-		"message": "প্রিসেট"
-	},
-	"providerPresetDescription": {
-		"message": "একটি প্রোভাইডার নির্বাচন করুন অথবা একটি কাস্টম প্রোভাইডার তৈরি করুন।"
-	},
-	"providerRequiredFields": {
-		"message": "প্রোভাইডারের নাম এবং বেস URL আবশ্যক।"
-	},
-	"providers": {
-		"message": "প্রোভাইডারস"
 	},
 	"rateExtensionDescription": {
 		"message": "আপনি কি ওয়েব ক্লিপার উপভোগ করছেন? এটি একটি রেটিং দিয়ে আমাদের সাহায্য করুন।"
@@ -872,9 +700,6 @@
 	"readerViewFullSize": {
 		"message": "পূর্ণ আকারে দেখুন"
 	},
-	"recommended": {
-		"message": "প্রস্তাবিত"
-	},
 	"refresh": {
 		"message": "রিফ্রেশ"
 	},
@@ -905,12 +730,6 @@
 	"resetDefaultTemplateDescription": {
 		"message": "ডিফল্ট টেমপ্লেটে আপনি যে পরিবর্তন করেছেন তা মুছে ফেলুন।"
 	},
-	"resetProvidersAndModels": {
-		"message": "ডিফল্ট মডেলগুলো রিসেট করুন"
-	},
-	"resetProvidersAndModelsDescription": {
-		"message": "প্রোভাইডার এবং মডেলগুলোকে ডিফল্ট সেটিংসে ফেরত নিন।"
-	},
 	"save": {
 		"message": "সংরক্ষণ করুন"
 	},
@@ -931,9 +750,6 @@
 	},
 	"searchVariables": {
 		"message": "ভেরিয়েবল অনুসন্ধান করুন..."
-	},
-	"selectProvider": {
-		"message": "একটি প্রোভাইডার নির্বাচন করুন"
 	},
 	"selectTemplateToExport": {
 		"message": "এক্সপোর্ট করার জন্য একটি টেমপ্লেট নির্বাচন করুন"
@@ -1054,9 +870,6 @@
 	},
 	"thinking": {
 		"message": "ভাবছে"
-	},
-	"unknownProvider": {
-		"message": "অজানা প্রোভাইডার"
 	},
 	"updateAvailable": {
 		"message": "একটি আপডেট পাওয়া গেছে।"

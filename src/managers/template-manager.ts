@@ -4,6 +4,7 @@ import browser from '../utils/browser-polyfill';
 import { generalSettings } from '../utils/storage-utils';
 import { addPropertyType } from './property-types-manager';
 import { getMessage } from '../utils/i18n';
+import { removeAiTemplateContext } from '../utils/ai-settings-cleanup';
 
 export let templates: Template[] = [];
 export let editingTemplateIndex = -1;
@@ -32,7 +33,7 @@ export async function loadTemplates(): Promise<Template[]> {
 					const compressedChunks = result[`template_${id}`] as string[];
 					if (compressedChunks) {
 						const decompressedData = decompressFromUTF16(compressedChunks.join(''));
-						const template = JSON.parse(decompressedData);
+						const template = removeAiTemplateContext(JSON.parse(decompressedData));
 						if (template && Array.isArray(template.properties)) {
 							return template;
 						}
@@ -118,7 +119,6 @@ export function createDefaultTemplate(): Template {
 		noteNameFormat: '{{title}}',
 		path: 'Clippings',
 		noteContentFormat: '{{content}}',
-		context: "",
 		properties: [
 			{ id: Date.now().toString() + Math.random().toString(36).slice(2, 11), name: 'title', value: '{{title}}' },
 			{ id: Date.now().toString() + Math.random().toString(36).slice(2, 11), name: 'source', value: '{{url}}' },

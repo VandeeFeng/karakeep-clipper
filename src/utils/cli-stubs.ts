@@ -16,12 +16,6 @@ export const generalSettings: Settings = {
 	alwaysShowHighlights: false,
 	highlightBehavior: 'no-highlights',
 	showMoreActionsButton: false,
-	interpreterModel: '',
-	models: [],
-	providers: [],
-	interpreterEnabled: false,
-	interpreterAutoRun: false,
-	defaultPromptContext: '',
 	propertyTypes: [],
 	readerSettings: {
 		fontSize: 16,

@@ -2,20 +2,8 @@
 	"activity": {
 		"message": "פעילות"
 	},
-	"addModel": {
-		"message": "+ הוסף מודל"
-	},
-	"addModelTitle": {
-		"message": "הוסף מודל"
-	},
 	"addProperty": {
 		"message": "+ הוסף מאפיין"
-	},
-	"addProvider": {
-		"message": "+ הוסף ספק"
-	},
-	"addProviderTitle": {
-		"message": "הוסף ספק"
 	},
 	"addToObsidian": {
 		"message": "הוסף ל-Obsidian"
@@ -41,23 +29,11 @@
 	"alwaysShowHighlightsDescription": {
 		"message": "הצג סימונים שמורים בעת טעינת הדף. כבה כדי להציג סימונים רק כאשר מצב הסימון פעיל."
 	},
-	"apiKeyMissing": {
-		"message": "חסר מפתח API"
-	},
-	"apiKeysWarning": {
-		"message": "השימוש בספק חיצוני מהווה הסכמה לתנאי השימוש ומדיניות הפרטיות שלהם. בקשות המתרגם נשלחות ישירות לספק שבחרת. Obsidian אינו אוסף או מאחסן מידע על הבקשות שלך."
-	},
 	"appendToDaily": {
 		"message": "הוסף לרשימה היומית, בסוף"
 	},
 	"appendToExisting": {
 		"message": "הוסף לפתק קיים, בסוף"
-	},
-	"autoRunInterpreter": {
-		"message": "הפעלה אוטומטית"
-	},
-	"autoRunInterpreterDescription": {
-		"message": "מפעיל מיד משתני הנחיה אם הם קיימים בתבנית. צורך קרדיט API מספק המודל שלך. כבה אם ברצונך להפעיל את המתרגם ידנית בלבד."
 	},
 	"behavior": {
 		"message": "התנהגות"
@@ -73,9 +49,6 @@
 	},
 	"cancel": {
 		"message": "ביטול"
-	},
-	"cannotDeleteProvider": {
-		"message": "לא ניתן למחוק את הספק \"$1\" כי הוא בשימוש על ידי $2 מודלים."
 	},
 	"changelog": {
 		"message": "יומן שינויים"
@@ -147,17 +120,8 @@
 	"createNewNote": {
 		"message": "צור פתק חדש"
 	},
-	"custom": {
-		"message": "מותאם אישית"
-	},
 	"dailyNoteFormat": {
 		"message": "תבנית פתק יומי (למשל YYYY-MM-DD)"
-	},
-	"defaultInterpreterContext": {
-		"message": "הקשר ברירת מחדל למתרגם"
-	},
-	"defaultInterpreterContextDescription": {
-		"message": "מחליף את ההקשר המשמש לפירוש משתני ההנחיה. ניתן להשתמש במשתנים כאן."
 	},
 	"defaultTemplateName": {
 		"message": "ברירת מחדל"
@@ -173,12 +137,6 @@
 	},
 	"deleteHighlightsForPage": {
 		"message": "למחוק את כל ההדגשות עבור דף זה?"
-	},
-	"deleteModelConfirm": {
-		"message": "האם את/ה בטוח/ה שברצונך למחוק מודל זה?"
-	},
-	"deleteProviderConfirm": {
-		"message": "האם את/ה בטוח/ה שברצונך למחוק ספק זה?"
 	},
 	"disableHighlighter": {
 		"message": "כבה מסמן"
@@ -212,12 +170,6 @@
 	"edit": {
 		"message": "עריכה"
 	},
-	"editModel": {
-		"message": "ערוך מודל"
-	},
-	"editProvider": {
-		"message": "ערוך ספק"
-	},
 	"editTemplate": {
 		"message": "ערוך תבנית"
 	},
@@ -226,26 +178,6 @@
 	},
 	"enableHighlighterDescription": {
 		"message": "סמן תוכן בדפי אינטרנט שניתן לשמור ב-Obsidian"
-	},
-	"enableInterpreter": {
-		"message": "הפעל מתרגם"
-	},
-	"enableInterpreterDescription": {
-		"message": "השתמש בשפה טבעית לחילוץ מידע מדפים. לדוגמה, תוכל להשתמש בתחביר התבנית $strong_start${{\"סיכום של דף זה\"}}$strong_end$. דורש מפתח API או הגדרת מודל מותאם אישית למטה. $link_start$למד עוד$link_end$",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"https://help.obsidian.md/web-clipper/interpreter\" target=\"_blank\">"
-			},
-			"strong_end": {
-				"content": "</strong>"
-			},
-			"strong_start": {
-				"content": "<strong>"
-			}
-		}
 	},
 	"enableReader": {
 		"message": "פתח מצב קריאה"
@@ -315,12 +247,6 @@
 	"failedToInitializeContent": {
 		"message": "נכשל באתחול תוכן הדף."
 	},
-	"failedToProcessInterpreter": {
-		"message": "עיבוד המתרגם נכשל. אנא נסה/י שוב."
-	},
-	"failedToResetProviders": {
-		"message": "נכשל באיפוס ספקים ומודלים"
-	},
 	"failedToResetTemplate": {
 		"message": "נכשל באיפוס תבנית ברירת המחדל. אנא נסה/י שוב."
 	},
@@ -329,9 +255,6 @@
 	},
 	"failedToSaveFile": {
 		"message": "נכשל בשמירת הקובץ"
-	},
-	"failedToSaveProvider": {
-		"message": "נכשל בשמירת הספק. אנא נסה/י שוב."
 	},
 	"feedback": {
 		"message": "משוב"
@@ -350,9 +273,6 @@
 	},
 	"generalSettings": {
 		"message": "הגדרות כלליות"
-	},
-	"getApiKeyHere": {
-		"message": "קבל את מפתח ה-API של $1 כאן"
 	},
 	"help": {
 		"message": "עזרה"
@@ -445,26 +365,6 @@
 	"importTemplate": {
 		"message": "ייבא תבנית"
 	},
-	"interpret": {
-		"message": "פרש"
-	},
-	"interpreter": {
-		"message": "מתרגם"
-	},
-	"interpreterContext": {
-		"message": "הקשר המתרגם"
-	},
-	"interpreterContextDescription": {
-		"message": "ההקשר המשמש לפירוש משתני הנחיה. מחליף את הקשר ברירת המחדל שנקבע ב$link_start$הגדרות המתרגם$link_end$. ניתן להשתמש במשתנים כאן.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"?section=interpreter\">"
-			}
-		}
-	},
 	"language": {
 		"message": "שפה"
 	},
@@ -488,30 +388,6 @@
 	},
 	"loading": {
 		"message": "טוען…"
-	},
-	"modelName": {
-		"message": "שם המודל"
-	},
-	"modelNameDescription": {
-		"message": "השם המוצג בתפריט הנפתח של המודל"
-	},
-	"modelProvider": {
-		"message": "ספק"
-	},
-	"modelProviderDescription": {
-		"message": "בחר/י את הספק עבור דגם זה"
-	},
-	"modelProviderPlaceholder": {
-		"message": "ספק"
-	},
-	"modelRequiredFields": {
-		"message": "שם הדגם, הספק, ומזהה הדגם הם נדרשים."
-	},
-	"models": {
-		"message": "דגמים"
-	},
-	"modelsListFor": {
-		"message": "רשימת דגמים עבור $1"
 	},
 	"more": {
 		"message": "עוד"
@@ -612,12 +488,6 @@
 	"pleaseReload": {
 		"message": "אנא נסה/י לטעון את העמוד מחדש."
 	},
-	"popularModels": {
-		"message": "דגמים פופולריים"
-	},
-	"popularModelsDescription": {
-		"message": "בחר מתוך דגמים שנמצאים בשימוש נפוץ או הזן פרטי דגם מותאם אישית."
-	},
 	"popup": {
 		"message": "חלון קופץ"
 	},
@@ -662,48 +532,6 @@
 	},
 	"propertyValue": {
 		"message": "ערך המאפיין"
-	},
-	"provider": {
-		"message": "ספק"
-	},
-	"providerApiKey": {
-		"message": "מפתח API"
-	},
-	"providerApiKeyDescription": {
-		"message": "מפתח ה-API שלך עבור ספק זה."
-	},
-	"providerBaseUrl": {
-		"message": "URL בסיסי"
-	},
-	"providerBaseUrlDescription": {
-		"message": "כתובת URL של נקודת הסיום של API עבור ספק זה."
-	},
-	"providerModelId": {
-		"message": "מזהה דגם"
-	},
-	"providerModelIdDescription": {
-		"message": "המזהה של הדגם מהספק שלך. בדרך כלל שם קצר ללא רווחים."
-	},
-	"providerModelIdPlaceholder": {
-		"message": "מזהה דגם"
-	},
-	"providerName": {
-		"message": "שם הספק"
-	},
-	"providerNameDescription": {
-		"message": "שם התצוגה עבור ספק זה."
-	},
-	"providerPreset": {
-		"message": "הגדרה מוכנה מראש"
-	},
-	"providerPresetDescription": {
-		"message": "בחר ספק או צור אחד מותאם אישית."
-	},
-	"providerRequiredFields": {
-		"message": "שם הספק ו-URL בסיסי הם נדרשים."
-	},
-	"providers": {
-		"message": "ספקים"
 	},
 	"rateExtensionDescription": {
 		"message": "אוהב את Web Clipper? עזור לנו על ידי דירוג."
@@ -864,9 +692,6 @@
 	"readerViewFullSize": {
 		"message": "הצג בגודל מלא"
 	},
-	"recommended": {
-		"message": "מומלץ"
-	},
 	"refresh": {
 		"message": "רענן"
 	},
@@ -897,12 +722,6 @@
 	"resetDefaultTemplateDescription": {
 		"message": "הסר את כל השינויים שביצעת בתבנית ברירת המחדל."
 	},
-	"resetProvidersAndModels": {
-		"message": "אפס מודלים לברירת מחדל"
-	},
-	"resetProvidersAndModelsDescription": {
-		"message": "אפס ספקים ומודלים להגדרות ברירת המחדל."
-	},
 	"save": {
 		"message": "שמור"
 	},
@@ -923,9 +742,6 @@
 	},
 	"searchVariables": {
 		"message": "חפש משתנים..."
-	},
-	"selectProvider": {
-		"message": "בחר ספק"
 	},
 	"selectTemplateToExport": {
 		"message": "בחר תבנית לייצוא"
@@ -1046,9 +862,6 @@
 	},
 	"thinking": {
 		"message": "חושב"
-	},
-	"unknownProvider": {
-		"message": "ספק לא ידוע"
 	},
 	"updateAvailable": {
 		"message": "עדכון זמין"

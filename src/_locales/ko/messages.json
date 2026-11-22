@@ -2,20 +2,8 @@
 	"activity": {
 		"message": "활동"
 	},
-	"addModel": {
-		"message": "+ 모델 추가"
-	},
-	"addModelTitle": {
-		"message": "모델 추가"
-	},
 	"addProperty": {
 		"message": "+ 속성 추가하기"
-	},
-	"addProvider": {
-		"message": "+ 공급자 추가"
-	},
-	"addProviderTitle": {
-		"message": "제공자 추가"
 	},
 	"addToObsidian": {
 		"message": "Obsidian에 추가하기"
@@ -41,23 +29,11 @@
 	"alwaysShowHighlightsDescription": {
 		"message": "웹페이지를 로드할 때 저장된 하이라이트를 표시합니다. 하이라이트 모드가 활성화된 경우에만 하이라이트를 표시하려면 이 옵션을 끄십시오."
 	},
-	"apiKeyMissing": {
-		"message": "API 키가 없습니다"
-	},
-	"apiKeysWarning": {
-		"message": "외부 제공자를 사용하면 해당 제공자의 이용 약관 및 개인정보 보호정책에 동의하는 것입니다. 인터프리터 요청은 선택한 제공자에게 직접 전송됩니다. Obsidian은 요청에 대한 데이터를 수집하거나 저장하지 않습니다."
-	},
 	"appendToDaily": {
 		"message": "데일리 노트 맨 아래에 추가"
 	},
 	"appendToExisting": {
 		"message": "기존에 있는 노트 맨 아래에 추가"
-	},
-	"autoRunInterpreter": {
-		"message": "자동 실행"
-	},
-	"autoRunInterpreterDescription": {
-		"message": "템플릿에 프롬프트 변수가 포함되어 있는 경우 즉시 실행합니다. 이는 모델 제공자의 API 크레딧을 소비합니다. 인터프리터를 수동으로만 실행하려면 끄십시오."
 	},
 	"behavior": {
 		"message": "동작 방식"
@@ -73,9 +49,6 @@
 	},
 	"cancel": {
 		"message": "취소"
-	},
-	"cannotDeleteProvider": {
-		"message": "\"$1\" 공급자를 삭제할 수 없습니다. 이는 $2 모델에서 사용 중이기 때문입니다."
 	},
 	"changelog": {
 		"message": "변경 내역"
@@ -147,17 +120,8 @@
 	"createNewNote": {
 		"message": "새 노트 만들기"
 	},
-	"custom": {
-		"message": "사용자 정의"
-	},
 	"dailyNoteFormat": {
 		"message": "데일리 노트 형식 (e.g., YYYY-MM-DD)"
-	},
-	"defaultInterpreterContext": {
-		"message": "기본 인터프리터 컨텍스트"
-	},
-	"defaultInterpreterContextDescription": {
-		"message": "모델이 프롬프트 변수를 해석하는 데 사용할 컨텍스트입니다. 변수와 필터를 사용할 수 있습니다."
 	},
 	"defaultTemplateName": {
 		"message": "기본 템플릿"
@@ -173,12 +137,6 @@
 	},
 	"deleteHighlightsForPage": {
 		"message": "이 페이지의 모든 하이라이트를 삭제하시겠습니까?"
-	},
-	"deleteModelConfirm": {
-		"message": "이 모델을 삭제하시겠습니까?"
-	},
-	"deleteProviderConfirm": {
-		"message": "이 공급자를 삭제하시겠습니까?"
 	},
 	"disableHighlighter": {
 		"message": "하이라이터 끄기"
@@ -212,12 +170,6 @@
 	"edit": {
 		"message": "편집"
 	},
-	"editModel": {
-		"message": "모델 편집"
-	},
-	"editProvider": {
-		"message": "공급자 편집"
-	},
 	"editTemplate": {
 		"message": "템플릿 편집"
 	},
@@ -226,26 +178,6 @@
 	},
 	"enableHighlighterDescription": {
 		"message": "하이라이트한 웹페이지 내용을 Obsidian에 저장합니다."
-	},
-	"enableInterpreter": {
-		"message": "인터프리터 활성화"
-	},
-	"enableInterpreterDescription": {
-		"message": "자연어를 사용하여 페이지에서 데이터를 추출합니다. 예를 들어, $strong_start${{\"페이지 요약\"}}$strong_end$ 템플릿 구문을 사용할 수 있습니다. API 키 또는 아래에서 구성된 사용자 지정 모델이 필요합니다. $link_start$자세히 알아보기$link_end$",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"https://help.obsidian.md/web-clipper/interpreter\" target=\"_blank\">"
-			},
-			"strong_end": {
-				"content": "</strong>"
-			},
-			"strong_start": {
-				"content": "<strong>"
-			}
-		}
 	},
 	"enableReader": {
 		"message": "독서 뷰 열기"
@@ -315,12 +247,6 @@
 	"failedToInitializeContent": {
 		"message": "페이지 콘텐츠를 초기화하지 못했습니다."
 	},
-	"failedToProcessInterpreter": {
-		"message": "인터프리터 처리에 실패했습니다. 다시 시도해 주세요."
-	},
-	"failedToResetProviders": {
-		"message": "공급자 및 모델 재설정 실패"
-	},
 	"failedToResetTemplate": {
 		"message": "템플릿을 초기화하지 못했습니다. 다시 시도해 주세요."
 	},
@@ -329,9 +255,6 @@
 	},
 	"failedToSaveFile": {
 		"message": "파일을 저장하지 못했습니다"
-	},
-	"failedToSaveProvider": {
-		"message": "제공자 저장에 실패했습니다. 다시 시도해 주세요."
 	},
 	"feedback": {
 		"message": "피드백"
@@ -350,9 +273,6 @@
 	},
 	"generalSettings": {
 		"message": "일반 설정"
-	},
-	"getApiKeyHere": {
-		"message": "여기에서 $1 API 키를 받으세요."
 	},
 	"help": {
 		"message": "도움말"
@@ -445,26 +365,6 @@
 	"importTemplate": {
 		"message": "템플릿 가져오기"
 	},
-	"interpret": {
-		"message": "해석"
-	},
-	"interpreter": {
-		"message": "인터프리터"
-	},
-	"interpreterContext": {
-		"message": "인터프리터 컨텍스트"
-	},
-	"interpreterContextDescription": {
-		"message": "프롬프트 변수를 해석하는 데 사용되는 컨텍스트입니다. $link_start$인프리터 설정$link_end$에 정의된 기본 컨텍스트를 재정의합니다. 여기서 변수를 사용할 수 있습니다.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"?section=interpreter\">"
-			}
-		}
-	},
 	"language": {
 		"message": "언어"
 	},
@@ -488,30 +388,6 @@
 	},
 	"loading": {
 		"message": "로딩 중…"
-	},
-	"modelName": {
-		"message": "모델 이름"
-	},
-	"modelNameDescription": {
-		"message": "인터페이스에 표시할 모델 이름입니다."
-	},
-	"modelProvider": {
-		"message": "제공자"
-	},
-	"modelProviderDescription": {
-		"message": "모델 제공자 (예: Ollama, OpenRouter, Google 등)"
-	},
-	"modelProviderPlaceholder": {
-		"message": "공급자"
-	},
-	"modelRequiredFields": {
-		"message": "모델 이름, 제공자, 그리고 모델 ID가 필요합니다."
-	},
-	"models": {
-		"message": "모델"
-	},
-	"modelsListFor": {
-		"message": "$1에 대한 모델 목록"
 	},
 	"more": {
 		"message": "더 보기"
@@ -620,12 +496,6 @@
 	"pleaseReload": {
 		"message": "페이지를 다시 로드해 주세요."
 	},
-	"popularModels": {
-		"message": "인기 모델"
-	},
-	"popularModelsDescription": {
-		"message": "일반적으로 사용되는 모델 중에서 선택하거나 사용자 정의 모델 세부 정보를 입력하세요."
-	},
 	"popup": {
 		"message": "팝업"
 	},
@@ -670,48 +540,6 @@
 	},
 	"propertyValue": {
 		"message": "속성 값"
-	},
-	"provider": {
-		"message": "공급자"
-	},
-	"providerApiKey": {
-		"message": "API 키"
-	},
-	"providerApiKeyDescription": {
-		"message": "이 공급자를 위한 API 키입니다."
-	},
-	"providerBaseUrl": {
-		"message": "기본 URL"
-	},
-	"providerBaseUrlDescription": {
-		"message": "이 제공자를 위한 API 엔드포인트 URL입니다."
-	},
-	"providerModelId": {
-		"message": "모델 ID"
-	},
-	"providerModelIdDescription": {
-		"message": "제공자의 모델 식별자입니다. 일반적으로 공백이 없는 짧은 이름입니다."
-	},
-	"providerModelIdPlaceholder": {
-		"message": "모델 ID"
-	},
-	"providerName": {
-		"message": "제공자 이름"
-	},
-	"providerNameDescription": {
-		"message": "이 공급자의 표시 이름."
-	},
-	"providerPreset": {
-		"message": "프리셋"
-	},
-	"providerPresetDescription": {
-		"message": "공급자를 선택하거나 사용자 정의 공급자를 생성하십시오."
-	},
-	"providerRequiredFields": {
-		"message": "공급자 이름과 기본 URL이 필요합니다."
-	},
-	"providers": {
-		"message": "제공자"
 	},
 	"rateExtensionDescription": {
 		"message": "웹 클리퍼를 즐기고 계신가요? 평가를 통해 우리를 도와주세요."
@@ -872,9 +700,6 @@
 	"readerViewFullSize": {
 		"message": "원본 크기로 보기"
 	},
-	"recommended": {
-		"message": "추천"
-	},
 	"refresh": {
 		"message": "새로 고침"
 	},
@@ -905,12 +730,6 @@
 	"resetDefaultTemplateDescription": {
 		"message": "기본 템플릿으로 초기화하여 템플릿에 대한 모든 사용자 정의를 제거합니다."
 	},
-	"resetProvidersAndModels": {
-		"message": "기본 모델 재설정"
-	},
-	"resetProvidersAndModelsDescription": {
-		"message": "공급자와 모델을 기본 설정으로 재설정합니다."
-	},
 	"save": {
 		"message": "저장"
 	},
@@ -931,9 +750,6 @@
 	},
 	"searchVariables": {
 		"message": "변수 검색..."
-	},
-	"selectProvider": {
-		"message": "공급자를 선택하십시오"
 	},
 	"selectTemplateToExport": {
 		"message": "내보낼 템플릿을 선택해 주세요."
@@ -1054,9 +870,6 @@
 	},
 	"thinking": {
 		"message": "생각 중"
-	},
-	"unknownProvider": {
-		"message": "알 수 없는 제공자"
 	},
 	"updateAvailable": {
 		"message": "업데이트가 있습니다."

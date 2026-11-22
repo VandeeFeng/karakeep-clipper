@@ -20,7 +20,6 @@
 						<li data-section="general"><div class="nav-item-icon"><i data-lucide="paperclip"></i></div><span data-i18n="general">General</span></li>
 						<li data-section="reader"><div class="nav-item-icon"><i data-lucide="book-open"></i></div><span data-i18n="reader">Reader</span></li>
 						<li data-section="highlighter"><div class="nav-item-icon"><i data-lucide="highlighter"></i></div><span data-i18n="highlighter">Highlighter</span></li>
-						<li data-section="interpreter"><div class="nav-item-icon"><i data-lucide="quote"></i></div><span data-i18n="interpreter">Interpreter</span></li>
 						<li data-section="properties"><div class="nav-item-icon"><i data-lucide="archive"></i></div><span data-i18n="properties">Properties</span></li>
 						<li data-section="hoarder"><div class="nav-item-icon"><i data-lucide="bookmark-plus"></i></div><span data-i18n="hoarder">Hoarder</span></li>
 						<li class="sidebar-heading" data-i18n="templatesHeading">Templates</li>
@@ -500,85 +499,6 @@
 						</form>
 					</div>
 
-					<div id="interpreter-section" class="settings-section">
-						<div class="settings-section-header">
-							<h2 data-i18n="interpreter">Interpreter</h2>
-						</div>
-						<form id="interpreter-settings-form">
-							<div class="setting-group">
-								<div class="setting-items">
-									<div class="setting-item mod-horizontal mod-toggle">
-										<div class="setting-item-info">
-											<label for="interpreter-toggle" data-i18n="enableInterpreter">Enable interpreter</label>
-											<div class="setting-item-description" data-i18n="enableInterpreterDescription">
-												Use natural language to extract data from pages. For example, you can use the template syntax <strong>{{"a summary of the page"}}</strong>. Requires an API key or custom model configured below. <a href="https://help.obsidian.md/web-clipper/interpreter" target="_blank">Learn more</a>.
-											</div>
-										</div>
-										<div class="setting-item-control">
-											<div class="checkbox-container">
-												<input type="checkbox" id="interpreter-toggle" />
-											</div>
-										</div>
-									</div>
-									<div class="setting-item mod-horizontal mod-toggle">
-										<div class="setting-item-info">
-											<label for="interpreter-auto-run-toggle" data-i18n="autoRunInterpreter">Automatically run</label>
-											<div class="setting-item-description" data-i18n="autoRunInterpreterDescription">Run prompt variables immediately if the template contains any. This will consume API credits with your model provider. Turn off if you only want to run interpreter manually.</div>
-										</div>
-										<div class="setting-item-control">
-											<div class="checkbox-container">
-												<input type="checkbox" id="interpreter-auto-run-toggle" />
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="setting-group">
-								<div class="setting-item setting-item-heading">
-									<h3 data-i18n="providers">Providers</h3>
-									<div id="api-keys-warning-container" class="warning-container">
-										<div class="warning-icon">
-											<i data-lucide="alert-triangle"></i>
-										</div>
-										<div class="warning-text" data-i18n="apiKeysWarning">
-											By using an external provider you agree to their terms and privacy policy. Interpreter requests are sent directly to the provider you choose. Obsidian does not gather or store any data about your requests.
-										</div>
-									</div>
-								</div>
-								<div class="setting-items">
-								<div class="provider-list-container">
-									<div id="provider-list"></div>
-									<div class="add-btn">
-										<a id="add-provider-btn" data-i18n="addProvider">+ Add provider</a>
-									</div>
-								</div>
-								</div>
-							</div>
-							<div class="setting-group">
-								<div class="setting-item setting-item-heading"><h3 data-i18n="models">Models</h3></div>
-								<div class="setting-items">
-								<div class="model-list-container">
-									<div id="model-list"></div>
-									<div class="add-btn">
-										<a id="add-model-btn" data-i18n="addModel">+ Add model</a>
-									</div>
-								</div>
-								</div>
-							</div>
-							<div class="setting-group">
-								<div class="setting-item setting-item-heading"><h3 data-i18n="advanced">Advanced</h3></div>
-								<div class="setting-items">
-								<div class="setting-item">
-									<label for="default-prompt-context" data-i18n="defaultInterpreterContext">Default interpreter context</label>
-									<div class="setting-item-description" data-i18n="defaultInterpreterContextDescription">Override the context used to interpret prompt variables. Variables can be used here.</div>
-									<textarea id="default-prompt-context" rows="4" placeholder="{{fullHtml}}" spellcheck="false"></textarea>
-								</div>
-								
-								</div>
-							</div>
-						</form>
-					</div>
-
 					<div id="properties-section" class="settings-section">
 						<div class="settings-section-header">
 							<h2 data-i18n="propertiesSettings">Properties</h2>
@@ -807,16 +727,6 @@
 										</div>
 									</div>
 								</div>
-								<div class="setting-group" id="template-advanced-section">
-									<div class="setting-item setting-item-heading"><h3 data-i18n="advanced">Advanced</h3></div>
-									<div class="setting-items">
-										<div class="setting-item" id="prompt-context-container">
-											<label for="prompt-context" data-i18n="interpreterContext">Interpreter context</label>
-											<div class="setting-item-description" data-i18n="interpreterContextDescription">The context used to interpret prompt variables. Overrides the default context defined in Interpreter settings. Variables can be used here.</div>
-											<textarea id="prompt-context" rows="4" spellcheck="false"></textarea>
-										</div>
-									</div>
-								</div>
 							</div>
 						</form>
 					</div>
@@ -842,122 +752,6 @@
 				<div class="modal-button-container">
 					<button class="import-confirm-btn mod-cta" data-i18n="import">Import</button>
 					<button class="import-cancel-btn" data-i18n="cancel">Cancel</button>
-				</div>
-			</div>
-		</div>
-
-		<div id="model-modal" class="modal-container">
-			<div class="modal-bg"></div>
-			<div class="modal">
-				<div class="modal-header">
-					<div class="modal-title" data-i18n="addModelTitle"></div>
-				</div>
-				<div class="modal-content">
-					<form id="model-form">
-						<div class="setting-item">
-							<div class="setting-item-info">
-								<label for="model-provider" data-i18n="provider">Provider</label>
-								<div class="setting-item-description" data-i18n="modelProviderDescription">Select the provider for this model.</div>
-							</div>
-							<div class="setting-item-control">
-								<select id="model-provider" name="providerId" required>
-									<option value="" data-i18n="selectProvider">Select a provider</option>
-								</select>
-							</div>
-						</div>
-						<div class="setting-item model-selection-container" style="display: none;">
-							<div class="setting-item-info">
-								<label data-i18n="popularModels">Popular models</label>
-								<div class="setting-item-description" data-i18n="popularModelsDescription">Choose from commonly used models or enter custom model details.</div>
-							</div>
-							<div class="setting-item-control">
-								<div class="radio-container" id="model-selection-radios">
-								</div>
-							</div>
-						</div>
-						<div class="setting-item">
-							<div class="setting-item-info">
-								<label for="model-name">
-									<span data-i18n="modelName">Display name</span>
-								</label>
-								<div class="setting-item-description" data-i18n="modelNameDescription">A name for this model.</div>
-							</div>
-							<div class="setting-item-control">
-								<input type="text" id="model-name" name="name" data-i18n="modelName" placeholder="Model name" required>
-							</div>
-						</div>
-						<div class="setting-item">
-							<div class="setting-item-info">
-								<label for="provider-model-id" data-i18n="providerModelId">Model ID</label>
-								<div class="setting-item-description" data-i18n="providerModelIdDescription">The model identifier from your provider.</div>
-							</div>
-							<div class="setting-item-control">
-								<input type="text" id="provider-model-id" name="providerModelId" data-i18n="providerModelId" placeholder="Model ID" required>
-							</div>
-						</div>
-						
-					</form>
-				</div>
-				<div class="modal-button-container">
-					<button class="model-confirm-btn mod-cta" data-i18n="save">Save</button>
-					<button class="model-cancel-btn" data-i18n="cancel">Cancel</button>
-				</div>
-			</div>
-		</div>
-
-		<div id="provider-modal" class="modal-container">
-			<div class="modal-bg"></div>
-			<div class="modal">
-				<div class="modal-header">
-					<div class="modal-title" data-i18n="addProviderTitle"></div>
-				</div>
-				<div class="modal-content">
-					<form id="provider-form">
-						<div class="setting-item">
-							<div class="setting-item-info">
-								<label for="provider-preset">
-									<span data-i18n="provider">Provider</span>
-								</label>
-								<div class="setting-item-description" data-i18n="providerPresetDescription">Choose a Provider or add a custom one.</div>
-							</div>
-							<div class="setting-item-control">
-								<select id="provider-preset" name="preset">
-									<option value="">Custom</option>
-								</select>
-							</div>
-						</div>
-						<div class="setting-item">
-							<div class="setting-item-info">
-								<label for="provider-name" data-i18n="providerName">Provider name</label>
-								<div class="setting-item-description" data-i18n="providerNameDescription">Display name for this provider.</div>
-							</div>
-							<div class="setting-item-control">
-								<input type="text" id="provider-name" name="name" data-i18n="providerName" placeholder="Provider name" required>
-							</div>
-						</div>
-						<div class="setting-item">
-							<div class="setting-item-info">
-								<label for="provider-base-url" data-i18n="providerBaseUrl">Base URL</label>
-								<div class="setting-item-description" data-i18n="providerBaseUrlDescription">The API endpoint URL for this provider.</div>
-							</div>
-							<div class="setting-item-control">
-								<input type="text" id="provider-base-url" name="baseUrl" data-i18n="providerBaseUrl" placeholder="Base URL" required>
-							</div>
-						</div>
-						<div class="setting-item">
-							<div class="setting-item-info">
-								<label for="provider-api-key" data-i18n="providerApiKey">API key</label>
-								<div class="setting-item-description" data-i18n="providerApiKeyDescription">Your API key for this provider.</div>
-							</div>
-							<div class="setting-item-control">
-								<input type="text" id="provider-api-key" name="apiKey" data-i18n="providerApiKey" placeholder="API key">
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="modal-button-container">
-					<button class="provider-confirm-btn mod-cta" data-i18n="save">Save</button>
-					<button class="provider-cancel-btn" data-i18n="cancel">Cancel</button>
 				</div>
 			</div>
 		</div>

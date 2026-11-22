@@ -1,8 +1,9 @@
 import browser from './browser-polyfill';
-import { Settings, ModelConfig, PropertyType, HistoryEntry, Provider, Rating, SaveBehavior } from '../types/types';
+import { Settings, PropertyType, HistoryEntry, Rating, SaveBehavior } from '../types/types';
 import { debugLog } from './debug';
+import { removeAiSettings } from './ai-settings-cleanup';
 
-export type { Settings, ModelConfig, PropertyType, HistoryEntry, Provider, Rating };
+export type { Settings, PropertyType, HistoryEntry, Rating };
 
 export let generalSettings: Settings = {
 	vaults: [],
@@ -14,12 +15,6 @@ export let generalSettings: Settings = {
 	alwaysShowHighlights: false,
 	highlightBehavior: 'highlight-inline',
 	showMoreActionsButton: false,
-	interpreterModel: '',
-	models: [],
-	providers: [],
-	interpreterEnabled: false,
-	interpreterAutoRun: false,
-	defaultPromptContext: '',
 	propertyTypes: [],
 	readerSettings: {
 		fontSize: 16,
@@ -97,14 +92,6 @@ interface StorageData {
 		highlightActiveLine?: boolean;
 		customCss?: string;
 	};
-	interpreter_settings?: {
-		interpreterModel?: string;
-		models?: ModelConfig[];
-		providers?: Provider[];
-		interpreterEnabled?: boolean;
-		interpreterAutoRun?: boolean;
-		defaultPromptContext?: string;
-	};
 	property_types?: PropertyType[];
 	stats?: {
 		addToObsidian: number;
@@ -119,7 +106,7 @@ interface StorageData {
 	migrationVersion?: number;
 }
 
-const CURRENT_MIGRATION_VERSION = 1;
+const CURRENT_MIGRATION_VERSION = 2;
 
 export async function loadSettings(): Promise<Settings> {
 	const data = await browser.storage.sync.get(null) as StorageData;
@@ -135,12 +122,6 @@ export async function loadSettings(): Promise<Settings> {
 		highlighterEnabled: true,
 		alwaysShowHighlights: true,
 		highlightBehavior: 'highlight-inline',
-		interpreterModel: '',
-		models: [],
-		providers: [],
-		interpreterEnabled: false,
-		interpreterAutoRun: false,
-		defaultPromptContext: '',
 		propertyTypes: [],
 		saveBehavior: 'addToObsidian',
 		readerSettings: {
@@ -177,18 +158,18 @@ export async function loadSettings(): Promise<Settings> {
 
 	// Update migration version if needed
 	if (!data.migrationVersion || data.migrationVersion < CURRENT_MIGRATION_VERSION) {
-		await browser.storage.sync.set({ migrationVersion: CURRENT_MIGRATION_VERSION });
+		const cleaned = removeAiSettings(data);
+		const changedTemplates = Object.fromEntries(
+			Object.entries(cleaned).filter(([key, value]) => value !== (data as Record<string, any>)[key])
+		);
+		await browser.storage.sync.remove('interpreter_settings');
+		await browser.storage.local.remove('provider_presets');
+		await browser.storage.sync.set({ ...changedTemplates, migrationVersion: CURRENT_MIGRATION_VERSION });
 		debugLog('Settings', `Updated migration version to ${CURRENT_MIGRATION_VERSION}`);
 	}
 
 	// Validate and sanitize data to prevent corruption
 	const sanitizedVaults = Array.isArray(data.vaults) ? data.vaults.filter(v => typeof v === 'string') : [];
-	const sanitizedModels = Array.isArray(data.interpreter_settings?.models) 
-		? data.interpreter_settings.models.filter(m => m && typeof m === 'object' && typeof m.id === 'string') 
-		: [];
-	const sanitizedProviders = Array.isArray(data.interpreter_settings?.providers) 
-		? data.interpreter_settings.providers.filter(p => p && typeof p === 'object' && typeof p.id === 'string') 
-		: [];
 
 	// Load user settings
 	const loadedSettings: Settings = {
@@ -203,12 +184,6 @@ export async function loadSettings(): Promise<Settings> {
 		highlighterEnabled: data.highlighter_settings?.highlighterEnabled ?? defaultSettings.highlighterEnabled,
 		alwaysShowHighlights: data.highlighter_settings?.alwaysShowHighlights ?? defaultSettings.alwaysShowHighlights,
 		highlightBehavior: data.highlighter_settings?.highlightBehavior ?? defaultSettings.highlightBehavior,
-		interpreterModel: data.interpreter_settings?.interpreterModel || defaultSettings.interpreterModel,
-		models: sanitizedModels,
-		providers: sanitizedProviders,
-		interpreterEnabled: data.interpreter_settings?.interpreterEnabled ?? defaultSettings.interpreterEnabled,
-		interpreterAutoRun: data.interpreter_settings?.interpreterAutoRun ?? defaultSettings.interpreterAutoRun,
-		defaultPromptContext: data.interpreter_settings?.defaultPromptContext || defaultSettings.defaultPromptContext,
 		propertyTypes: data.property_types || defaultSettings.propertyTypes,
 		readerSettings: {
 			fontSize: data.reader_settings?.fontSize ?? defaultSettings.readerSettings.fontSize,
@@ -263,14 +238,6 @@ export async function saveSettings(settings?: Partial<Settings>): Promise<void> 
 			highlighterEnabled: generalSettings.highlighterEnabled,
 			alwaysShowHighlights: generalSettings.alwaysShowHighlights,
 			highlightBehavior: generalSettings.highlightBehavior
-		},
-		interpreter_settings: {
-			interpreterModel: generalSettings.interpreterModel,
-			models: generalSettings.models,
-			providers: generalSettings.providers,
-			interpreterEnabled: generalSettings.interpreterEnabled,
-			interpreterAutoRun: generalSettings.interpreterAutoRun,
-			defaultPromptContext: generalSettings.defaultPromptContext
 		},
 		property_types: generalSettings.propertyTypes,
 		reader_settings: {

@@ -230,7 +230,7 @@ export function templateCompletions(source: string, position: number, variables:
   if (tag.kind === '{%' && /^\s*\w*$/.test(body)) return { from, to, options: logic };
   // A single pipe introduces a filter; || is a logical expression.
   if (/(?:^|[^|])\|\s*\w*$/.test(body)) return { from, to, options: filters };
-  if (/^\s*(?:selectorHtml|selector|schema|meta|prompt):/.test(body)) return null;
+  if (/^\s*(?:selectorHtml|selector|schema|meta):/.test(body)) return null;
   if (tag.kind === '{%' && /^\s*(?:for|set)\s+\w*\s*$/.test(body)) return null;
 
   const operatorResult = tag.kind === '{%' ? conditionOperatorRange(body, position, source) : undefined;

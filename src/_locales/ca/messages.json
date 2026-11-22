@@ -2,20 +2,8 @@
 	"activity": {
 		"message": "Activitat"
 	},
-	"addModel": {
-		"message": "+ Agregar model"
-	},
-	"addModelTitle": {
-		"message": "Agregar model"
-	},
 	"addProperty": {
 		"message": "+ Agregar propietat"
-	},
-	"addProvider": {
-		"message": "+ Agregar proveïdor"
-	},
-	"addProviderTitle": {
-		"message": "Agregar proveïdor"
 	},
 	"addToObsidian": {
 		"message": "Agregar a Obsidian"
@@ -41,23 +29,11 @@
 	"alwaysShowHighlightsDescription": {
 		"message": "Mostra els teus ressaltats guardats quan carregues una pàgina. Desactiva per mostrar els ressaltats només quan el mode ressaltador està activat."
 	},
-	"apiKeyMissing": {
-		"message": "Sense clau API"
-	},
-	"apiKeysWarning": {
-		"message": "En usar un proveïdor extern, accepta els seus termes i política de privacitat. Les sol·licituds de l'intèrpret s'envien directament al proveïdor que esculli. Obsidian no recopila ni emmagatzema cap dada sobre les seves sol·licituds."
-	},
 	"appendToDaily": {
 		"message": "Agregar a la nota diària, al final"
 	},
 	"appendToExisting": {
 		"message": "Agregar a una nota existent, al final"
-	},
-	"autoRunInterpreter": {
-		"message": "Executar automàticament"
-	},
-	"autoRunInterpreterDescription": {
-		"message": "Executi les variables de prompt immediatament si la plantilla en conté alguna. Això consumirà crèdits d'API amb el teu proveïdor de model. Desactivi-ho si només vol executar l'intèrpret manualment."
 	},
 	"behavior": {
 		"message": "Comportament"
@@ -73,9 +49,6 @@
 	},
 	"cancel": {
 		"message": "Cancel·lar"
-	},
-	"cannotDeleteProvider": {
-		"message": "No es pot eliminar el proveïdor \"$1\" perquè s'utilitza per $2 model(s)."
 	},
 	"changelog": {
 		"message": "Registre de canvis"
@@ -147,17 +120,8 @@
 	"createNewNote": {
 		"message": "Crear nova nota"
 	},
-	"custom": {
-		"message": "Personalitzat"
-	},
 	"dailyNoteFormat": {
 		"message": "Format de nota diària (ex., YYYY-MM-DD)"
-	},
-	"defaultInterpreterContext": {
-		"message": "Context predeterminat de l'intèrpret"
-	},
-	"defaultInterpreterContextDescription": {
-		"message": "El model usarà aquest context per interpretar les variables de prompt. Aquí, es poden fer servir variables."
 	},
 	"defaultTemplateName": {
 		"message": "Predeterminat"
@@ -173,12 +137,6 @@
 	},
 	"deleteHighlightsForPage": {
 		"message": "Vols suprimir tots els ressaltats d'aquesta pàgina?"
-	},
-	"deleteModelConfirm": {
-		"message": "N'està segur, de voler eliminar aquest model?"
-	},
-	"deleteProviderConfirm": {
-		"message": "N'està segur de voler eliminar aquest proveïdor?"
 	},
 	"disableHighlighter": {
 		"message": "Desactivar ressaltador"
@@ -212,12 +170,6 @@
 	"edit": {
 		"message": "Edita"
 	},
-	"editModel": {
-		"message": "Editar model"
-	},
-	"editProvider": {
-		"message": "Editar proveïdor"
-	},
 	"editTemplate": {
 		"message": "Editar plantilla"
 	},
@@ -226,26 +178,6 @@
 	},
 	"enableHighlighterDescription": {
 		"message": "Ressalti contingut en pàgines web que pot guardar a Obsidian."
-	},
-	"enableInterpreter": {
-		"message": "Habilitar intèrpret"
-	},
-	"enableInterpreterDescription": {
-		"message": "Usi llenguatge natural per extraure dades de les pàgines. Per exemple, pot usar la sintaxi de plantilla $strong_start${{\"un resum de la pàgina\"}}$strong_end$. Requereix una clau API o model personalitzat configurat a sota. $link_start$Més informació$link_end$",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"https://help.obsidian.md/web-clipper/interpreter\" target=\"_blank\">"
-			},
-			"strong_end": {
-				"content": "</strong>"
-			},
-			"strong_start": {
-				"content": "<strong>"
-			}
-		}
 	},
 	"enableReader": {
 		"message": "Obre la vista de lectura"
@@ -315,12 +247,6 @@
 	"failedToInitializeContent": {
 		"message": "No es pot inicialitzar el contingut de la pàgina."
 	},
-	"failedToProcessInterpreter": {
-		"message": "Ha fallat el processament de l’intèrpret. Si us plau, torni-ho a intentar."
-	},
-	"failedToResetProviders": {
-		"message": "Error en restablir els proveïdors i els models"
-	},
 	"failedToResetTemplate": {
 		"message": "No s’ha pogut restablir la plantilla predeterminada. Si us plau, torni-ho a intentar."
 	},
@@ -329,9 +255,6 @@
 	},
 	"failedToSaveFile": {
 		"message": "Error en guardar el fitxer"
-	},
-	"failedToSaveProvider": {
-		"message": "Error en guardar el proveïdor. Si us plau, torni-ho a intentar."
 	},
 	"feedback": {
 		"message": "Comentaris"
@@ -350,9 +273,6 @@
 	},
 	"generalSettings": {
 		"message": "Configuració general"
-	},
-	"getApiKeyHere": {
-		"message": "Obtingui la seva clau API de $1 aquí."
 	},
 	"help": {
 		"message": "Ajuda"
@@ -445,26 +365,6 @@
 	"importTemplate": {
 		"message": "Importar plantilla"
 	},
-	"interpret": {
-		"message": "interpretar"
-	},
-	"interpreter": {
-		"message": "Intèrpret"
-	},
-	"interpreterContext": {
-		"message": "Context de l'intèrpret"
-	},
-	"interpreterContextDescription": {
-		"message": "El context utilitzat per interpretar variables de prompt. Anul·la el context predeterminat definit a $link_start$Configuració de l'intèrpret$link_end$. Aquí, es poden usar variables.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"?section=interpreter\">"
-			}
-		}
-	},
 	"language": {
 		"message": "Idioma"
 	},
@@ -488,30 +388,6 @@
 	},
 	"loading": {
 		"message": "S'està carregant…"
-	},
-	"modelName": {
-		"message": "Nom del model"
-	},
-	"modelNameDescription": {
-		"message": "El nom del model que desitgi mostrar a la interfície."
-	},
-	"modelProvider": {
-		"message": "Proveïdor"
-	},
-	"modelProviderDescription": {
-		"message": "Seleccioni el proveïdor d'aquest model."
-	},
-	"modelProviderPlaceholder": {
-		"message": "Proveïdor"
-	},
-	"modelRequiredFields": {
-		"message": "El nom del model, el proveïdor i l'ID del model són obligatoris."
-	},
-	"models": {
-		"message": "Models"
-	},
-	"modelsListFor": {
-		"message": "Llista de models per a $1"
 	},
 	"more": {
 		"message": "Més"
@@ -620,12 +496,6 @@
 	"pleaseReload": {
 		"message": "Si us plau, intenti recarregar la pàgina."
 	},
-	"popularModels": {
-		"message": "Models populars"
-	},
-	"popularModelsDescription": {
-		"message": "Trieu entre els models més utilitzats o introduïu els detalls del model personalitzat."
-	},
 	"popup": {
 		"message": "Finestra emergent"
 	},
@@ -670,48 +540,6 @@
 	},
 	"propertyValue": {
 		"message": "Valor de la propietat"
-	},
-	"provider": {
-		"message": "Proveïdor"
-	},
-	"providerApiKey": {
-		"message": "Clau d'API"
-	},
-	"providerApiKeyDescription": {
-		"message": "La seva clau d'API per a aquest proveïdor."
-	},
-	"providerBaseUrl": {
-		"message": "URL base"
-	},
-	"providerBaseUrlDescription": {
-		"message": "L'URL del punt final de l'API per a aquest proveïdor."
-	},
-	"providerModelId": {
-		"message": "ID del model"
-	},
-	"providerModelIdDescription": {
-		"message": "L'identificador del model del seu proveïdor. Normalment, un nom curt sense espais."
-	},
-	"providerModelIdPlaceholder": {
-		"message": "ID del model"
-	},
-	"providerName": {
-		"message": "Nom del proveïdor."
-	},
-	"providerNameDescription": {
-		"message": "Nom a mostrar d'aquest proveidor."
-	},
-	"providerPreset": {
-		"message": "Preestablert"
-	},
-	"providerPresetDescription": {
-		"message": "Triï un proveïdor o creï'n un de personalitzat."
-	},
-	"providerRequiredFields": {
-		"message": "El nom del proveïdor i l'URL base són obligatoris."
-	},
-	"providers": {
-		"message": "Proveïdors"
 	},
 	"rateExtensionDescription": {
 		"message": "T'està agradant Web Clipper? Ajuda'ns donant-li una valoració."
@@ -872,9 +700,6 @@
 	"readerViewFullSize": {
 		"message": "Mostra a mida completa"
 	},
-	"recommended": {
-		"message": "recomanat"
-	},
 	"refresh": {
 		"message": "Actualitzar"
 	},
@@ -905,12 +730,6 @@
 	"resetDefaultTemplateDescription": {
 		"message": "Eliminar qualsevol canvi que hagi fet a la plantilla predeterminada."
 	},
-	"resetProvidersAndModels": {
-		"message": "Restablir els models predeterminats"
-	},
-	"resetProvidersAndModelsDescription": {
-		"message": "Restablir els proveïdors i models a la configuració predeterminada."
-	},
 	"save": {
 		"message": "Guardar"
 	},
@@ -931,9 +750,6 @@
 	},
 	"searchVariables": {
 		"message": "Buscar variables..."
-	},
-	"selectProvider": {
-		"message": "Seleccionar un proveïdor"
 	},
 	"selectTemplateToExport": {
 		"message": "Si us plau, seleccioni una plantilla per exportar."
@@ -1054,9 +870,6 @@
 	},
 	"thinking": {
 		"message": "pensant"
-	},
-	"unknownProvider": {
-		"message": "Proveïdor desconegut"
 	},
 	"updateAvailable": {
 		"message": "Hi ha una actualització disponible."

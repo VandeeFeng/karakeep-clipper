@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { Template, Property, PromptVariable } from '../types/types';
+import { Template, Property } from '../types/types';
 import { incrementStat, addHistoryEntry, getClipHistory } from '../utils/storage-utils';
 import { generateFrontmatter, saveToObsidian } from '../utils/obsidian-note-creator';
 import { extractPageContent, initializePageContent } from '../utils/content-extractor';
@@ -12,7 +12,6 @@ import { loadTemplates, createDefaultTemplate } from '../managers/template-manag
 import browser from '../utils/browser-polyfill';
 import { addBrowserClassToHtml, detectBrowser } from '../utils/browser-detection';
 import { createElementWithClass } from '../utils/dom-utils';
-import { initializeInterpreter, handleInterpreterUI, collectPromptVariables } from '../utils/interpreter';
 import { adjustNoteNameHeight } from '../utils/ui-utils';
 import { debugLog, isDebugMode } from '../utils/debug';
 import { showVariables, initializeVariablesPanel, updateVariablesPanel } from '../managers/inspect-variables';
@@ -644,25 +643,6 @@ function logError(message: string, error?: any): void {
 	showError(message);
 }
 
-async function waitForInterpreter(interpretBtn: HTMLButtonElement): Promise<void> {
-	return new Promise((resolve, reject) => {
-		const checkProcessing = () => {
-			if (!interpretBtn.classList.contains('processing')) {
-				if (interpretBtn.classList.contains('done')) {
-					resolve();
-				} else if (interpretBtn.classList.contains('error')) {
-					reject(new Error(getMessage('failedToProcessInterpreter')));
-				} else {
-					setTimeout(checkProcessing, 100);
-				}
-			} else {
-				setTimeout(checkProcessing, 100);
-			}
-		};
-		checkProcessing();
-	});
-}
-
 async function refreshFields(tabId: number, { checkTemplateTriggers = true, rebuildSkeleton = true }: { checkTemplateTriggers?: boolean; rebuildSkeleton?: boolean } = {}) {
 	if (templates.length === 0) {
 		console.warn('No templates available');
@@ -865,30 +845,6 @@ function buildTemplateFieldsSkeleton(template: Template | null) {
 	if (noteContentField) {
 		noteContentField.setAttribute('data-template-value', template.noteContentFormat || '');
 	}
-
-	// Show/hide interpreter section based on template prompt variables
-	const interpreterContainer = document.getElementById('interpreter');
-	const interpretBtn = document.getElementById('interpret-btn');
-	const hasPromptVars = generalSettings.interpreterEnabled && collectPromptVariables(template).length > 0;
-	if (interpreterContainer) interpreterContainer.style.display = hasPromptVars ? 'flex' : 'none';
-	if (interpretBtn) interpretBtn.style.display = hasPromptVars ? 'inline-block' : 'none';
-
-	// Populate model dropdown immediately (only needs generalSettings)
-	if (hasPromptVars) {
-		const modelSelect = document.getElementById('model-select') as HTMLSelectElement;
-		if (modelSelect) {
-			const enabledModels = generalSettings.models.filter(model => model.enabled);
-			modelSelect.textContent = '';
-			enabledModels.forEach(model => {
-				const option = document.createElement('option');
-				option.value = model.id;
-				option.textContent = model.name;
-				modelSelect.appendChild(option);
-			});
-			modelSelect.value = generalSettings.interpreterModel || (enabledModels[0]?.id ?? '');
-			modelSelect.style.display = 'inline-block';
-		}
-	}
 }
 
 async function fillTemplateFieldValues(currentTabId: number, template: Template | null, variables: { [key: string]: string }, schemaOrgData?: any) {
@@ -945,36 +901,6 @@ async function fillTemplateFieldValues(currentTabId: number, template: Template 
 	const noteContentField = document.getElementById('note-content-field') as HTMLTextAreaElement;
 	if (noteContentField) {
 		noteContentField.value = template.noteContentFormat ? formattedContent : '';
-	}
-
-	if (generalSettings.interpreterEnabled) {
-		await initializeInterpreter(template, variables, currentTabId!, currentUrl);
-
-		const promptVariables = collectPromptVariables(template);
-
-		if (generalSettings.interpreterAutoRun && promptVariables.length > 0) {
-			try {
-				const interpretBtn = document.getElementById('interpret-btn') as HTMLButtonElement;
-				const modelSelect = document.getElementById('model-select') as HTMLSelectElement;
-				const selectedModelId = modelSelect?.value || generalSettings.interpreterModel;
-				const modelConfig = generalSettings.models.find(m => m.id === selectedModelId);
-				if (!modelConfig) {
-					throw new Error(`Model configuration not found for ${selectedModelId}`);
-				}
-				await handleInterpreterUI(template, variables, currentTabId!, currentUrl, modelConfig);
-
-				if (interpretBtn) {
-					interpretBtn.classList.add('done');
-					interpretBtn.disabled = true;
-				}
-			} catch (error) {
-				console.error('Error auto-processing with interpreter:', error);
-				const interpretBtn = document.getElementById('interpret-btn') as HTMLButtonElement;
-				if (interpretBtn) {
-					interpretBtn.classList.add('error');
-				}
-			}
-		}
 	}
 
 	if (isDebugMode()) {
@@ -1040,10 +966,6 @@ async function getReplacedTemplate(template: Template, variables: { [key: string
 		properties: [],
 		triggers: template.triggers
 	};
-
-	if (template.context) {
-		replacedTemplate.context = await compileTemplate(tabId, template.context, variables, currentUrl);
-	}
 
 	for (const prop of template.properties) {
 		const replacedProp: Property = {
@@ -1374,7 +1296,6 @@ async function handleClipObsidian(): Promise<void> {
 	const noteContentField = document.getElementById('note-content-field') as HTMLTextAreaElement;
 	const noteNameField = document.getElementById('note-name-field') as HTMLInputElement;
 	const pathField = document.getElementById('path-name-field') as HTMLInputElement;
-	const interpretBtn = document.getElementById('interpret-btn') as HTMLButtonElement;
 
 	if (!vaultDropdown || !noteContentField) {
 		showError('Some required fields are missing. Please try reloading the extension.');
@@ -1382,16 +1303,6 @@ async function handleClipObsidian(): Promise<void> {
 	}
 
 	try {
-		// Handle interpreter if needed
-		if (generalSettings.interpreterEnabled && interpretBtn && collectPromptVariables(currentTemplate).length > 0) {
-			if (interpretBtn.classList.contains('processing')) {
-				await waitForInterpreter(interpretBtn);
-			} else if (!interpretBtn.classList.contains('done')) {
-				interpretBtn.click();
-				await waitForInterpreter(interpretBtn);
-			}
-		}
-
 		// Gather content
 		const properties = getPropertiesFromDOM();
 

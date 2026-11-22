@@ -1,10 +1,5 @@
 import path from 'path';
 import fs from 'fs';
-import I18nAutomation from '../src/utils/i18n-automation';
-import dotenv from 'dotenv';
-
-// Load environment variables
-dotenv.config();
 
 interface Language {
 	code: string;
@@ -141,19 +136,7 @@ async function addLocale(locale: string) {
 	fs.writeFileSync(messagesFile, '{}');
 	console.log('✓ Created locale directory and messages.json');
 
-	// 3. Run translation
-	console.log('🤖 Starting translation...');
-	const automation = new I18nAutomation(LOCALES_DIR, process.env.OPENAI_API_KEY);
-	
-	try {
-		await automation.processLocales(path.join(ROOT_DIR, 'src'), locale);
-		console.log('✓ Translation completed');
-	} catch (error) {
-		console.error('❌ Translation failed:', error);
-		// Clean up on failure
-		fs.rmSync(localeDir, { recursive: true, force: true });
-		throw error;
-	}
+	console.log(`Add translations to ${messagesFile} using src/_locales/en/messages.json as a reference.`);
 }
 
 // Get locale from command line argument

@@ -2,20 +2,8 @@
 	"activity": {
 		"message": "Activitate"
 	},
-	"addModel": {
-		"message": "+ Adaugă model"
-	},
-	"addModelTitle": {
-		"message": "Adaugă model"
-	},
 	"addProperty": {
 		"message": "+ Adaugă proprietate"
-	},
-	"addProvider": {
-		"message": "+ Adaugă furnizor"
-	},
-	"addProviderTitle": {
-		"message": "Adaugă furnizor"
 	},
 	"addToObsidian": {
 		"message": "Adaugă în Obsidian"
@@ -41,23 +29,11 @@
 	"alwaysShowHighlightsDescription": {
 		"message": "Afișează evidențierile salvate la încărcarea paginii. Dezactivează pentru a afișa evidențierile doar când modul de evidențiere este activ."
 	},
-	"apiKeyMissing": {
-		"message": "Lipsește cheia API"
-	},
-	"apiKeysWarning": {
-		"message": "Folosind un furnizor extern, ești de acord cu termenii și condițiile lor de utilizare și politica de confidențialitate. Cererile interpretorului sunt trimise direct către furnizorul ales. Obsidian nu colectează și nu stochează informații despre cererile tale."
-	},
 	"appendToDaily": {
 		"message": "Adaugă la nota zilnică, la sfârșit"
 	},
 	"appendToExisting": {
 		"message": "Adaugă la nota existentă, la sfârșit"
-	},
-	"autoRunInterpreter": {
-		"message": "Rulare automată"
-	},
-	"autoRunInterpreterDescription": {
-		"message": "Execută imediat variabilele prompt dacă există în șablon. Consumă credite API de la furnizorul modelului tău. Dezactivează dacă dorești să rulezi interpretorul doar manual."
 	},
 	"behavior": {
 		"message": "Comportament"
@@ -73,9 +49,6 @@
 	},
 	"cancel": {
 		"message": "Anulează"
-	},
-	"cannotDeleteProvider": {
-		"message": "Nu se poate șterge furnizorul \"$1\" deoarece este folosit de $2 modele."
 	},
 	"changelog": {
 		"message": "Jurnal de modificări"
@@ -147,17 +120,8 @@
 	"createNewNote": {
 		"message": "Creează notă nouă"
 	},
-	"custom": {
-		"message": "Personalizat"
-	},
 	"dailyNoteFormat": {
 		"message": "Format notă zilnică (ex. YYYY-MM-DD)"
-	},
-	"defaultInterpreterContext": {
-		"message": "Context implicit interpretor"
-	},
-	"defaultInterpreterContextDescription": {
-		"message": "Suprascrie contextul folosit pentru interpretarea variabilelor prompt. Poți folosi variabile aici."
 	},
 	"defaultTemplateName": {
 		"message": "Implicit"
@@ -173,12 +137,6 @@
 	},
 	"deleteHighlightsForPage": {
 		"message": "Ștergeți toate evidențierile pentru această pagină?"
-	},
-	"deleteModelConfirm": {
-		"message": "Ești sigur că vrei să ștergi acest model?"
-	},
-	"deleteProviderConfirm": {
-		"message": "Ești sigur că vrei să ștergi acest furnizor?"
 	},
 	"disableHighlighter": {
 		"message": "Dezactivează evidențiatorul"
@@ -212,12 +170,6 @@
 	"edit": {
 		"message": "Editează"
 	},
-	"editModel": {
-		"message": "Editează model"
-	},
-	"editProvider": {
-		"message": "Editează furnizor"
-	},
 	"editTemplate": {
 		"message": "Editează șablon"
 	},
@@ -226,26 +178,6 @@
 	},
 	"enableHighlighterDescription": {
 		"message": "Evidențiază conținut pe pagini web pentru a-l salva în Obsidian"
-	},
-	"enableInterpreter": {
-		"message": "Activează interpretorul"
-	},
-	"enableInterpreterDescription": {
-		"message": "Folosește limbaj natural pentru a extrage informații din pagini. De exemplu, poți folosi sintaxa șablonului $strong_start${{\"rezumatul acestei pagini\"}}$strong_end$. Necesită o cheie API sau configurarea unui model personalizat mai jos. $link_start$Află mai multe$link_end$",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"https://help.obsidian.md/web-clipper/interpreter\" target=\"_blank\">"
-			},
-			"strong_end": {
-				"content": "</strong>"
-			},
-			"strong_start": {
-				"content": "<strong>"
-			}
-		}
 	},
 	"enableReader": {
 		"message": "Deschideți vizualizarea de citire"
@@ -315,12 +247,6 @@
 	"failedToInitializeContent": {
 		"message": "Nu s-a putut inițializa conținutul paginii."
 	},
-	"failedToProcessInterpreter": {
-		"message": "Procesarea interpretorului a eșuat. Te rugăm să încerci din nou."
-	},
-	"failedToResetProviders": {
-		"message": "Nu s-au putut reseta furnizorii și modelele"
-	},
 	"failedToResetTemplate": {
 		"message": "Nu s-a putut reseta șablonul implicit. Te rugăm să încerci din nou."
 	},
@@ -329,9 +255,6 @@
 	},
 	"failedToSaveFile": {
 		"message": "Nu s-a putut salva fișierul"
-	},
-	"failedToSaveProvider": {
-		"message": "Nu s-a putut salva furnizorul. Te rugăm să încerci din nou."
 	},
 	"feedback": {
 		"message": "Feedback"
@@ -350,9 +273,6 @@
 	},
 	"generalSettings": {
 		"message": "Setări generale"
-	},
-	"getApiKeyHere": {
-		"message": "Obține cheia API $1 aici"
 	},
 	"help": {
 		"message": "Ajutor"
@@ -445,26 +365,6 @@
 	"importTemplate": {
 		"message": "Importă șablon"
 	},
-	"interpret": {
-		"message": "Interpretează"
-	},
-	"interpreter": {
-		"message": "Interpretor"
-	},
-	"interpreterContext": {
-		"message": "Context interpretor"
-	},
-	"interpreterContextDescription": {
-		"message": "Contextul folosit pentru interpretarea variabilelor prompt. Suprascrie contextul implicit setat în $link_start$setările interpretorului$link_end$. Poți folosi variabile aici.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"?section=interpreter\">"
-			}
-		}
-	},
 	"language": {
 		"message": "Limbă"
 	},
@@ -488,30 +388,6 @@
 	},
 	"loading": {
 		"message": "Se încarcă…"
-	},
-	"modelName": {
-		"message": "Nume model"
-	},
-	"modelNameDescription": {
-		"message": "Numele afișat în meniul derulant al modelului"
-	},
-	"modelProvider": {
-		"message": "Furnizor"
-	},
-	"modelProviderDescription": {
-		"message": "Alege furnizorul pentru acest model"
-	},
-	"modelProviderPlaceholder": {
-		"message": "Furnizor"
-	},
-	"modelRequiredFields": {
-		"message": "Numele modelului, furnizorul și ID-ul modelului sunt obligatorii."
-	},
-	"models": {
-		"message": "Modele"
-	},
-	"modelsListFor": {
-		"message": "Lista de modele pentru $1"
 	},
 	"more": {
 		"message": "Mai mult"
@@ -612,12 +488,6 @@
 	"pleaseReload": {
 		"message": "Te rugăm să reîncarci pagina."
 	},
-	"popularModels": {
-		"message": "Modele populare"
-	},
-	"popularModelsDescription": {
-		"message": "Alege dintre modelele folosite frecvent sau introdu detaliile unui model personalizat."
-	},
 	"popup": {
 		"message": "Fereastră pop-up"
 	},
@@ -662,48 +532,6 @@
 	},
 	"propertyValue": {
 		"message": "Valoare proprietate"
-	},
-	"provider": {
-		"message": "Furnizor"
-	},
-	"providerApiKey": {
-		"message": "Cheie API"
-	},
-	"providerApiKeyDescription": {
-		"message": "Cheia ta API pentru acest furnizor."
-	},
-	"providerBaseUrl": {
-		"message": "URL de bază"
-	},
-	"providerBaseUrlDescription": {
-		"message": "URL-ul endpoint-ului API pentru acest furnizor."
-	},
-	"providerModelId": {
-		"message": "ID model"
-	},
-	"providerModelIdDescription": {
-		"message": "ID-ul modelului de la furnizorul tău. De obicei un nume scurt fără spații."
-	},
-	"providerModelIdPlaceholder": {
-		"message": "ID model"
-	},
-	"providerName": {
-		"message": "Nume furnizor"
-	},
-	"providerNameDescription": {
-		"message": "Numele afișat pentru acest furnizor."
-	},
-	"providerPreset": {
-		"message": "Presetare"
-	},
-	"providerPresetDescription": {
-		"message": "Alege un furnizor sau creează unul personalizat."
-	},
-	"providerRequiredFields": {
-		"message": "Numele furnizorului și URL-ul de bază sunt obligatorii."
-	},
-	"providers": {
-		"message": "Furnizori"
 	},
 	"rateExtensionDescription": {
 		"message": "Îți place Web Clipper? Ajută-ne dându-ne o evaluare."
@@ -864,9 +692,6 @@
 	"readerViewFullSize": {
 		"message": "Vezi la dimensiune completă"
 	},
-	"recommended": {
-		"message": "recomandat"
-	},
 	"refresh": {
 		"message": "Reîmprospătează"
 	},
@@ -897,12 +722,6 @@
 	"resetDefaultTemplateDescription": {
 		"message": "Elimină toate modificările făcute la șablonul implicit."
 	},
-	"resetProvidersAndModels": {
-		"message": "Resetează modelele la implicit"
-	},
-	"resetProvidersAndModelsDescription": {
-		"message": "Resetează furnizorii și modelele la setările implicite."
-	},
 	"save": {
 		"message": "Salvează"
 	},
@@ -923,9 +742,6 @@
 	},
 	"searchVariables": {
 		"message": "Caută variabile..."
-	},
-	"selectProvider": {
-		"message": "Selectează furnizor"
 	},
 	"selectTemplateToExport": {
 		"message": "Selectează șablon pentru export"
@@ -1046,9 +862,6 @@
 	},
 	"thinking": {
 		"message": "se gândește"
-	},
-	"unknownProvider": {
-		"message": "Furnizor necunoscut"
 	},
 	"updateAvailable": {
 		"message": "Actualizare disponibilă"

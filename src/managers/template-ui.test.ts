@@ -9,7 +9,6 @@ beforeEach(() => {
 		<textarea id="note-content-format"></textarea>
 		<input id="note-name-format">
 		<input id="template-path-name">
-		<textarea id="prompt-context"></textarea>
 		<div id="template-properties"></div>
 	</form></div>`;
 	initializeTemplateValidation();
@@ -42,7 +41,7 @@ it('shows and clears note content errors while the CodeMirror editor stays focus
 	expect(document.activeElement).toBe(view.contentDOM);
 });
 
-it.each(['note-name-format', 'template-path-name', 'prompt-context'])('validates %s only on blur', (id) => {
+it.each(['note-name-format', 'template-path-name'])('validates %s only on blur', (id) => {
 	const field = document.getElementById(id) as HTMLInputElement;
 	field.value = '{{}}';
 	field.dispatchEvent(new Event('input'));
@@ -105,7 +104,7 @@ it('cancels pending validation when switching templates', () => {
 	showTemplateEditor({
 		id: 'next', name: 'Next', behavior: 'create',
 		noteNameFormat: '{{title}}', noteContentFormat: 'Next\n{{}}',
-		path: '', properties: [], triggers: [], context: '',
+		path: '', properties: [], triggers: [],
 	});
 	const issue = document.querySelector('#note-content-format-validation .validation-error');
 	expect(issue?.textContent).toContain('Line 2:');

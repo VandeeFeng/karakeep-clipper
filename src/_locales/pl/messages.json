@@ -2,20 +2,8 @@
 	"activity": {
 		"message": "Aktywność"
 	},
-	"addModel": {
-		"message": "+ Dodaj model"
-	},
-	"addModelTitle": {
-		"message": "Dodaj model"
-	},
 	"addProperty": {
 		"message": "+ Dodaj atrybut"
-	},
-	"addProvider": {
-		"message": "+ Dodaj dostawcę"
-	},
-	"addProviderTitle": {
-		"message": "Dodaj dostawcę"
 	},
 	"addToObsidian": {
 		"message": "Zapisz w Obsidian"
@@ -41,23 +29,11 @@
 	"alwaysShowHighlightsDescription": {
 		"message": "Wyświetl zapisane wyróżnienia po wczytaniu strony. Wyłącz, aby wyświetlać wyróżnienia tylko wtedy, gdy włączony jest tryb zakreślacza."
 	},
-	"apiKeyMissing": {
-		"message": "Brak klucza API"
-	},
-	"apiKeysWarning": {
-		"message": "Korzystając z usług zewnętrznego dostawcy, użytkownik akceptuje jego regulamin i politykę prywatności. Zapytania użytkowników wysyłane są bezpośrednio do wybranego dostawcy. Obsidian nie gromadzi ani nie przechowuje żadnych danych dotyczących zapytań."
-	},
 	"appendToDaily": {
 		"message": "Dodaj na końcu dziennika"
 	},
 	"appendToExisting": {
 		"message": "Dodaj na końcu istniejącej notatki"
-	},
-	"autoRunInterpreter": {
-		"message": "Uruchom automatycznie"
-	},
-	"autoRunInterpreterDescription": {
-		"message": "Natychmiast wywołuje odpowiednie zapytania, jeśli szablon je zawiera. Spowoduje to zużycie kredytów API u dostawcy modelu. Wyłącz, jeśli chcesz uruchamiać interpreter ręcznie."
 	},
 	"behavior": {
 		"message": "Sposób działania"
@@ -73,9 +49,6 @@
 	},
 	"cancel": {
 		"message": "Anuluj"
-	},
-	"cannotDeleteProvider": {
-		"message": "Nie można usunąć dostawcy \"$1\", ponieważ jest używany przez $2 model(e)."
 	},
 	"changelog": {
 		"message": "Dziennik zmian"
@@ -147,17 +120,8 @@
 	"createNewNote": {
 		"message": "Stwórz nową notatkę"
 	},
-	"custom": {
-		"message": "Niestandardowe"
-	},
 	"dailyNoteFormat": {
 		"message": "Format dziennika (np. YYYY-MM-DD)"
-	},
-	"defaultInterpreterContext": {
-		"message": "Domyślny kontekst zapytania"
-	},
-	"defaultInterpreterContextDescription": {
-		"message": "Zastępuje kontekst używany do zapytań. Można tu używać zmiennych."
 	},
 	"defaultTemplateName": {
 		"message": "Domyślne"
@@ -173,12 +137,6 @@
 	},
 	"deleteHighlightsForPage": {
 		"message": "Usunąć wszystkie wyróżnienia dla tej strony?"
-	},
-	"deleteModelConfirm": {
-		"message": "Czy na pewno chcesz usunąć ten model?"
-	},
-	"deleteProviderConfirm": {
-		"message": "Czy na pewno chcesz usunąć tego dostawcę?"
 	},
 	"disableHighlighter": {
 		"message": "Wyłącz zakreślacz"
@@ -212,12 +170,6 @@
 	"edit": {
 		"message": "Edytuj"
 	},
-	"editModel": {
-		"message": "Edytuj model"
-	},
-	"editProvider": {
-		"message": "Edytuj dostawcę"
-	},
 	"editTemplate": {
 		"message": "Edytuj szablon"
 	},
@@ -226,26 +178,6 @@
 	},
 	"enableHighlighterDescription": {
 		"message": "Wyróżniaj treści na stronach, które możesz zapisać w Obsidian."
-	},
-	"enableInterpreter": {
-		"message": "Włącz Interpreter"
-	},
-	"enableInterpreterDescription": {
-		"message": "Użyj języka naturalnego, aby wyodrębnić dane ze stron. Można na przykład użyć szablonu $strong_start${{\"podsumowanie strony\"}}$strong_end$. Wymaga klucza API lub niestandardowego modelu skonfigurowanego poniżej. $link_start$Dowiedz się więcej$link_end$.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"https://help.obsidian.md/web-clipper/interpreter\" target=\"_blank\">"
-			},
-			"strong_end": {
-				"content": "</strong>"
-			},
-			"strong_start": {
-				"content": "<strong>"
-			}
-		}
 	},
 	"enableReader": {
 		"message": "Włącz czytnik"
@@ -315,12 +247,6 @@
 	"failedToInitializeContent": {
 		"message": "Nie udało się uruchomić zawartości strony."
 	},
-	"failedToProcessInterpreter": {
-		"message": "Przetwarzanie zapytania nie powiodło się. Spróbuj ponownie."
-	},
-	"failedToResetProviders": {
-		"message": "Nie udało się zresetować dostawców i modeli."
-	},
 	"failedToResetTemplate": {
 		"message": "Nie udało się zresetować domyślnego szablonu. Spróbuj ponownie."
 	},
@@ -329,9 +255,6 @@
 	},
 	"failedToSaveFile": {
 		"message": "Nie udało się zapisać pliku."
-	},
-	"failedToSaveProvider": {
-		"message": "Nie udało się zapisać dostawcy. Spróbuj ponownie."
 	},
 	"feedback": {
 		"message": "Opinia"
@@ -350,9 +273,6 @@
 	},
 	"generalSettings": {
 		"message": "Ustawienia ogólne"
-	},
-	"getApiKeyHere": {
-		"message": "Uzyskaj swój klucz API $1 tutaj."
 	},
 	"help": {
 		"message": "Pomoc"
@@ -445,26 +365,6 @@
 	"importTemplate": {
 		"message": "Importuj szablon"
 	},
-	"interpret": {
-		"message": "Wyślij zapytanie"
-	},
-	"interpreter": {
-		"message": "Interpreter"
-	},
-	"interpreterContext": {
-		"message": "Kontekst zapytania"
-	},
-	"interpreterContextDescription": {
-		"message": "Kontekst używany do przetwarzania zapytań. Zastępuje domyślny kontekst zdefiniowany w $link_start$ustawieniach Interpretera$link_end$. Można tu używać zmiennych.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"?section=interpreter\">"
-			}
-		}
-	},
 	"language": {
 		"message": "Język"
 	},
@@ -488,30 +388,6 @@
 	},
 	"loading": {
 		"message": "Ładowanie…"
-	},
-	"modelName": {
-		"message": "Nazwa modelu"
-	},
-	"modelNameDescription": {
-		"message": "Nazwa modelu wyświetlana w interfejsie."
-	},
-	"modelProvider": {
-		"message": "Dostawca"
-	},
-	"modelProviderDescription": {
-		"message": "Wybierz dostawcę tego modelu."
-	},
-	"modelProviderPlaceholder": {
-		"message": "Dostawca"
-	},
-	"modelRequiredFields": {
-		"message": "Nazwa modelu, dostawca i ID modelu są wymagane."
-	},
-	"models": {
-		"message": "Modele"
-	},
-	"modelsListFor": {
-		"message": "Lista modeli dla $1"
 	},
 	"more": {
 		"message": "Więcej"
@@ -620,12 +496,6 @@
 	"pleaseReload": {
 		"message": "Spróbuj odświeżyć stronę."
 	},
-	"popularModels": {
-		"message": "Popularne modele"
-	},
-	"popularModelsDescription": {
-		"message": "Wybierz spośród często używanych modeli lub wprowadź szczegóły niestandardowego modelu."
-	},
 	"popup": {
 		"message": "Wyskakujące okienko"
 	},
@@ -670,48 +540,6 @@
 	},
 	"propertyValue": {
 		"message": "Wartość atrybutu"
-	},
-	"provider": {
-		"message": "Dostawca"
-	},
-	"providerApiKey": {
-		"message": "Klucz API"
-	},
-	"providerApiKeyDescription": {
-		"message": "Twój klucz API dla tego dostawcy."
-	},
-	"providerBaseUrl": {
-		"message": "Adres URL"
-	},
-	"providerBaseUrlDescription": {
-		"message": "Adres URL punktu końcowego API dla tego dostawcy."
-	},
-	"providerModelId": {
-		"message": "ID modelu"
-	},
-	"providerModelIdDescription": {
-		"message": "Identyfikator modelu od twojego dostawcy. Zazwyczaj krótka nazwa bez spacji."
-	},
-	"providerModelIdPlaceholder": {
-		"message": "ID modelu"
-	},
-	"providerName": {
-		"message": "Nazwa dostawcy"
-	},
-	"providerNameDescription": {
-		"message": "Nazwa wyświetlana dla tego dostawcy."
-	},
-	"providerPreset": {
-		"message": "Ustawienie wstępne"
-	},
-	"providerPresetDescription": {
-		"message": "Wybierz dostawcę lub stwórz niestandardowego."
-	},
-	"providerRequiredFields": {
-		"message": "Nazwa dostawcy i adres URL są wymagane."
-	},
-	"providers": {
-		"message": "Dostawcy"
 	},
 	"rateExtensionDescription": {
 		"message": "Czy podoba Ci się Web Clipper? Pomóż nam, oceniając go."
@@ -872,9 +700,6 @@
 	"readerViewFullSize": {
 		"message": "Wyświetl w pełnym rozmiarze"
 	},
-	"recommended": {
-		"message": "Zalecane"
-	},
 	"refresh": {
 		"message": "Odśwież"
 	},
@@ -905,12 +730,6 @@
 	"resetDefaultTemplateDescription": {
 		"message": "Usuń wszelkie zmiany wprowadzone w domyślnym szablonie."
 	},
-	"resetProvidersAndModels": {
-		"message": "Zresetuj dostawców i modele"
-	},
-	"resetProvidersAndModelsDescription": {
-		"message": "Zresetuj dostawców i modele do ustawień domyślnych."
-	},
 	"save": {
 		"message": "Zapisz"
 	},
@@ -931,9 +750,6 @@
 	},
 	"searchVariables": {
 		"message": "Szukaj zmiennych..."
-	},
-	"selectProvider": {
-		"message": "Wybierz dostawcę"
 	},
 	"selectTemplateToExport": {
 		"message": "Wybierz szablon do eksportu."
@@ -1054,9 +870,6 @@
 	},
 	"thinking": {
 		"message": "Analizowanie"
-	},
-	"unknownProvider": {
-		"message": "Nieznany dostawca"
 	},
 	"updateAvailable": {
 		"message": "Dostępna jest aktualizacja."

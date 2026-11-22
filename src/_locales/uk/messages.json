@@ -2,20 +2,8 @@
 	"activity": {
 		"message": "Активність"
 	},
-	"addModel": {
-		"message": "+ Додати модель"
-	},
-	"addModelTitle": {
-		"message": "Додати модель"
-	},
 	"addProperty": {
 		"message": "+ Додати властивість"
-	},
-	"addProvider": {
-		"message": "+ Додати провайдера"
-	},
-	"addProviderTitle": {
-		"message": "Додати провайдера"
 	},
 	"addToObsidian": {
 		"message": "Додати в Obsidian"
@@ -41,23 +29,11 @@
 	"alwaysShowHighlightsDescription": {
 		"message": "Показувати збережені виділення при завантаженні сторінки. Вимкніть, щоб показувати виділення лише коли активний режим виділення."
 	},
-	"apiKeyMissing": {
-		"message": "Відсутній API-ключ"
-	},
-	"apiKeysWarning": {
-		"message": "Використовуючи зовнішнього провайдера, ви погоджуєтесь з їхніми умовами використання та політикою конфіденційності. Запити інтерпретатора надсилаються безпосередньо вибраному вами провайдеру. Obsidian не збирає та не зберігає інформацію про ваші запити."
-	},
 	"appendToDaily": {
 		"message": "Додати до щоденної нотатки, в кінець"
 	},
 	"appendToExisting": {
 		"message": "Додати до існуючої нотатки, в кінець"
-	},
-	"autoRunInterpreter": {
-		"message": "Автозапуск"
-	},
-	"autoRunInterpreterDescription": {
-		"message": "Негайно виконує змінні запиту, якщо вони є в шаблоні. Використовує API-кредити від вашого провайдера моделі. Вимкніть, якщо хочете запускати інтерпретатор лише вручну."
 	},
 	"behavior": {
 		"message": "Поведінка"
@@ -73,9 +49,6 @@
 	},
 	"cancel": {
 		"message": "Скасувати"
-	},
-	"cannotDeleteProvider": {
-		"message": "Неможливо видалити провайдера \"$1\", оскільки він використовується $2 моделями."
 	},
 	"changelog": {
 		"message": "Список змін"
@@ -147,17 +120,8 @@
 	"createNewNote": {
 		"message": "Створити нову нотатку"
 	},
-	"custom": {
-		"message": "Власний"
-	},
 	"dailyNoteFormat": {
 		"message": "Формат щоденної нотатки (напр. YYYY-MM-DD)"
-	},
-	"defaultInterpreterContext": {
-		"message": "Контекст інтерпретатора за замовчуванням"
-	},
-	"defaultInterpreterContextDescription": {
-		"message": "Перевизначає контекст, що використовується для інтерпретації змінних запиту. Тут можна використовувати змінні."
 	},
 	"defaultTemplateName": {
 		"message": "За замовчуванням"
@@ -173,12 +137,6 @@
 	},
 	"deleteHighlightsForPage": {
 		"message": "Видалити всі виділення для цієї сторінки?"
-	},
-	"deleteModelConfirm": {
-		"message": "Ви впевнені, що хочете видалити цю модель?"
-	},
-	"deleteProviderConfirm": {
-		"message": "Ви впевнені, що хочете видалити цього провайдера?"
 	},
 	"disableHighlighter": {
 		"message": "Вимкнути виділення"
@@ -212,12 +170,6 @@
 	"edit": {
 		"message": "Редагувати"
 	},
-	"editModel": {
-		"message": "Редагувати модель"
-	},
-	"editProvider": {
-		"message": "Редагувати провайдера"
-	},
 	"editTemplate": {
 		"message": "Редагувати шаблон"
 	},
@@ -226,26 +178,6 @@
 	},
 	"enableHighlighterDescription": {
 		"message": "Виділяйте вміст на веб-сторінках для збереження в Obsidian"
-	},
-	"enableInterpreter": {
-		"message": "Увімкнути інтерпретатор"
-	},
-	"enableInterpreterDescription": {
-		"message": "Використовуйте природну мову для витягування інформації зі сторінок. Наприклад, можна використовувати синтаксис шаблону $strong_start${{\"підсумуй цю сторінку\"}}$strong_end$. Потрібен API-ключ або налаштування власної моделі нижче. $link_start$Дізнатися більше$link_end$",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"https://help.obsidian.md/web-clipper/interpreter\" target=\"_blank\">"
-			},
-			"strong_end": {
-				"content": "</strong>"
-			},
-			"strong_start": {
-				"content": "<strong>"
-			}
-		}
 	},
 	"enableReader": {
 		"message": "Відкрити режим читання"
@@ -315,12 +247,6 @@
 	"failedToInitializeContent": {
 		"message": "Не вдалося ініціалізувати вміст сторінки."
 	},
-	"failedToProcessInterpreter": {
-		"message": "Не вдалося обробити інтерпретатор. Будь ласка, спробуйте ще раз."
-	},
-	"failedToResetProviders": {
-		"message": "Не вдалося скинути провайдерів та моделі"
-	},
 	"failedToResetTemplate": {
 		"message": "Не вдалося скинути шаблон за замовчуванням. Будь ласка, спробуйте ще раз."
 	},
@@ -329,9 +255,6 @@
 	},
 	"failedToSaveFile": {
 		"message": "Не вдалося зберегти файл"
-	},
-	"failedToSaveProvider": {
-		"message": "Не вдалося зберегти провайдера. Будь ласка, спробуйте ще раз."
 	},
 	"feedback": {
 		"message": "Відгук"
@@ -350,9 +273,6 @@
 	},
 	"generalSettings": {
 		"message": "Загальні налаштування"
-	},
-	"getApiKeyHere": {
-		"message": "Отримати API-ключ $1 тут"
 	},
 	"help": {
 		"message": "Допомога"
@@ -445,26 +365,6 @@
 	"importTemplate": {
 		"message": "Імпортувати шаблон"
 	},
-	"interpret": {
-		"message": "Інтерпретувати"
-	},
-	"interpreter": {
-		"message": "Інтерпретатор"
-	},
-	"interpreterContext": {
-		"message": "Контекст інтерпретатора"
-	},
-	"interpreterContextDescription": {
-		"message": "Контекст, що використовується для інтерпретації змінних запиту. Перевизначає контекст за замовчуванням, встановлений у $link_start$налаштуваннях інтерпретатора$link_end$. Тут можна використовувати змінні.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"?section=interpreter\">"
-			}
-		}
-	},
 	"language": {
 		"message": "Мова"
 	},
@@ -488,30 +388,6 @@
 	},
 	"loading": {
 		"message": "Завантаження…"
-	},
-	"modelName": {
-		"message": "Назва моделі"
-	},
-	"modelNameDescription": {
-		"message": "Назва, що відображається в випадаючому списку моделей"
-	},
-	"modelProvider": {
-		"message": "Провайдер"
-	},
-	"modelProviderDescription": {
-		"message": "Виберіть провайдера для цієї моделі"
-	},
-	"modelProviderPlaceholder": {
-		"message": "Провайдер"
-	},
-	"modelRequiredFields": {
-		"message": "Назва моделі, провайдер та ID моделі є обов'язковими."
-	},
-	"models": {
-		"message": "Моделі"
-	},
-	"modelsListFor": {
-		"message": "Список моделей для $1"
 	},
 	"more": {
 		"message": "Більше"
@@ -612,12 +488,6 @@
 	"pleaseReload": {
 		"message": "Будь ласка, спробуйте перезавантажити сторінку."
 	},
-	"popularModels": {
-		"message": "Популярні моделі"
-	},
-	"popularModelsDescription": {
-		"message": "Виберіть з часто використовуваних моделей або введіть деталі власної моделі."
-	},
 	"popup": {
 		"message": "Спливаюче вікно"
 	},
@@ -662,48 +532,6 @@
 	},
 	"propertyValue": {
 		"message": "Значення властивості"
-	},
-	"provider": {
-		"message": "Провайдер"
-	},
-	"providerApiKey": {
-		"message": "API-ключ"
-	},
-	"providerApiKeyDescription": {
-		"message": "Ваш API-ключ для цього провайдера."
-	},
-	"providerBaseUrl": {
-		"message": "Базовий URL"
-	},
-	"providerBaseUrlDescription": {
-		"message": "URL кінцевої точки API для цього провайдера."
-	},
-	"providerModelId": {
-		"message": "ID моделі"
-	},
-	"providerModelIdDescription": {
-		"message": "Ідентифікатор моделі від вашого провайдера. Зазвичай коротка назва без пробілів."
-	},
-	"providerModelIdPlaceholder": {
-		"message": "ID моделі"
-	},
-	"providerName": {
-		"message": "Назва провайдера"
-	},
-	"providerNameDescription": {
-		"message": "Назва для відображення цього провайдера."
-	},
-	"providerPreset": {
-		"message": "Пресет"
-	},
-	"providerPresetDescription": {
-		"message": "Виберіть провайдера або створіть власного."
-	},
-	"providerRequiredFields": {
-		"message": "Назва провайдера та базовий URL є обов'язковими."
-	},
-	"providers": {
-		"message": "Провайдери"
 	},
 	"rateExtensionDescription": {
 		"message": "Подобається Web Clipper? Допоможіть нам, поставивши оцінку."
@@ -864,9 +692,6 @@
 	"readerViewFullSize": {
 		"message": "Переглянути в повному розмірі"
 	},
-	"recommended": {
-		"message": "рекомендовано"
-	},
 	"refresh": {
 		"message": "Оновити"
 	},
@@ -897,12 +722,6 @@
 	"resetDefaultTemplateDescription": {
 		"message": "Видалити всі зміни, внесені до шаблону за замовчуванням."
 	},
-	"resetProvidersAndModels": {
-		"message": "Скинути моделі до стандартних"
-	},
-	"resetProvidersAndModelsDescription": {
-		"message": "Скинути провайдерів та моделі до налаштувань за замовчуванням."
-	},
 	"save": {
 		"message": "Зберегти"
 	},
@@ -923,9 +742,6 @@
 	},
 	"searchVariables": {
 		"message": "Пошук змінних..."
-	},
-	"selectProvider": {
-		"message": "Вибрати провайдера"
 	},
 	"selectTemplateToExport": {
 		"message": "Вибрати шаблон для експорту"
@@ -1046,9 +862,6 @@
 	},
 	"thinking": {
 		"message": "думає"
-	},
-	"unknownProvider": {
-		"message": "Невідомий провайдер"
 	},
 	"updateAvailable": {
 		"message": "Доступне оновлення"

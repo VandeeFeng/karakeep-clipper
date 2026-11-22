@@ -2,20 +2,8 @@
 	"activity": {
 		"message": "Δραστηριότητα"
 	},
-	"addModel": {
-		"message": "+ Προσθήκη μοντέλου"
-	},
-	"addModelTitle": {
-		"message": "Προσθήκη μοντέλου"
-	},
 	"addProperty": {
 		"message": "+ Προσθήκη ιδιότητας"
-	},
-	"addProvider": {
-		"message": "+ Προσθήκη παρόχου"
-	},
-	"addProviderTitle": {
-		"message": "Προσθήκη παρόχου"
 	},
 	"addToObsidian": {
 		"message": "Προσθήκη στο Obsidian"
@@ -41,23 +29,11 @@
 	"alwaysShowHighlightsDescription": {
 		"message": "Εμφάνιση αποθηκευμένων επισημάνσεων κατά τη φόρτωση της σελίδας. Απενεργοποιήστε για εμφάνιση επισημάνσεων μόνο όταν είναι ενεργή η λειτουργία επισήμανσης."
 	},
-	"apiKeyMissing": {
-		"message": "Λείπει το κλειδί API"
-	},
-	"apiKeysWarning": {
-		"message": "Χρησιμοποιώντας έναν εξωτερικό πάροχο, αποδέχεστε τους όρους χρήσης και την πολιτική απορρήτου τους. Τα αιτήματα διερμηνέα αποστέλλονται απευθείας στον επιλεγμένο πάροχό σας. Το Obsidian δεν συλλέγει ούτε αποθηκεύει πληροφορίες για τα αιτήματά σας."
-	},
 	"appendToDaily": {
 		"message": "Προσθήκη στην ημερήσια σημείωση, στο τέλος"
 	},
 	"appendToExisting": {
 		"message": "Προσθήκη σε υπάρχουσα σημείωση, στο τέλος"
-	},
-	"autoRunInterpreter": {
-		"message": "Αυτόματη εκτέλεση"
-	},
-	"autoRunInterpreterDescription": {
-		"message": "Εκτελεί αμέσως τις μεταβλητές προτροπής εάν υπάρχουν στο πρότυπο. Καταναλώνει μονάδες API από τον πάροχο του μοντέλου σας. Απενεργοποιήστε εάν θέλετε να εκτελείτε τον διερμηνέα μόνο χειροκίνητα."
 	},
 	"behavior": {
 		"message": "Συμπεριφορά"
@@ -73,9 +49,6 @@
 	},
 	"cancel": {
 		"message": "Ακύρωση"
-	},
-	"cannotDeleteProvider": {
-		"message": "Δεν είναι δυνατή η διαγραφή του παρόχου \"$1\" επειδή χρησιμοποιείται από $2 μοντέλα."
 	},
 	"changelog": {
 		"message": "Αρχείο αλλαγών"
@@ -147,17 +120,8 @@
 	"createNewNote": {
 		"message": "Δημιουργία νέας σημείωσης"
 	},
-	"custom": {
-		"message": "Προσαρμοσμένο"
-	},
 	"dailyNoteFormat": {
 		"message": "Μορφή ημερήσιας σημείωσης (π.χ. YYYY-MM-DD)"
-	},
-	"defaultInterpreterContext": {
-		"message": "Προεπιλεγμένο πλαίσιο διερμηνέα"
-	},
-	"defaultInterpreterContextDescription": {
-		"message": "Αντικαθιστά το πλαίσιο που χρησιμοποιείται για την ερμηνεία των μεταβλητών προτροπής. Μπορείτε να χρησιμοποιήσετε μεταβλητές εδώ."
 	},
 	"defaultTemplateName": {
 		"message": "Προεπιλογή"
@@ -173,12 +137,6 @@
 	},
 	"deleteHighlightsForPage": {
 		"message": "Διαγραφή όλων των επισημάνσεων για αυτήν τη σελίδα;"
-	},
-	"deleteModelConfirm": {
-		"message": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το μοντέλο;"
-	},
-	"deleteProviderConfirm": {
-		"message": "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον πάροχο;"
 	},
 	"disableHighlighter": {
 		"message": "Απενεργοποίηση επισημαντή"
@@ -212,12 +170,6 @@
 	"edit": {
 		"message": "Επεξεργασία"
 	},
-	"editModel": {
-		"message": "Επεξεργασία μοντέλου"
-	},
-	"editProvider": {
-		"message": "Επεξεργασία παρόχου"
-	},
 	"editTemplate": {
 		"message": "Επεξεργασία προτύπου"
 	},
@@ -226,26 +178,6 @@
 	},
 	"enableHighlighterDescription": {
 		"message": "Επισημάνετε περιεχόμενο σε ιστοσελίδες που μπορείτε να αποθηκεύσετε στο Obsidian"
-	},
-	"enableInterpreter": {
-		"message": "Ενεργοποίηση διερμηνέα"
-	},
-	"enableInterpreterDescription": {
-		"message": "Χρησιμοποιήστε φυσική γλώσσα για την εξαγωγή πληροφοριών από σελίδες. Για παράδειγμα, μπορείτε να χρησιμοποιήσετε τη σύνταξη προτύπου $strong_start${{\"περίληψη αυτής της σελίδας\"}}$strong_end$. Απαιτεί κλειδί API ή διαμόρφωση προσαρμοσμένου μοντέλου παρακάτω. $link_start$Μάθετε περισσότερα$link_end$",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"https://help.obsidian.md/web-clipper/interpreter\" target=\"_blank\">"
-			},
-			"strong_end": {
-				"content": "</strong>"
-			},
-			"strong_start": {
-				"content": "<strong>"
-			}
-		}
 	},
 	"enableReader": {
 		"message": "Άνοιγμα προβολής ανάγνωσης"
@@ -315,12 +247,6 @@
 	"failedToInitializeContent": {
 		"message": "Αποτυχία αρχικοποίησης περιεχομένου σελίδας."
 	},
-	"failedToProcessInterpreter": {
-		"message": "Αποτυχία επεξεργασίας διερμηνέα. Παρακαλώ δοκιμάστε ξανά."
-	},
-	"failedToResetProviders": {
-		"message": "Αποτυχία επαναφοράς παρόχων και μοντέλων"
-	},
 	"failedToResetTemplate": {
 		"message": "Αποτυχία επαναφοράς προεπιλεγμένου προτύπου. Παρακαλώ δοκιμάστε ξανά."
 	},
@@ -329,9 +255,6 @@
 	},
 	"failedToSaveFile": {
 		"message": "Αποτυχία αποθήκευσης αρχείου"
-	},
-	"failedToSaveProvider": {
-		"message": "Αποτυχία αποθήκευσης παρόχου. Παρακαλώ δοκιμάστε ξανά."
 	},
 	"feedback": {
 		"message": "Ανατροφοδότηση"
@@ -350,9 +273,6 @@
 	},
 	"generalSettings": {
 		"message": "Γενικές ρυθμίσεις"
-	},
-	"getApiKeyHere": {
-		"message": "Αποκτήστε το κλειδί API $1 σας εδώ"
 	},
 	"help": {
 		"message": "Βοήθεια"
@@ -445,26 +365,6 @@
 	"importTemplate": {
 		"message": "Εισαγωγή προτύπου"
 	},
-	"interpret": {
-		"message": "Ερμηνεία"
-	},
-	"interpreter": {
-		"message": "Διερμηνέας"
-	},
-	"interpreterContext": {
-		"message": "Πλαίσιο διερμηνέα"
-	},
-	"interpreterContextDescription": {
-		"message": "Πλαίσιο που χρησιμοποιείται για την ερμηνεία μεταβλητών προτροπής. Αντικαθιστά το προεπιλεγμένο πλαίσιο που ορίζεται στις $link_start$ρυθμίσεις διερμηνέα$link_end$. Μπορείτε να χρησιμοποιήσετε μεταβλητές εδώ.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"?section=interpreter\">"
-			}
-		}
-	},
 	"language": {
 		"message": "Γλώσσα"
 	},
@@ -488,30 +388,6 @@
 	},
 	"loading": {
 		"message": "Φόρτωση…"
-	},
-	"modelName": {
-		"message": "Όνομα μοντέλου"
-	},
-	"modelNameDescription": {
-		"message": "Το όνομα που εμφανίζεται στο αναπτυσσόμενο μενού μοντέλων"
-	},
-	"modelProvider": {
-		"message": "Πάροχος"
-	},
-	"modelProviderDescription": {
-		"message": "Επιλέξτε τον πάροχο για αυτό το μοντέλο."
-	},
-	"modelProviderPlaceholder": {
-		"message": "Πάροχος"
-	},
-	"modelRequiredFields": {
-		"message": "Το όνομα μοντέλου, ο πάροχος και το αναγνωριστικό μοντέλου είναι υποχρεωτικά."
-	},
-	"models": {
-		"message": "Μοντέλα"
-	},
-	"modelsListFor": {
-		"message": "Λίστα μοντέλων για $1"
 	},
 	"more": {
 		"message": "Περισσότερα"
@@ -612,12 +488,6 @@
 	"pleaseReload": {
 		"message": "Παρακαλώ δοκιμάστε να επαναφορτώσετε τη σελίδα."
 	},
-	"popularModels": {
-		"message": "Δημοφιλή μοντέλα"
-	},
-	"popularModelsDescription": {
-		"message": "Επιλέξτε από συχνά χρησιμοποιούμενα μοντέλα ή εισάγετε λεπτομέρειες προσαρμοσμένου μοντέλου."
-	},
 	"popup": {
 		"message": "Αναδυόμενο παράθυρο"
 	},
@@ -662,48 +532,6 @@
 	},
 	"propertyValue": {
 		"message": "Τιμή ιδιότητας"
-	},
-	"provider": {
-		"message": "Πάροχος"
-	},
-	"providerApiKey": {
-		"message": "Κλειδί API"
-	},
-	"providerApiKeyDescription": {
-		"message": "Το κλειδί API σας για αυτόν τον πάροχο."
-	},
-	"providerBaseUrl": {
-		"message": "Βασική διεύθυνση URL"
-	},
-	"providerBaseUrlDescription": {
-		"message": "Η διεύθυνση URL του τελικού σημείου API για αυτόν τον πάροχο."
-	},
-	"providerModelId": {
-		"message": "Αναγνωριστικό μοντέλου"
-	},
-	"providerModelIdDescription": {
-		"message": "Το αναγνωριστικό του μοντέλου από τον πάροχό σας. Συνήθως ένα σύντομο όνομα χωρίς κενά."
-	},
-	"providerModelIdPlaceholder": {
-		"message": "Αναγνωριστικό μοντέλου"
-	},
-	"providerName": {
-		"message": "Όνομα παρόχου"
-	},
-	"providerNameDescription": {
-		"message": "Το εμφανιζόμενο όνομα αυτού του παρόχου."
-	},
-	"providerPreset": {
-		"message": "Προεπιλογή"
-	},
-	"providerPresetDescription": {
-		"message": "Επιλέξτε έναν πάροχο ή δημιουργήστε έναν προσαρμοσμένο."
-	},
-	"providerRequiredFields": {
-		"message": "Το όνομα παρόχου και η βασική διεύθυνση URL είναι υποχρεωτικά."
-	},
-	"providers": {
-		"message": "Πάροχοι"
 	},
 	"rateExtensionDescription": {
 		"message": "Σας αρέσει το Web Clipper; Βοηθήστε μας δίνοντάς του μια αξιολόγηση."
@@ -864,9 +692,6 @@
 	"readerViewFullSize": {
 		"message": "Προβολή σε πλήρες μέγεθος"
 	},
-	"recommended": {
-		"message": "προτεινόμενο"
-	},
 	"refresh": {
 		"message": "Ανανέωση"
 	},
@@ -897,12 +722,6 @@
 	"resetDefaultTemplateDescription": {
 		"message": "Αφαιρέστε όλες τις αλλαγές που έχετε κάνει στο προεπιλεγμένο πρότυπο."
 	},
-	"resetProvidersAndModels": {
-		"message": "Επαναφορά προεπιλεγμένων μοντέλων"
-	},
-	"resetProvidersAndModelsDescription": {
-		"message": "Επαναφέρετε τους παρόχους και τα μοντέλα στις προεπιλεγμένες ρυθμίσεις."
-	},
 	"save": {
 		"message": "Αποθήκευση"
 	},
@@ -923,9 +742,6 @@
 	},
 	"searchVariables": {
 		"message": "Αναζήτηση μεταβλητών..."
-	},
-	"selectProvider": {
-		"message": "Επιλέξτε πάροχο"
 	},
 	"selectTemplateToExport": {
 		"message": "Επιλέξτε πρότυπο για εξαγωγή"
@@ -1046,9 +862,6 @@
 	},
 	"thinking": {
 		"message": "σκέφτεται"
-	},
-	"unknownProvider": {
-		"message": "Άγνωστος πάροχος"
 	},
 	"updateAvailable": {
 		"message": "Διαθέσιμη ενημέρωση"

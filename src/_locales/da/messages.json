@@ -2,20 +2,8 @@
 	"activity": {
 		"message": "Aktivitet"
 	},
-	"addModel": {
-		"message": "+ Tilføj model"
-	},
-	"addModelTitle": {
-		"message": "Tilføj model"
-	},
 	"addProperty": {
 		"message": "+ Tilføj egenskab"
-	},
-	"addProvider": {
-		"message": "+ Tilføj udbyder"
-	},
-	"addProviderTitle": {
-		"message": "Tilføj udbyder"
 	},
 	"addToObsidian": {
 		"message": "Tilføj til Obsidian"
@@ -41,23 +29,11 @@
 	"alwaysShowHighlightsDescription": {
 		"message": "Vis gemte fremhævninger når siden indlæses. Deaktiver for kun at vise fremhævninger når fremhævningstilstand er aktiv."
 	},
-	"apiKeyMissing": {
-		"message": "API-nøgle mangler"
-	},
-	"apiKeysWarning": {
-		"message": "Ved at bruge en ekstern udbyder accepterer du deres vilkår og betingelser samt privatlivspolitik. Fortolkerforespørgsler sendes direkte til din valgte udbyder. Obsidian indsamler eller gemmer ikke information om dine forespørgsler."
-	},
 	"appendToDaily": {
 		"message": "Tilføj til daglig note, i slutningen"
 	},
 	"appendToExisting": {
 		"message": "Tilføj til eksisterende note, i slutningen"
-	},
-	"autoRunInterpreter": {
-		"message": "Kør automatisk"
-	},
-	"autoRunInterpreterDescription": {
-		"message": "Udfører promptvariabler med det samme, hvis de findes i skabelonen. Bruger API-kreditter fra din modeludbyder. Deaktiver hvis du kun vil køre fortolkeren manuelt."
 	},
 	"behavior": {
 		"message": "Opførsel"
@@ -73,9 +49,6 @@
 	},
 	"cancel": {
 		"message": "Annuller"
-	},
-	"cannotDeleteProvider": {
-		"message": "Kan ikke slette udbyderen \"$1\", da den bruges af $2 modeller."
 	},
 	"changelog": {
 		"message": "Ændringslog"
@@ -147,17 +120,8 @@
 	"createNewNote": {
 		"message": "Opret ny note"
 	},
-	"custom": {
-		"message": "Tilpasset"
-	},
 	"dailyNoteFormat": {
 		"message": "Format for daglig note (f.eks. YYYY-MM-DD)"
-	},
-	"defaultInterpreterContext": {
-		"message": "Standard fortolkerkontekst"
-	},
-	"defaultInterpreterContextDescription": {
-		"message": "Tilsidesætter konteksten der bruges til at fortolke promptvariabler. Du kan bruge variabler her."
 	},
 	"defaultTemplateName": {
 		"message": "Standard"
@@ -173,12 +137,6 @@
 	},
 	"deleteHighlightsForPage": {
 		"message": "Slet alle markeringer for denne side?"
-	},
-	"deleteModelConfirm": {
-		"message": "Er du sikker på, at du vil slette denne model?"
-	},
-	"deleteProviderConfirm": {
-		"message": "Er du sikker på, at du vil slette denne udbyder?"
 	},
 	"disableHighlighter": {
 		"message": "Deaktiver fremhævning"
@@ -212,12 +170,6 @@
 	"edit": {
 		"message": "Rediger"
 	},
-	"editModel": {
-		"message": "Redigér model"
-	},
-	"editProvider": {
-		"message": "Redigér udbyder"
-	},
 	"editTemplate": {
 		"message": "Redigér skabelon"
 	},
@@ -226,26 +178,6 @@
 	},
 	"enableHighlighterDescription": {
 		"message": "Fremhæv indhold på websider for at gemme i Obsidian"
-	},
-	"enableInterpreter": {
-		"message": "Aktivér fortolker"
-	},
-	"enableInterpreterDescription": {
-		"message": "Brug naturligt sprog til at udtrække information fra sider. For eksempel kan du bruge skabelonsyntaksen $strong_start${{\"opsummér denne side\"}}$strong_end$. Kræver en API-nøgle eller opsætning af en tilpasset model nedenfor. $link_start$Lær mere$link_end$",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"https://help.obsidian.md/web-clipper/interpreter\" target=\"_blank\">"
-			},
-			"strong_end": {
-				"content": "</strong>"
-			},
-			"strong_start": {
-				"content": "<strong>"
-			}
-		}
 	},
 	"enableReader": {
 		"message": "Åbn læsevisning"
@@ -315,12 +247,6 @@
 	"failedToInitializeContent": {
 		"message": "Kunne ikke initialisere sideindhold."
 	},
-	"failedToProcessInterpreter": {
-		"message": "Kunne ikke behandle fortolker. Prøv venligst igen."
-	},
-	"failedToResetProviders": {
-		"message": "Kunne ikke nulstille udbydere og modeller"
-	},
 	"failedToResetTemplate": {
 		"message": "Kunne ikke nulstille standardskabelon. Prøv venligst igen."
 	},
@@ -329,9 +255,6 @@
 	},
 	"failedToSaveFile": {
 		"message": "Kunne ikke gemme fil"
-	},
-	"failedToSaveProvider": {
-		"message": "Kunne ikke gemme udbyder. Prøv venligst igen."
 	},
 	"feedback": {
 		"message": "Feedback"
@@ -350,9 +273,6 @@
 	},
 	"generalSettings": {
 		"message": "Generelle indstillinger"
-	},
-	"getApiKeyHere": {
-		"message": "Få $1 API-nøgle her"
 	},
 	"help": {
 		"message": "Hjælp"
@@ -445,26 +365,6 @@
 	"importTemplate": {
 		"message": "Importér skabelon"
 	},
-	"interpret": {
-		"message": "Fortolk"
-	},
-	"interpreter": {
-		"message": "Fortolker"
-	},
-	"interpreterContext": {
-		"message": "Fortolkerkontekst"
-	},
-	"interpreterContextDescription": {
-		"message": "Konteksten der bruges til at fortolke promptvariabler. Tilsidesætter standardkonteksten sat i $link_start$fortolkerindstillingerne$link_end$. Du kan bruge variabler her.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"?section=interpreter\">"
-			}
-		}
-	},
 	"language": {
 		"message": "Sprog"
 	},
@@ -488,30 +388,6 @@
 	},
 	"loading": {
 		"message": "Indlæser…"
-	},
-	"modelName": {
-		"message": "Modelnavn"
-	},
-	"modelNameDescription": {
-		"message": "Navnet der vises i modelrullelisten"
-	},
-	"modelProvider": {
-		"message": "Udbyder"
-	},
-	"modelProviderDescription": {
-		"message": "Vælg udbyderen for denne model"
-	},
-	"modelProviderPlaceholder": {
-		"message": "Udbyder"
-	},
-	"modelRequiredFields": {
-		"message": "Modelnavn, udbyder og model-ID er påkrævet."
-	},
-	"models": {
-		"message": "Modeller"
-	},
-	"modelsListFor": {
-		"message": "Modelliste for $1"
 	},
 	"more": {
 		"message": "Mere"
@@ -612,12 +488,6 @@
 	"pleaseReload": {
 		"message": "Genindlæs venligst siden."
 	},
-	"popularModels": {
-		"message": "Populære modeller"
-	},
-	"popularModelsDescription": {
-		"message": "Vælg fra ofte brugte modeller eller indtast detaljer for tilpasset model."
-	},
 	"popup": {
 		"message": "Popup"
 	},
@@ -662,48 +532,6 @@
 	},
 	"propertyValue": {
 		"message": "Egenskabsværdi"
-	},
-	"provider": {
-		"message": "Udbyder"
-	},
-	"providerApiKey": {
-		"message": "API-nøgle"
-	},
-	"providerApiKeyDescription": {
-		"message": "Din API-nøgle for denne udbyder."
-	},
-	"providerBaseUrl": {
-		"message": "Base-URL"
-	},
-	"providerBaseUrlDescription": {
-		"message": "API-endepunktets URL for denne udbyder."
-	},
-	"providerModelId": {
-		"message": "Model-ID"
-	},
-	"providerModelIdDescription": {
-		"message": "Identifikatoren for modellen fra din udbyder. Typisk et kort navn uden mellemrum."
-	},
-	"providerModelIdPlaceholder": {
-		"message": "Model-ID"
-	},
-	"providerName": {
-		"message": "Udbyderens navn"
-	},
-	"providerNameDescription": {
-		"message": "Visningsnavn for denne udbyder."
-	},
-	"providerPreset": {
-		"message": "Forudindstilling"
-	},
-	"providerPresetDescription": {
-		"message": "Vælg en udbyder eller opret en tilpasset."
-	},
-	"providerRequiredFields": {
-		"message": "Udbyderens navn og base-URL er påkrævet."
-	},
-	"providers": {
-		"message": "Udbydere"
 	},
 	"rateExtensionDescription": {
 		"message": "Kan du lide Web Clipper? Hjælp os ved at give en bedømmelse."
@@ -864,9 +692,6 @@
 	"readerViewFullSize": {
 		"message": "Vis i fuld størrelse"
 	},
-	"recommended": {
-		"message": "anbefalet"
-	},
 	"refresh": {
 		"message": "Opdater"
 	},
@@ -897,12 +722,6 @@
 	"resetDefaultTemplateDescription": {
 		"message": "Fjern alle ændringer foretaget i standardskabelonen."
 	},
-	"resetProvidersAndModels": {
-		"message": "Nulstil modeller til standard"
-	},
-	"resetProvidersAndModelsDescription": {
-		"message": "Nulstil udbydere og modeller til standardindstillingerne."
-	},
 	"save": {
 		"message": "Gem"
 	},
@@ -923,9 +742,6 @@
 	},
 	"searchVariables": {
 		"message": "Søg i variabler..."
-	},
-	"selectProvider": {
-		"message": "Vælg udbyder"
 	},
 	"selectTemplateToExport": {
 		"message": "Vælg skabelon til eksport"
@@ -1046,9 +862,6 @@
 	},
 	"thinking": {
 		"message": "tænker"
-	},
-	"unknownProvider": {
-		"message": "Ukendt udbyder"
 	},
 	"updateAvailable": {
 		"message": "Opdatering tilgængelig"

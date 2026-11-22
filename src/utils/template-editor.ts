@@ -18,7 +18,7 @@ const silentChange = Annotation.define<boolean>();
 const variables: Record<string, unknown> = Object.fromEntries([
 	'author', 'content', 'contentHtml', 'selection', 'selectionHtml', 'date', 'time',
 	'description', 'domain', 'favicon', 'fullHtml', 'highlights', 'image', 'noteName',
-	'published', 'site', 'title', 'url', 'language', 'words', 'model', 'modelId', 'modelProvider',
+	'published', 'site', 'title', 'url', 'language', 'words',
 ].map(name => [name, '']));
 
 const language = StreamLanguage.define({
@@ -99,7 +99,7 @@ export function createTemplateEditor(field: TemplateField): EditorView {
 			override: [context => {
 				const result = templateCompletions(context.state.doc.toString(), context.pos, variables, templateFilterSuggestions);
 				if (result?.options.some(option => option.label === 'title' && option.type === 'variable')) {
-					return { ...result, options: [...result.options, ...['selector:', 'selectorHtml:', 'schema:', 'meta:', 'prompt:'].map(label => ({ label, type: 'variable' }))] };
+					return { ...result, options: [...result.options, ...['selector:', 'selectorHtml:', 'schema:', 'meta:'].map(label => ({ label, type: 'variable' }))] };
 				}
 				return result;
 			}],

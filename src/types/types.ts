@@ -8,7 +8,6 @@ export interface Template {
 	properties: Property[];
 	triggers?: string[];
 	vault?: string;
-	context?: string;
 }
 
 export interface Property {
@@ -22,25 +21,10 @@ export interface ExtractedContent {
 	[key: string]: string;
 }
 
-export interface PromptVariable {
-	key: string;
-	prompt: string;
-	filters?: string;
-}
-
 export interface PropertyType {
 	name: string;
 	type: string;
 	defaultValue?: string;
-}
-
-export interface Provider {
-	id: string;
-	name: string;
-	baseUrl: string;
-	apiKey: string;
-	apiKeyRequired?: boolean;
-	presetId?: string;
 }
 
 export interface Rating {
@@ -78,12 +62,6 @@ export interface Settings {
 	highlighterEnabled: boolean;
 	alwaysShowHighlights: boolean;
 	highlightBehavior: string;
-	interpreterModel?: string;
-	models: ModelConfig[];
-	providers: Provider[];
-	interpreterEnabled: boolean;
-	interpreterAutoRun: boolean;
-	defaultPromptContext: string;
 	propertyTypes: PropertyType[];
 	readerSettings: ReaderSettings;
 	stats: {
@@ -102,14 +80,6 @@ export interface Settings {
 	hoarderApiKey: string;
 }
 
-export interface ModelConfig {
-	id: string;
-	providerId: string;
-	providerModelId: string;
-	name: string;
-	enabled: boolean;
-}
-
 export interface HistoryEntry {
 	datetime: string;
 	url: string;
@@ -117,26 +87,4 @@ export interface HistoryEntry {
 	title?: string;
 	vault?: string;
 	path?: string;
-}
-
-export interface ConversationMessage {
-	author: string;
-	content: string;
-	timestamp?: string;
-	metadata?: Record<string, any>;
-}
-
-export interface ConversationMetadata {
-	title?: string;
-	description?: string;
-	site: string;
-	url: string;
-	messageCount: number;
-	startTime?: string;
-	endTime?: string;
-}
-
-export interface Footnote {
-	url: string;
-	text: string;
 }

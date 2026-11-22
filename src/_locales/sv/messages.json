@@ -2,20 +2,8 @@
 	"activity": {
 		"message": "Aktivitet"
 	},
-	"addModel": {
-		"message": "+ Lägg till modell"
-	},
-	"addModelTitle": {
-		"message": "Lägg till modell"
-	},
 	"addProperty": {
 		"message": "+ Lägg till egenskap"
-	},
-	"addProvider": {
-		"message": "+ Lägg till leverantör"
-	},
-	"addProviderTitle": {
-		"message": "Lägg till leverantör"
 	},
 	"addToObsidian": {
 		"message": "Lägg till i Obsidian"
@@ -41,23 +29,11 @@
 	"alwaysShowHighlightsDescription": {
 		"message": "Visa dina sparade markeringar när du laddar en sida. Stäng av för att endast visa markeringar när markeringsläget är aktiverat."
 	},
-	"apiKeyMissing": {
-		"message": "Ingen API-nyckel"
-	},
-	"apiKeysWarning": {
-		"message": "Genom att använda en extern leverantör godkänner du deras villkor och sekretesspolicy. Tolkningsförfrågningar skickas direkt till leverantören du väljer. Obsidian samlar inte in eller lagrar någon data om dina förfrågningar."
-	},
 	"appendToDaily": {
 		"message": "Lägg till i daglig anteckning, i slutet"
 	},
 	"appendToExisting": {
 		"message": "Lägg till i befintlig anteckning, i slutet"
-	},
-	"autoRunInterpreter": {
-		"message": "Kör automatiskt"
-	},
-	"autoRunInterpreterDescription": {
-		"message": "Kör promptvariabler omedelbart om mallen innehåller några. Detta kommer att förbruka API-krediter hos din modellleverantör. Stäng av om du bara vill köra tolken manuellt."
 	},
 	"behavior": {
 		"message": "Beteende"
@@ -73,9 +49,6 @@
 	},
 	"cancel": {
 		"message": "Avbryt"
-	},
-	"cannotDeleteProvider": {
-		"message": "Kan inte ta bort leverantören \"$1\" eftersom den används av $2 modell(er)."
 	},
 	"changelog": {
 		"message": "Ändringslogg"
@@ -147,17 +120,8 @@
 	"createNewNote": {
 		"message": "Skapa ny anteckning"
 	},
-	"custom": {
-		"message": "Anpassad"
-	},
 	"dailyNoteFormat": {
 		"message": "Format för daglig anteckning (t.ex. YYYY-MM-DD)"
-	},
-	"defaultInterpreterContext": {
-		"message": "Standardkontext för tolk"
-	},
-	"defaultInterpreterContextDescription": {
-		"message": "Åsidosätt kontexten som används för att tolka promptvariabler. Variabler kan användas här."
 	},
 	"defaultTemplateName": {
 		"message": "Standard"
@@ -173,12 +137,6 @@
 	},
 	"deleteHighlightsForPage": {
 		"message": "Ta bort alla markeringar för den här sidan?"
-	},
-	"deleteModelConfirm": {
-		"message": "Är du säker på att du vill ta bort denna modell?"
-	},
-	"deleteProviderConfirm": {
-		"message": "Är du säker på att du vill ta bort denna leverantör?"
 	},
 	"disableHighlighter": {
 		"message": "Inaktivera markering"
@@ -212,12 +170,6 @@
 	"edit": {
 		"message": "Redigera"
 	},
-	"editModel": {
-		"message": "Redigera modell"
-	},
-	"editProvider": {
-		"message": "Redigera leverantör"
-	},
 	"editTemplate": {
 		"message": "Redigera mall"
 	},
@@ -226,26 +178,6 @@
 	},
 	"enableHighlighterDescription": {
 		"message": "Markera innehåll på webbsidor som du kan spara till Obsidian."
-	},
-	"enableInterpreter": {
-		"message": "Aktivera tolk"
-	},
-	"enableInterpreterDescription": {
-		"message": "Använd naturligt språk för att extrahera data från sidor. Till exempel kan du använda mallsyntaxen $strong_start${{\"en sammanfattning av sidan\"}}$strong_end$. Kräver en API-nyckel eller anpassad modell konfigurerad nedan. $link_start$Läs mer$link_end$.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"https://help.obsidian.md/web-clipper/interpreter\" target=\"_blank\">"
-			},
-			"strong_end": {
-				"content": "</strong>"
-			},
-			"strong_start": {
-				"content": "<strong>"
-			}
-		}
 	},
 	"enableReader": {
 		"message": "Öppna läsvy"
@@ -315,12 +247,6 @@
 	"failedToInitializeContent": {
 		"message": "Det gick inte att initiera sidinnehållet."
 	},
-	"failedToProcessInterpreter": {
-		"message": "Tolkbearbetningen misslyckades. Försök igen."
-	},
-	"failedToResetProviders": {
-		"message": "Det gick inte att återställa leverantörer och modeller"
-	},
 	"failedToResetTemplate": {
 		"message": "Det gick inte att återställa standardmallen. Försök igen."
 	},
@@ -329,9 +255,6 @@
 	},
 	"failedToSaveFile": {
 		"message": "Det gick inte att spara filen"
-	},
-	"failedToSaveProvider": {
-		"message": "Det gick inte att spara leverantören. Försök igen."
 	},
 	"feedback": {
 		"message": "Återkoppling"
@@ -350,9 +273,6 @@
 	},
 	"generalSettings": {
 		"message": "Allmänna inställningar"
-	},
-	"getApiKeyHere": {
-		"message": "Skaffa din $1 API-nyckel här."
 	},
 	"help": {
 		"message": "Hjälp"
@@ -445,26 +365,6 @@
 	"importTemplate": {
 		"message": "Importera mall"
 	},
-	"interpret": {
-		"message": "tolka"
-	},
-	"interpreter": {
-		"message": "Tolk"
-	},
-	"interpreterContext": {
-		"message": "Tolkkontext"
-	},
-	"interpreterContextDescription": {
-		"message": "Kontexten som används för att tolka promptvariabler. Åsidosätter standardkontexten som definierats i $link_start$Tolkinställningar$link_end$. Variabler kan användas här.",
-		"placeholders": {
-			"link_end": {
-				"content": "</a>"
-			},
-			"link_start": {
-				"content": "<a href=\"?section=interpreter\">"
-			}
-		}
-	},
 	"language": {
 		"message": "Språk"
 	},
@@ -488,30 +388,6 @@
 	},
 	"loading": {
 		"message": "Läser in…"
-	},
-	"modelName": {
-		"message": "Visningsnamn"
-	},
-	"modelNameDescription": {
-		"message": "Namnet på modellen du vill visa i gränssnittet."
-	},
-	"modelProvider": {
-		"message": "Leverantör"
-	},
-	"modelProviderDescription": {
-		"message": "Välj leverantören för denna modell."
-	},
-	"modelProviderPlaceholder": {
-		"message": "Leverantör"
-	},
-	"modelRequiredFields": {
-		"message": "Modellnamn, Leverantör och Modell-ID krävs."
-	},
-	"models": {
-		"message": "Modeller"
-	},
-	"modelsListFor": {
-		"message": "Modellista för $1"
 	},
 	"more": {
 		"message": "Mer"
@@ -620,12 +496,6 @@
 	"pleaseReload": {
 		"message": "Försök att ladda om sidan."
 	},
-	"popularModels": {
-		"message": "Populära modeller"
-	},
-	"popularModelsDescription": {
-		"message": "Välj bland vanligt använda modeller eller ange anpassade modelldetaljer."
-	},
 	"popup": {
 		"message": "Popup"
 	},
@@ -670,48 +540,6 @@
 	},
 	"propertyValue": {
 		"message": "Egenskapsvärde"
-	},
-	"provider": {
-		"message": "Leverantör"
-	},
-	"providerApiKey": {
-		"message": "API-nyckel"
-	},
-	"providerApiKeyDescription": {
-		"message": "Din API-nyckel för denna leverantör."
-	},
-	"providerBaseUrl": {
-		"message": "Bas-URL"
-	},
-	"providerBaseUrlDescription": {
-		"message": "API-slutpunktens URL för denna leverantör."
-	},
-	"providerModelId": {
-		"message": "Modell-ID"
-	},
-	"providerModelIdDescription": {
-		"message": "Identifieraren för modellen från din leverantör. Vanligtvis ett kort namn utan mellanslag."
-	},
-	"providerModelIdPlaceholder": {
-		"message": "Modell-ID"
-	},
-	"providerName": {
-		"message": "Leverantörsnamn"
-	},
-	"providerNameDescription": {
-		"message": "Visningsnamn för denna leverantör."
-	},
-	"providerPreset": {
-		"message": "Förinställning"
-	},
-	"providerPresetDescription": {
-		"message": "Välj en leverantör eller skapa en anpassad."
-	},
-	"providerRequiredFields": {
-		"message": "Leverantörsnamn och Bas-URL krävs."
-	},
-	"providers": {
-		"message": "Leverantörer"
 	},
 	"rateExtensionDescription": {
 		"message": "Gillar du Web Clipper? Hjälp oss genom att ge det ett betyg."
@@ -872,9 +700,6 @@
 	"readerViewFullSize": {
 		"message": "Visa i full storlek"
 	},
-	"recommended": {
-		"message": "rekommenderad"
-	},
 	"refresh": {
 		"message": "Uppdatera"
 	},
@@ -905,12 +730,6 @@
 	"resetDefaultTemplateDescription": {
 		"message": "Ta bort alla ändringar du gjort i standardmallen."
 	},
-	"resetProvidersAndModels": {
-		"message": "Återställ standardmodeller"
-	},
-	"resetProvidersAndModelsDescription": {
-		"message": "Återställ leverantörer och modeller till standardinställningarna."
-	},
 	"save": {
 		"message": "Spara"
 	},
@@ -931,9 +750,6 @@
 	},
 	"searchVariables": {
 		"message": "Sök variabler..."
-	},
-	"selectProvider": {
-		"message": "Välj en leverantör"
 	},
 	"selectTemplateToExport": {
 		"message": "Välj en mall att exportera."
@@ -1054,9 +870,6 @@
 	},
 	"thinking": {
 		"message": "tänker"
-	},
-	"unknownProvider": {
-		"message": "Okänd leverantör"
 	},
 	"updateAvailable": {
 		"message": "En uppdatering finns tillgänglig."
